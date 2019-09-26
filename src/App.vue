@@ -5,14 +5,6 @@
   </div>
 </template>
 
-
-
-
-
-
-
-
-
 <script>
 import Layout from "@/views/LayoutInner.vue";
 export default {
