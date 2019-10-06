@@ -65,8 +65,8 @@ export default {
 
 <style>
 #Overview{
-    background-image: url("../assets/DataMgtBackgroupPic.png");
-    height: auto;
+    /* background-image: url("../assets/DataMgtBackgroupPic.png");
+    height: auto; */
 }
 
 #header {
