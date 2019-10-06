@@ -1,12 +1,13 @@
 <template>
   <div>
-    <el-container id="header">
-      <el-header>
-        <img id="RocheMark" src="../assets/RoucheBrandMark.png" />
-        <span class="TitleWords">渠道数据管理平台</span>
-      </el-header>
-    </el-container>
-
+    <div>
+      <el-container id="header">
+        <el-header>
+          <img id="RocheMark" src="../assets/RoucheBrandMark.png" />
+          <span class="TitleWords">渠道数据管理平台</span>
+        </el-header>
+      </el-container>
+    </div>
     <div>
       <el-row class="tac">
         <el-col :span="4">
@@ -38,12 +39,10 @@
         </el-col>
 
         <el-col id="Overview" :span="20">
-            <div >
-                <img src="../assets/DataMgtBackgroupPic.png" />
-                <AppealOverview /></div>
-
-          
-          
+          <div>
+            <!-- <img src="../assets/DataMgtBackgroupPic.png" /> -->
+            <AppealOverview />
+          </div>
         </el-col>
       </el-row>
     </div>
@@ -64,9 +63,9 @@ export default {
 </script>
 
 <style>
-#Overview{
-    /* background-image: url("../assets/DataMgtBackgroupPic.png");
-    height: auto; */
+#Overview {
+  background-image: url("../assets/DataMgtBackgroupPic.png");
+  /* height: auto;  */
 }
 
 #header {

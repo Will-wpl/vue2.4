@@ -5,7 +5,7 @@
         <p>Justin Test</p>
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 export default {
