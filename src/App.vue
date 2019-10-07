@@ -57,5 +57,6 @@ export default {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
+  background-size: 100%;
 }
 </style>
