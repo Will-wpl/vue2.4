@@ -1,7 +1,7 @@
 <template>
-  <div class="Overview">
+  <div class="" background="../assets/DataMgtBackgroupPic.png">
     <div >
-        <!-- <img src="../assets/DataMgtBackgroupPic.png" /> -->
+        <!-- <img src="@/assets/DataMgtBackgroupPic.png" /> -->
         <p>Justin Test</p>
     </div>
   </div>
@@ -15,7 +15,7 @@ export default {
 
 <style scoped>
 .Overview {
-  /* background-image: url("../assets/DataMgtBackgroupPic.png"); */
-  /* background-color: #2ae22a; */
+  /* background-image: url("https://www.w3schools.com");
+  background-color: #2ae22a; */
 }
 </style>

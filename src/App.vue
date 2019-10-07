@@ -1,15 +1,32 @@
 <template>
   <div id="app">
-    <Layout />
-    <router-view />
+    <div>
+      <el-container id="header">
+        <Header />
+      </el-container>
+      <el-container>
+        <Navigator />
+
+        <el-container>
+          <el-main>
+            <router-view />
+          </el-main>
+        </el-container>
+      </el-container>
+    </div>
+    <!-- <Layout /> -->
   </div>
 </template>
 
 <script>
-import Layout from "@/views/LayoutInner.vue";
+// import Layout from "@/views/LayoutInner.vue";
+import Header from "@/components/LayoutInner/Header.vue";
+import Navigator from "@/components/LayoutInner/Navigator.vue";
+
 export default {
   components: {
-    Layout
+    Header,
+    Navigator
   }
 };
 </script>
@@ -33,5 +50,12 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.el-main {
+  background-image: url("./assets/DataMgtBackgroupPic.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
 }
 </style>
