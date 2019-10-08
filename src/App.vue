@@ -8,9 +8,9 @@
         <Navigator />
 
         <el-container>
-          <el-main>
+          
             <router-view />
-          </el-main>
+          
         </el-container>
       </el-container>
     </div>
@@ -52,11 +52,11 @@ export default {
   color: #42b983;
 }
 
-.el-main {
+/* .el-main {
   background-image: url("./assets/DataMgtBackgroupPic.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
   background-size: 100%;
-}
+} */
 </style>
