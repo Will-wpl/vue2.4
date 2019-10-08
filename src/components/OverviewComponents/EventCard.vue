@@ -2,8 +2,9 @@
   <router-link class="event-link" :to="{ name: 'Overview', params: { id: event.id } }">
     <div class="event-card -shadow">
         
-      <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
-      <h4 class="title">{{ event.title }}</h4>
+       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
+       <span style="color: #0066cc">Place holder</span>
+      <h4 class="title">无差异</h4>
       <h6>Place Holder</h6>
       <!-- <BaseIcon name="users">{{ event.attendees.length }} attending</BaseIcon> -->
     </div>
