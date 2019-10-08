@@ -19,7 +19,6 @@ export default {
 
 <style scoped>
 .event-card {
-  width: 394px;
   padding: 20px;
   margin-bottom: 24px;
   transition: all 0.2s linear;
