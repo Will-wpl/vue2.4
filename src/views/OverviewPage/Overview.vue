@@ -2,7 +2,7 @@
   <el-main>
     <div>
       <div class="container-fluid">
-        <div class="row">
+        <div class="row align-items-end">
           <div class="col-sm col-md col-lg-3">
             <h4>系统实时动态概览</h4>
           </div>
@@ -10,31 +10,43 @@
           <div class="col-sm col-md col-lg-3">
             <el-carousel arrow="always" :interval="50000" height="100px">
               <el-carousel-item v-for="item in notis" :key="item">
-                <p style="">{{ item.title }}</p>
+                <p style>{{ item.title }}</p>
                 <p>{{ item.title }}</p>
               </el-carousel-item>
             </el-carousel>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm col-md col-lg"><h5>进销存</h5></div>
-          <div class="col-sm col-md col-lg"><h5>申诉概览</h5></div>
-          <div class="col-sm col-md col-lg"><h5>证明文件</h5></div>
-          <div class="col-sm col-md col-lg"><h5>调整数据</h5></div>
+          <div class="col-sm col-md col-lg">
+            <h5>进销存</h5>
+          </div>
+          <div class="col-sm col-md col-lg">
+            <h5>申诉概览</h5>
+          </div>
+          <div class="col-sm col-md col-lg">
+            <h5>证明文件</h5>
+          </div>
+          <div class="col-sm col-md col-lg">
+            <h5>调整数据</h5>
+          </div>
         </div>
         <div class="row">
           <div class="col-sm col-md col-lg">
             <InventoryEventCard v-for="event in events" :key="event.id" :event="event" />
           </div>
           <div class="col-sm col-md col-lg">
-            <div class="row">
-              <div class="col-sm col-md col-lg">
-                <EventCard v-for="event in events" :key="event.id" :event="event" />
-              </div>
-              <div class="col-sm col-md col-lg">
-                <EventCard v-for="event in events" :key="event.id" :event="event" />
-              </div>
-            </div>
+            <table style="width:100%">
+              <tr>
+                <th>
+                  <EventCard v-for="event in events" :key="event.id" :event="event" />
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <EventCard v-for="event in events" :key="event.id" :event="event" />
+                </th>
+              </tr>
+            </table>
           </div>
           <div class="col-sm col-md col-lg">
             <EventCard v-for="event in events" :key="event.id" :event="event" />
@@ -49,10 +61,10 @@
           </div>
           <div class="col-sm col-md col-lg-3">
             <EventCard v-for="event in events" :key="event.id" :event="event" />
-            <br>
-            <br>
-            <br>
-            <br>
+            <br />
+            <br />
+            <br />
+            <br />
           </div>
           <div class="col-sm col-md col-lg"></div>
         </div>
@@ -166,10 +178,9 @@ h4 {
   align-self: left;
   margin-bottom: 10px;
   border-radius: 25px;
-  text-align:center;
+  text-align: center;
 }
 
 .container {
-  
 }
 </style>
