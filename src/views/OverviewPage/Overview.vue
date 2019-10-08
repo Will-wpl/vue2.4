@@ -1,7 +1,7 @@
 <template>
   <el-main>
     <div>
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-sm col-md col-lg-3">
             <h4>系统实时动态概览</h4>
@@ -170,6 +170,6 @@ h4 {
 }
 
 .container {
-  margin: 0px;
+  
 }
 </style>
