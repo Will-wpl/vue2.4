@@ -54,11 +54,12 @@ export default {
 }
 
 /* .el-main {
-  background-image: url("./assets/DataMgtBackgroupPic.png");
+  background-image: url("~@/assets/DataMgtBackgroupPic.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
+  margin-right: 1%;
 } */
 
 body { margin: 0; }

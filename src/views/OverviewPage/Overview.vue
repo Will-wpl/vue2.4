@@ -152,6 +152,7 @@ h4 {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
+  background-size: cover;
   margin-right: 1%;
 }
 
@@ -181,6 +182,4 @@ h4 {
   text-align: center;
 }
 
-.container {
-}
 </style>
