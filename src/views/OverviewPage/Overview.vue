@@ -2,7 +2,7 @@
   <el-main>
     <div>
       <div class="container-fluid">
-        <div class="row align-items-end">
+        <div class="row align-items-start">
           <div class="col-sm col-md col-lg-3">
             <h4>系统实时动态概览</h4>
           </div>
