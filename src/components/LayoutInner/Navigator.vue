@@ -1,12 +1,11 @@
 <template>
   <el-aside width="200px" >
           <el-menu
-            default-active="2"
+            router
+            :default-active="$route.path"
             class="el-menu-vertical-demo"
-            @open="handleOpen"
-            @close="handleClose"
           >
-            <el-menu-item index="1">
+            <el-menu-item index="/">
               <i class="el-icon-menu"></i>
               <span>首页</span>
             </el-menu-item>
@@ -16,11 +15,11 @@
                 <span>进销存报告</span>
               </template>
               <el-menu-item-group title>
-                <el-menu-item index="2-1">item one</el-menu-item>
-                <el-menu-item index="2-2">item one</el-menu-item>
+                <el-menu-item index="/InventoryReport/item one">item one</el-menu-item>
+                <el-menu-item index="/InventoryReport/item two">item two</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
-            <el-menu-item index="3">
+            <el-menu-item index="/DynamicSearch/1">
               <i class="el-icon-setting"></i>
               <span>动态查询</span>
             </el-menu-item>

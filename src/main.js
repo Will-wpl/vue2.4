@@ -7,7 +7,11 @@ import 'element-ui/lib/theme-chalk/index.css';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-
+import {get, post, patch, put} from './server/httpServer'
+Vue.prototype.$get = get;
+Vue.prototype.$post = post;
+Vue.prototype.$patch = patch;
+Vue.prototype.$put = put;
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
 
