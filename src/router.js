@@ -29,7 +29,9 @@ export default new Router({
       path: '/DynamicSearch/:id',
       name: 'DynamicSearch',
       component: DynamicSearch,
-
+      props: true
+    },
+    {
       path: '/DynamicQuery',
       name: 'DynamicQuery',
       component: DynamicQuery,
