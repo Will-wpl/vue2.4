@@ -1,7 +1,9 @@
 <template>
   <el-main>
+    <div class="container-fluid">
 
-
+        
+    </div>
   </el-main>
 </template>
 
@@ -11,7 +13,6 @@ export default {};
 
 <style scoped>
 .el-main {
-  background-color: #EEF2F6
+  background-color: #eef2f6;
 }
-
 </style>
