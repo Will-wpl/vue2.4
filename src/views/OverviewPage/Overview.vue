@@ -137,11 +137,6 @@ export default {
 </script>
 
 <style scoped>
-.Overview {
-  /* background-image: url("https://www.w3schools.com");
-  background-color: #2ae22a; */
-}
-
 h4 {
   text-align: left;
   color: #014282;
