@@ -154,6 +154,20 @@
               </el-table-column>
               <el-table-column property="name" label="Name" width="120"></el-table-column>
               <el-table-column property="address" label="Address" show-overflow-tooltip></el-table-column>
+              <el-table-column label="操作">
+                <template slot-scope="scope">
+                  <el-dropdown>
+                    <span class="el-dropdown-link">
+                      <i class="el-icon-more el-icon--center"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>Action 1</el-dropdown-item>
+                      <el-dropdown-item>Action 2</el-dropdown-item>
+                      <el-dropdown-item>Action 3</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </template>
+              </el-table-column>
             </el-table>
             <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
           </el-tab-pane>
@@ -187,9 +201,17 @@ export default {
       activeName: "first",
       tableData: [
         {
-          date: "2016-05-03",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
+          serialNO: "",
+          appealDate: "2016-05-03",
+          isException: "",
+          submitTime: "No. 189, Grove St, Los Angeles",
+          appealerName: "",
+          commercialNO: "",
+          productNO: "",
+          gapNO: "",
+          appealDetailStatus: "",
+          reasonConfirmStatus: "",
+          appealFileStatus: ""
         },
         {
           date: "2016-05-02",
@@ -255,7 +277,7 @@ export default {
   background-color: #eef2f6;
 }
 .OpIcons {
-  margin-left: 13px;
+  margin-left: 10px;
   width: 15px;
   height: 14px;
   opacity: 1;
@@ -264,5 +286,13 @@ export default {
 #Title {
   color: #007ac3;
   font-size: 130%;
+}
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: #409eff;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
 }
 </style>
