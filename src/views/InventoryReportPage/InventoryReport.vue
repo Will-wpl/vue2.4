@@ -261,19 +261,4 @@ h4 {
     }
   }
 }
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-  text-align: center;
-}
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-  text-align: center;
-}
-.el-carousel {
-  width: 250px;
-  align-self: left;
-  margin-bottom: 10px;
-  border-radius: 25px;
-  text-align: center;
-}
 </style>
