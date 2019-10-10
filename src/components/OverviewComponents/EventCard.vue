@@ -1,9 +1,8 @@
 <template>
   <router-link class="event-link" :to="{ name: 'Overview', params: { id: event.id } }">
     <div class="event-card -shadow">
-        
-       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
-       <span style="color: #0066cc">Place holder</span>
+      <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
+      <span style="color: #0066cc">Place holder</span>
       <h4 class="title">无差异</h4>
       <h6>Place Holder</h6>
       <!-- <BaseIcon name="users">{{ event.attendees.length }} attending</BaseIcon> -->
@@ -21,7 +20,7 @@ export default {
 
 <style scoped>
 .event-card {
-    height: auto;
+  height: auto;
   padding: 20px;
   margin-bottom: 24px;
   transition: all 0.2s linear;

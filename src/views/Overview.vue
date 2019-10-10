@@ -137,7 +137,6 @@ export default {
 </script>
 
 <style scoped>
-
 h4 {
   text-align: left;
   color: #014282;
@@ -177,5 +176,4 @@ h4 {
   border-radius: 25px;
   text-align: center;
 }
-
 </style>

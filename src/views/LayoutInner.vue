@@ -1,16 +1,14 @@
 <template>
   <div>
-      <el-container id="header">
-        <el-header>
-          <img id="RocheMark" src="../assets/RoucheBrandMark.png" />
-          <span class="TitleWords">渠道数据管理平台</span>
-        </el-header>
-      </el-container>
-      <el-container>
+    <el-container id="header">
+      <el-header>
+        <img id="RocheMark" src="../assets/RoucheBrandMark.png" />
+        <span class="TitleWords">渠道数据管理平台</span>
+      </el-header>
+    </el-container>
+    <el-container>
       <el-row class="tac">
-        <el-col :span="4">
-
-        </el-col>
+        <el-col :span="4"></el-col>
 
         <el-col id="Overview" :span="20">
           <div>

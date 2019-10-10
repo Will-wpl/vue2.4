@@ -10,7 +10,9 @@
             </h4>
           </div>
           <div class="col-sm col-md col-lg-2"></div>
-          <div class="col-sm col-md col-lg"><Step :step="1"/></div>
+          <div class="col-sm col-md col-lg">
+            <Step :step="1" />
+          </div>
         </div>
         <div class="row mt20">
           <div class="col-sm col-md col-lg-4">
@@ -114,15 +116,27 @@
         </div>
         <div class="row mt20">
           <div class="col-sm col-md col-lg-10"></div>
-          <div class="col-sm col-md col-lg-2 textR"><el-button round>取消</el-button><el-button round>筛选</el-button></div>
+          <div class="col-sm col-md col-lg-2 textR">
+            <el-button round>取消</el-button>
+            <el-button round>筛选</el-button>
+          </div>
         </div>
         <div class="row mt20">
-          <h5 class="col-lg-12 total">总记录：180 <span>符合筛选条件记录共（10）条</span></h5>
+          <h5 class="col-lg-12 total">
+            总记录：180
+            <span>符合筛选条件记录共（10）条</span>
+          </h5>
         </div>
         <div class="row mt20">
           <h5 class="col-lg-12 textR formulas">
-            <span>E逻辑库存 <font>= A期初逻辑库存 + B逻辑采购 - C销售 + D本月库存调整</font></span> 
-            <span>G库存差异 <font>= E逻辑库存 - F实际库存</font></span> 
+            <span>
+              E逻辑库存
+              <font>= A期初逻辑库存 + B逻辑采购 - C销售 + D本月库存调整</font>
+            </span>
+            <span>
+              G库存差异
+              <font>= E逻辑库存 - F实际库存</font>
+            </span>
           </h5>
         </div>
         <div class="row mt20">
@@ -138,8 +152,8 @@
               :page-sizes="[100, 200, 300, 400]"
               :page-size="100"
               layout="prev, pager, next, jumper,total,sizes"
-              :total="400">
-            </el-pagination>
+              :total="400"
+            ></el-pagination>
           </div>
         </div>
       </div>
@@ -148,7 +162,7 @@
 </template> 
 
 <script>
-import { conditionConfig,tableData } from "../../assets/mockdata/mockdata";
+import { conditionConfig, tableData } from "../../assets/mockdata/mockdata";
 import InventReportTable from "@/components/InventReportComponents/InventReportTable.vue";
 import Step from "@/components/StepComponents/Step.vue";
 export default {
@@ -157,13 +171,13 @@ export default {
     InventReportTable,
     Step
   },
-  methods:{
+  methods: {
     handleSizeChange(val) {
-        console.log(`每页 ${val} 条`);
-      },
-      handleCurrentChange(val) {
-        console.log(`当前页: ${val}`);
-      }
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    }
   },
   data() {
     return {
@@ -179,19 +193,19 @@ export default {
       value8: "",
       value9: "",
       condition: conditionConfig,
-      tableData:tableData,
+      tableData: tableData,
       currentPage1: 1,
-        currentPage2: 2,
-        currentPage3: 3,
-        currentPage4: 4,
-        pageId:''
+      currentPage2: 2,
+      currentPage3: 3,
+      currentPage4: 4,
+      pageId: ""
     };
   },
   mounted() {
     this.pageId = this.$route.params.id;
   },
-  watch:{
-    $route(path,from){
+  watch: {
+    $route(path, from) {
       this.pageId = path.params.id;
     }
   }
@@ -201,27 +215,36 @@ export default {
 <style lang="scss" scoped>
 h4 {
   text-align: left;
-  color: #297FD5;
+  color: #297fd5;
 }
-.white_bg{ background: #fff; padding: 10px 0px;}
-.total{
-  color: #a2a0a2; font-size: 15px;
+.white_bg {
+  background: #fff;
+  padding: 10px 0px;
 }
-.total span{
-  color:#297FD5;
+.total {
+  color: #a2a0a2;
+  font-size: 15px;
+}
+.total span {
+  color: #297fd5;
 }
 .report-title {
   font-size: 12px;
   color: #a2a0a2;
 }
-.textR{ text-align: right;}
+.textR {
+  text-align: right;
+}
 .mt20 {
   margin-top: 20px;
 }
 .el-main {
   background: #eef2f6;
 }
-.el-select,.el-input{ width: 100% !important;}
+.el-select,
+.el-input {
+  width: 100% !important;
+}
 .el-carousel__item h3 {
   color: #475669;
   font-size: 18px;
@@ -229,10 +252,14 @@ h4 {
   line-height: 300px;
   margin: 0;
 }
-.formulas{ font-size: 14px; 
-  span{ 
-    color: #297FD5; margin-left: 15px;
-    font{color:#a2a0a2;}
+.formulas {
+  font-size: 14px;
+  span {
+    color: #297fd5;
+    margin-left: 15px;
+    font {
+      color: #a2a0a2;
+    }
   }
 }
 .el-carousel__item:nth-child(2n) {

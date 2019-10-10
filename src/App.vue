@@ -8,9 +8,7 @@
         <Navigator />
 
         <el-container>
-          
-            <router-view />
-          
+          <router-view />
         </el-container>
       </el-container>
     </div>
@@ -62,5 +60,7 @@ export default {
   margin-right: 1%;
 } */
 
-body { margin: 0; }
+body {
+  margin: 0;
+}
 </style>
