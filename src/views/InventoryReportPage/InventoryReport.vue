@@ -5,7 +5,7 @@
         <div class="row align-items-start">
           <div class="col-sm col-md col-lg-3">
             <h4>
-              进销存报告({{pageId}})
+              进销存报告({{ pageId }})
               <span class="report-title">2019/07/02 00:21 最后更新</span>
             </h4>
           </div>
@@ -19,7 +19,7 @@
             <el-input v-model="procode" placeholder="请输入内容"></el-input>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-date-picker v-model="time" type="datetime" placeholder="选择日期时间"></el-date-picker>
+            <el-date-picker type="datetime" v-model="time" placeholder="选择日期时间"></el-date-picker>
           </div>
           <div class="col-sm col-md col-lg-2">
             <el-select v-model="value1" placeholder="选择品牌">
@@ -159,8 +159,7 @@
       </div>
     </div>
   </el-main>
-</template> 
-
+</template>
 <script>
 import { conditionConfig, tableData } from "../../assets/mockdata/mockdata";
 import InventReportTable from "@/components/InventReportComponents/InventReportTable.vue";
@@ -205,7 +204,7 @@ export default {
     this.pageId = this.$route.params.id;
   },
   watch: {
-    $route(path, from) {
+    $route(path) {
       this.pageId = path.params.id;
     }
   }
@@ -266,12 +265,10 @@ h4 {
   background-color: #99a9bf;
   text-align: center;
 }
-
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
   text-align: center;
 }
-
 .el-carousel {
   width: 250px;
   align-self: left;
