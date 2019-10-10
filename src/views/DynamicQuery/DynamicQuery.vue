@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      <!-- Columns are always 50% wide, on mobile and desktop -->
+      <!-- Cancle Filter Button -->
       <div style="margin-top: 5px;" class="row">
         <div class="col"></div>
         <div class="col-2">
@@ -145,15 +145,45 @@
             <el-table
               ref="multipleTable"
               :data="tableData"
-              style="width: 100%"
+              style="width: 200%"
               @selection-change="handleSelectionChange"
             >
               <el-table-column type="selection" width="55"></el-table-column>
-              <el-table-column label="Date" width="120">
+              <el-table-column property="name" label="申请单号" width="140"></el-table-column>
+              <el-table-column label="申诉月份" width="140">
                 <template slot-scope="scope">{{ scope.row.date }}</template>
               </el-table-column>
-              <el-table-column property="name" label="Name" width="120"></el-table-column>
-              <el-table-column property="address" label="Address" show-overflow-tooltip></el-table-column>
+              <el-table-column property="name" label="情况" width="100"></el-table-column>
+              <el-table-column property="name" label="提交时间" width="100"></el-table-column>
+              <el-table-column property="name" label="申诉人" width="100"></el-table-column>
+              <el-table-column property="name" label="商业数量" width="100">
+                <template>
+                  <el-tooltip
+                    class="item"
+                    effect="dark"
+                    content="Bottom Center prompts info"
+                    placement="bottom"
+                  >
+                    <el-button type="primary" size="mini" circle plain>1</el-button>
+                  </el-tooltip>
+                </template>
+              </el-table-column>
+              <el-table-column property="name" label="产品数量" width>
+                <template>
+                  <el-tooltip
+                    class="item"
+                    effect="dark"
+                    content="Bottom Center prompts info"
+                    placement="bottom"
+                  >
+                    <el-button type="primary" size="mini" circle plain>1</el-button>
+                  </el-tooltip>
+                </template>
+              </el-table-column>
+              <el-table-column property="name" label="差异数量" width></el-table-column>
+              <el-table-column property="name" label="申诉明细状态" width="120"></el-table-column>
+              <el-table-column property="name" label="原因复核状态" width="120"></el-table-column>
+              <el-table-column property="name" label="证明文件状态" width="120"></el-table-column>
               <el-table-column label="操作">
                 <template slot-scope="scope">
                   <el-dropdown>
@@ -188,6 +218,13 @@
             <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
           </el-tab-pane>
         </el-tabs>
+      </div>
+
+      <!-- Main Table -->
+      <div style="margin-top:15px" class="row">
+        <el-button round>
+          <i class="el-icon-download"></i>Export Excel
+        </el-button>
       </div>
     </div>
   </el-main>
