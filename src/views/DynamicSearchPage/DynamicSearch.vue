@@ -9,6 +9,11 @@
               <span class="report-title">2019/07/02 00:21 最后更新</span>
             </h4>
           </div>
+          <div class="col"></div>
+          <div class="col-1 align-self-end">
+            <i style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
+            <i style="color:#007AC3" class="el-icon-arrow-up OpIcons"></i>
+          </div>
         </div>
         <div class="row mt20">
           <div class="col-sm col-md col-lg-4">
@@ -118,9 +123,40 @@
           </div>
         </div>
         <div class="row mt20">
-          <DynamicSearchTable :tableData="tableData" />
+          <div class="col-sm col-md col-lg w100">
+            <el-tabs v-model="activeName">
+              <el-tab-pane label="申诉单" name="first">
+                <DynamicSearchTable :tableData="tableData" />
+                <el-pagination
+                  background
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage1"
+                  :page-sizes="[100, 200, 300, 400]"
+                  :page-size="100"
+                  layout="prev, pager, next, jumper,total,sizes"
+                  :total="400"
+                  class="white_bg"
+                ></el-pagination>
+              </el-tab-pane>
+              <el-tab-pane label="进销存" name="second">
+                <DynamicSearchTable :tableData="tableData" />
+                <el-pagination
+                  background
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage1"
+                  :page-sizes="[100, 200, 300, 400]"
+                  :page-size="100"
+                  layout="prev, pager, next, jumper,total,sizes"
+                  :total="400"
+                  class="white_bg"
+                ></el-pagination>
+              </el-tab-pane>
+            </el-tabs>
+          </div>
         </div>
-        <div class="row mt20 white_bg">
+        <!-- <div class="row mt20 white_bg">
           <div class="block">
             <el-pagination
               background
@@ -133,7 +169,7 @@
               :total="400"
             ></el-pagination>
           </div>
-        </div>
+        </div>-->
         <div class="row mt20">
           <el-button round>
             <i class="el-icon-download"></i>Export Excel
@@ -161,11 +197,15 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    handleClick(e) {
+      console.log(e);
     }
   },
   data() {
     return {
       procode: "",
+      activeName: "first",
       time: "",
       value1: "",
       value2: "",
@@ -189,6 +229,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.w100 {
+  width: 100%;
+}
+.align-self-end {
+  text-align: right;
+}
 h4 {
   text-align: left;
   color: #297fd5;
