@@ -9,7 +9,11 @@
           <div class="col"></div>
           <div class="col-1 align-self-end">
             <i @click="showFilter" style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
-            <i @click="hideFilter" style="color:#007AC3; margin-left: 10px;" class="el-icon-arrow-up OpIcons"></i>
+            <i
+              @click="hideFilter"
+              style="color:#007AC3; margin-left: 10px;"
+              class="el-icon-arrow-up OpIcons"
+            ></i>
           </div>
         </div>
         <!-- Filter Section -->
@@ -116,7 +120,7 @@
         <div v-show="ifFilterShow" class="row mt20">
           <div class="col-sm col-md col-lg-10"></div>
           <div class="col-sm col-md col-lg-2 textR">
-            <el-button size="mini" round>取消</el-button>
+            <el-button @click="clearFilters" size="mini" round>取消</el-button>
             <el-button size="mini" round>筛选</el-button>
           </div>
         </div>
@@ -188,6 +192,18 @@ export default {
     },
     hideFilter() {
       this.ifFilterShow = false;
+    },
+    clearFilters() {
+      this.time = "";
+      this.value1 = "";
+      this.value2 = "";
+      this.value3 = "";
+      this.value4 = "";
+      this.value5 = "";
+      this.value6 = "";
+      this.value7 = "";
+      this.value8 = "";
+      this.value9 = "";
     }
   },
   data() {
