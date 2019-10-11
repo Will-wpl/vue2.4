@@ -4,17 +4,16 @@
       <div class="container-fluid">
         <div class="row align-items-start">
           <div class="col-sm col-md col-lg-3">
-            <h4>
-              动态查询
-            </h4>
+            <h4>动态查询</h4>
           </div>
           <div class="col"></div>
           <div class="col-1 align-self-end">
-            <i style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
-            <i style="color:#007AC3" class="el-icon-arrow-up OpIcons"></i>
+            <i @click="showFilter" style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
+            <i @click="hideFilter" style="color:#007AC3; margin-left: 10px;" class="el-icon-arrow-up OpIcons"></i>
           </div>
         </div>
-        <div class="row mt20">
+        <!-- Filter Section -->
+        <div v-show="ifFilterShow" class="row mt20">
           <div class="col-sm col-md col-lg-4">
             <el-input clearable v-model="procode" placeholder="经销商/产品名称编号"></el-input>
           </div>
@@ -52,7 +51,7 @@
             </el-select>
           </div>
         </div>
-        <div class="row mt20">
+        <div v-show="ifFilterShow" class="row mt20">
           <div class="col-sm col-md col-lg-2">
             <el-select clearable v-model="value4" placeholder="选择集团类型">
               <el-option
@@ -114,7 +113,7 @@
             </el-select>
           </div>
         </div>
-        <div class="row mt20">
+        <div v-show="ifFilterShow" class="row mt20">
           <div class="col-sm col-md col-lg-10"></div>
           <div class="col-sm col-md col-lg-2 textR">
             <el-button size="mini" round>取消</el-button>
@@ -131,9 +130,8 @@
                   @size-change="handleSizeChange"
                   @current-change="handleCurrentChange"
                   :current-page="currentPage1"
-                  :page-sizes="[100, 200, 300, 400]"
                   :page-size="100"
-                  layout="prev, pager, next, jumper,total,sizes"
+                  layout="prev, pager, next, jumper,total"
                   :total="400"
                   class="white_bg"
                 ></el-pagination>
@@ -145,9 +143,8 @@
                   @size-change="handleSizeChange"
                   @current-change="handleCurrentChange"
                   :current-page="currentPage1"
-                  :page-sizes="[100, 200, 300, 400]"
                   :page-size="100"
-                  layout="prev, pager, next, jumper,total,sizes"
+                  layout="prev, pager, next, jumper,total"
                   :total="400"
                   class="white_bg"
                 ></el-pagination>
@@ -185,10 +182,17 @@ export default {
     },
     handleClick(e) {
       console.log(e);
+    },
+    showFilter() {
+      this.ifFilterShow = true;
+    },
+    hideFilter() {
+      this.ifFilterShow = false;
     }
   },
   data() {
     return {
+      ifFilterShow: true,
       procode: "",
       activeName: "first",
       time: "",
@@ -252,6 +256,4 @@ h4 {
 .el-input {
   width: 100% !important;
 }
-
-
 </style>
