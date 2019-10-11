@@ -211,7 +211,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 h4 {
   text-align: left;
   color: #297fd5;
@@ -253,12 +253,14 @@ h4 {
 }
 .formulas {
   font-size: 14px;
-  span {
-    color: #297fd5;
-    margin-left: 15px;
-    font {
-      color: #a2a0a2;
-    }
-  }
+}
+
+.formulas span {
+  color: #297fd5;
+  margin-left: 15px;
+}
+
+.formulas span font {
+  color: #a2a0a2;
 }
 </style>

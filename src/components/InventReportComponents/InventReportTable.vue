@@ -79,7 +79,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style scoped>
 .el-table,
 .el-table thead.is-group th {
   background: #fff;

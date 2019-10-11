@@ -228,7 +228,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .w100 {
   width: 100%;
 }
@@ -274,16 +274,20 @@ h4 {
   line-height: 300px;
   margin: 0;
 }
+
 .formulas {
   font-size: 14px;
-  span {
-    color: #297fd5;
-    margin-left: 15px;
-    font {
-      color: #a2a0a2;
-    }
-  }
 }
+
+.formulas span {
+  color: #297fd5;
+  margin-left: 15px;
+}
+
+.formulas span font {
+  color: #a2a0a2;
+}
+
 .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
   text-align: center;
