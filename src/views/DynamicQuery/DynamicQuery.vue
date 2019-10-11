@@ -16,13 +16,13 @@
         </div>
         <div class="row mt20">
           <div class="col-sm col-md col-lg-4">
-            <el-input v-model="procode" placeholder="经销商/产品名称编号"></el-input>
+            <el-input clearable v-model="procode" placeholder="经销商/产品名称编号"></el-input>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-date-picker v-model="time" type="datetime" placeholder="选择申请时间"></el-date-picker>
+            <el-date-picker clearable v-model="time" type="datetime" placeholder="选择申请时间"></el-date-picker>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value1" placeholder="选择品牌">
+            <el-select clearable v-model="value1" placeholder="选择品牌">
               <el-option
                 v-for="item in condition.options1"
                 :key="item.value"
@@ -32,7 +32,7 @@
             </el-select>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value2" placeholder="选择产品">
+            <el-select clearable v-model="value2" placeholder="选择产品">
               <el-option
                 v-for="item in condition.options2"
                 :key="item.value"
@@ -42,7 +42,7 @@
             </el-select>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value3" placeholder="选择审批阶段">
+            <el-select clearable v-model="value3" placeholder="选择审批阶段">
               <el-option
                 v-for="item in condition.options3"
                 :key="item.value"
@@ -54,7 +54,7 @@
         </div>
         <div class="row mt20">
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value4" placeholder="选择集团类型">
+            <el-select clearable v-model="value4" placeholder="选择集团类型">
               <el-option
                 v-for="item in condition.options4"
                 :key="item.value"
@@ -64,7 +64,7 @@
             </el-select>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value5" placeholder="选择集团信息">
+            <el-select clearable v-model="value5" placeholder="选择集团信息">
               <el-option
                 v-for="item in condition.options5"
                 :key="item.value"
@@ -74,7 +74,7 @@
             </el-select>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value6" placeholder="选择省份">
+            <el-select clearable v-model="value6" placeholder="选择省份">
               <el-option
                 v-for="item in condition.options6"
                 :key="item.value"
@@ -84,7 +84,7 @@
             </el-select>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value7" placeholder="选择城市">
+            <el-select clearable v-model="value7" placeholder="选择城市">
               <el-option
                 v-for="item in condition.options7"
                 :key="item.value"
@@ -94,7 +94,7 @@
             </el-select>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value8" placeholder="申诉单状态">
+            <el-select clearable v-model="value8" placeholder="申诉单状态">
               <el-option
                 v-for="item in condition.options8"
                 :key="item.value"
@@ -104,7 +104,7 @@
             </el-select>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value9" placeholder="证明文件状态">
+            <el-select clearable v-model="value9" placeholder="证明文件状态">
               <el-option
                 v-for="item in condition.options9"
                 :key="item.value"
