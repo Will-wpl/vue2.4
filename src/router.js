@@ -3,7 +3,6 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Overview from "@/views/OverviewPage/Overview.vue"
 import InventoryReport from "@/views/InventoryReportPage/InventoryReport.vue"
-import DynamicSearch from "@/views/DynamicSearchPage/DynamicSearch.vue"
 import DynamicQuery from "@/views/DynamicQuery/DynamicQuery.vue"
 
 
@@ -23,12 +22,6 @@ export default new Router({
       path: '/InventoryReport/:id',
       name: 'InventoryReport',
       component: InventoryReport,
-      props: true
-    },
-    {
-      path: '/DynamicSearch/:id',
-      name: 'DynamicSearch',
-      component: DynamicSearch,
       props: true
     },
     {

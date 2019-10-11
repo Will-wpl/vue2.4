@@ -26,7 +26,7 @@
           </router-link>
         </el-menu-item-group>
       </el-submenu>
-      <router-link class="event-link" :to="{ name: 'DynamicSearch', params: { id: 1 }}">
+      <router-link class="event-link" :to="{ name: 'DynamicQuery'}">
         <el-menu-item>
           <i class="el-icon-setting"></i>
           <span>动态查询</span>

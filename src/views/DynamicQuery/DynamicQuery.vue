@@ -1,335 +1,257 @@
 <template>
   <el-main>
-    <div class="container-fluid">
-      <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-      <div class="row">
-        <div class="col-2">
-          <span id="Title" style>动态查询</span>
-        </div>
-        <div class="col"></div>
-        <div class="col-1 align-self-end">
-          <i style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
-          <i style="color:#007AC3" class="el-icon-arrow-up OpIcons"></i>
-        </div>
-      </div>
-
-      <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-      <div class="row">
-        <div class="col-4">
-          <el-input placeholder="Please input" v-model="input" clearable></el-input>
-        </div>
-        <div class="col-2">
-          <el-select v-model="value" clearable placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </div>
-        <div class="col-2">
-          <el-select v-model="value" clearable placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </div>
-        <div class="col-2">
-          <el-select v-model="value" clearable placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </div>
-        <div class="col-2">
-          <el-select v-model="value" clearable placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </div>
-      </div>
-
-      <div style="margin-top: 5px;" class="row">
-        <div class="col-4">
-          <div class="row">
-            <div class="col-6">
-              <el-select v-model="value" clearable placeholder="Select">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                ></el-option>
-              </el-select>
-            </div>
-            <div class="col-6">
-              <el-select v-model="value" clearable placeholder="Select">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                ></el-option>
-              </el-select>
-            </div>
+    <div>
+      <div class="container-fluid">
+        <div class="row align-items-start">
+          <div class="col-sm col-md col-lg-3">
+            <h4>
+              动态查询
+            </h4>
+          </div>
+          <div class="col"></div>
+          <div class="col-1 align-self-end">
+            <i style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
+            <i style="color:#007AC3" class="el-icon-arrow-up OpIcons"></i>
           </div>
         </div>
-        <div class="col-2">
-          <el-select v-model="value" clearable placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
+        <div class="row mt20">
+          <div class="col-sm col-md col-lg-4">
+            <el-input v-model="procode" placeholder="经销商/产品名称编号"></el-input>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-date-picker v-model="time" type="datetime" placeholder="选择申请时间"></el-date-picker>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value1" placeholder="选择品牌">
+              <el-option
+                v-for="item in condition.options1"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value2" placeholder="选择产品">
+              <el-option
+                v-for="item in condition.options2"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value3" placeholder="选择审批阶段">
+              <el-option
+                v-for="item in condition.options3"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
         </div>
-        <div class="col-2">
-          <el-select v-model="value" clearable placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
+        <div class="row mt20">
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value4" placeholder="选择集团类型">
+              <el-option
+                v-for="item in condition.options4"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value5" placeholder="选择集团信息">
+              <el-option
+                v-for="item in condition.options5"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value6" placeholder="选择省份">
+              <el-option
+                v-for="item in condition.options6"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value7" placeholder="选择城市">
+              <el-option
+                v-for="item in condition.options7"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value8" placeholder="申诉单状态">
+              <el-option
+                v-for="item in condition.options8"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select v-model="value9" placeholder="证明文件状态">
+              <el-option
+                v-for="item in condition.options9"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
         </div>
-        <div class="col-2">
-          <el-select v-model="value" clearable placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </div>
-        <div class="col-2">
-          <el-select v-model="value" clearable placeholder="Select">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
-        </div>
-      </div>
-
-      <!-- Cancle Filter Button -->
-      <div style="margin-top: 5px;" class="row">
-        <div class="col"></div>
-        <div class="col-2">
-          <span style="margin-left: 5px;">
+        <div class="row mt20">
+          <div class="col-sm col-md col-lg-10"></div>
+          <div class="col-sm col-md col-lg-2 textR">
             <el-button size="mini" round>取消</el-button>
             <el-button size="mini" round>筛选</el-button>
-          </span>
+          </div>
         </div>
-      </div>
-
-      <!-- Main Table -->
-      <div style="margin-top: 5px;" class="row">
-        <el-tabs v-model="activeName" @tab-click="handleClick">
-          <el-tab-pane label="申诉单" name="first">
-            <el-table
-              ref="multipleTable"
-              :data="tableData"
-              style="width: 200%"
-              @selection-change="handleSelectionChange"
-            >
-              <el-table-column type="selection" width="55"></el-table-column>
-              <el-table-column property="name" label="申请单号" width="140"></el-table-column>
-              <el-table-column label="申诉月份" width="140">
-                <template slot-scope="scope">{{ scope.row.date }}</template>
-              </el-table-column>
-              <el-table-column property="name" label="情况" width="100"></el-table-column>
-              <el-table-column property="name" label="提交时间" width="100"></el-table-column>
-              <el-table-column property="name" label="申诉人" width="100"></el-table-column>
-              <el-table-column property="name" label="商业数量" width="100">
-                <template>
-                  <el-tooltip
-                    class="item"
-                    effect="dark"
-                    content="Bottom Center prompts info"
-                    placement="bottom"
-                  >
-                    <el-button type="primary" size="mini" circle plain>1</el-button>
-                  </el-tooltip>
-                </template>
-              </el-table-column>
-              <el-table-column property="name" label="产品数量" width>
-                <template>
-                  <el-tooltip
-                    class="item"
-                    effect="dark"
-                    content="Bottom Center prompts info"
-                    placement="bottom"
-                  >
-                    <el-button type="primary" size="mini" circle plain>1</el-button>
-                  </el-tooltip>
-                </template>
-              </el-table-column>
-              <el-table-column property="name" label="差异数量" width></el-table-column>
-              <el-table-column property="name" label="申诉明细状态" width="120"></el-table-column>
-              <el-table-column property="name" label="原因复核状态" width="120"></el-table-column>
-              <el-table-column property="name" label="证明文件状态" width="120"></el-table-column>
-              <el-table-column label="操作">
-                <template slot-scope="scope">
-                  <el-dropdown>
-                    <span class="el-dropdown-link">
-                      <i class="el-icon-more el-icon--center"></i>
-                    </span>
-                    <el-dropdown-menu slot="dropdown">
-                      <el-dropdown-item>Action 1</el-dropdown-item>
-                      <el-dropdown-item>Action 2</el-dropdown-item>
-                      <el-dropdown-item>Action 3</el-dropdown-item>
-                    </el-dropdown-menu>
-                  </el-dropdown>
-                </template>
-              </el-table-column>
-            </el-table>
-            <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
-          </el-tab-pane>
-          <el-tab-pane label="进销存" name="second">
-            <el-table
-              ref="multipleTable"
-              :data="tableData"
-              style="width: 100%"
-              @selection-change="handleSelectionChange"
-            >
-              <el-table-column type="selection" width="55"></el-table-column>
-              <el-table-column label="Date" width="120">
-                <template slot-scope="scope">{{ scope.row.date }}</template>
-              </el-table-column>
-              <el-table-column property="name" label="Name" width="120"></el-table-column>
-              <el-table-column property="address" label="Address" show-overflow-tooltip></el-table-column>
-            </el-table>
-            <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
-          </el-tab-pane>
-        </el-tabs>
-      </div>
-
-      <!-- Main Table -->
-      <div style="margin-top:15px" class="row">
-        <el-button round>
-          <i class="el-icon-download"></i>Export Excel
-        </el-button>
+        <div class="row">
+          <div class="col-sm col-md col-lg w100">
+            <el-tabs v-model="activeName">
+              <el-tab-pane label="申诉单" name="first">
+                <DynamicSearchTable :tableData="tableData" />
+                <el-pagination
+                  background
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage1"
+                  :page-sizes="[100, 200, 300, 400]"
+                  :page-size="100"
+                  layout="prev, pager, next, jumper,total,sizes"
+                  :total="400"
+                  class="white_bg"
+                ></el-pagination>
+              </el-tab-pane>
+              <el-tab-pane label="进销存" name="second">
+                <DynamicSearchTable :tableData="tableData" />
+                <el-pagination
+                  background
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="currentPage1"
+                  :page-sizes="[100, 200, 300, 400]"
+                  :page-size="100"
+                  layout="prev, pager, next, jumper,total,sizes"
+                  :total="400"
+                  class="white_bg"
+                ></el-pagination>
+              </el-tab-pane>
+            </el-tabs>
+          </div>
+        </div>
+        <div class="row mt20">
+          <el-button round>
+            <i class="el-icon-download"></i>Export Excel
+          </el-button>
+        </div>
       </div>
     </div>
   </el-main>
-</template>
+</template> 
 
 <script>
+import {
+  conditionConfig,
+  DynamicTableData
+} from "../../assets/mockdata/mockdata";
+import DynamicSearchTable from "@/components/DynamicQueryComponents/DynamicQueryAppealTable.vue";
 export default {
+  name: "DynamicSearch",
+  components: {
+    DynamicSearchTable
+  },
+  methods: {
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    },
+    handleClick(e) {
+      console.log(e);
+    }
+  },
   data() {
     return {
-      input: "",
+      procode: "",
       activeName: "first",
-      tableData: [
-        {
-          serialNO: "",
-          appealDate: "2016-05-03",
-          isException: "",
-          submitTime: "No. 189, Grove St, Los Angeles",
-          appealerName: "",
-          commercialNO: "",
-          productNO: "",
-          gapNO: "",
-          appealDetailStatus: "",
-          reasonConfirmStatus: "",
-          appealFileStatus: ""
-        },
-        {
-          date: "2016-05-02",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-04",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-01",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-08",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-06",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        },
-        {
-          date: "2016-05-07",
-          name: "Tom",
-          address: "No. 189, Grove St, Los Angeles"
-        }
-      ],
-      options: [
-        {
-          value: "Option1",
-          label: "Option1"
-        },
-        {
-          value: "Option2",
-          label: "Option2"
-        },
-        {
-          value: "Option3",
-          label: "Option3"
-        },
-        {
-          value: "Option4",
-          label: "Option4"
-        },
-        {
-          value: "Option5",
-          label: "Option5"
-        }
-      ],
-      value: ""
+      time: "",
+      value1: "",
+      value2: "",
+      value3: "",
+      value4: "",
+      value5: "",
+      value6: "",
+      value7: "",
+      value8: "",
+      value9: "",
+      condition: conditionConfig,
+      tableData: DynamicTableData,
+      currentPage1: 1,
+      currentPage2: 2,
+      currentPage3: 3,
+      currentPage4: 4
     };
-  }
+  },
+  mounted() {}
 };
 </script>
 
 <style scoped>
-.el-main {
-  background-color: #eef2f6;
+.w100 {
+  width: 100%;
 }
-.OpIcons {
-  margin-left: 10px;
-  width: 15px;
-  height: 14px;
-  opacity: 1;
+.align-self-end {
+  text-align: right;
 }
-
-#Title {
-  color: #007ac3;
-  font-size: 130%;
+h4 {
+  text-align: left;
+  color: #297fd5;
 }
-
-.el-dropdown-link {
-  cursor: pointer;
-  color: #409eff;
+.white_bg {
+  background: #fff;
+  padding: 10px 0px;
 }
-.el-icon-arrow-down {
+.total {
+  color: #a2a0a2;
+  font-size: 15px;
+}
+.total span {
+  color: #297fd5;
+}
+.report-title {
   font-size: 12px;
+  color: #a2a0a2;
 }
+.textR {
+  text-align: right;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.el-main {
+  background: #eef2f6;
+}
+.el-select,
+.el-input {
+  width: 100% !important;
+}
+
+
 </style>

@@ -6,7 +6,6 @@
           <div class="col-sm col-md col-lg-3">
             <h4>
               进销存报告({{ pageId }})
-              <span class="report-title">2019/07/02 00:21 最后更新</span>
             </h4>
           </div>
           <div class="col-sm col-md col-lg-2"></div>
@@ -117,8 +116,8 @@
         <div class="row mt20">
           <div class="col-sm col-md col-lg-10"></div>
           <div class="col-sm col-md col-lg-2 textR">
-            <el-button round>取消</el-button>
-            <el-button round>筛选</el-button>
+            <el-button size="mini" round>取消</el-button>
+            <el-button size="mini" round>筛选</el-button>
           </div>
         </div>
         <div class="row mt20">

@@ -48,18 +48,19 @@
     <el-table-column prop="complaintStatus" label="申诉单状态" width="150" sortable></el-table-column>
     <el-table-column prop="fileStatus" label="证明文件状态" width="150" sortable></el-table-column>
     <el-table-column label="操作" fixed="right" width="100">
-      <template>
-        <el-dropdown trigger="click">
-          <span class="el-dropdown-link">
-            <i class="el-icon-more el-icon--center"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </template>
+      <template slot-scope="scope">
+                  <el-dropdown>
+                    <span class="el-dropdown-link">
+                      <i class="el-icon-more el-icon--center"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item>查看</el-dropdown-item>
+                      <el-dropdown-item>删除</el-dropdown-item>
+                      <el-dropdown-item>添加</el-dropdown-item>
+                      <el-dropdown-item>修改</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
+                </template>
     </el-table-column>
   </el-table>
 </template>
