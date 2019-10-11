@@ -185,7 +185,7 @@
               <el-table-column property="name" label="原因复核状态" width="120"></el-table-column>
               <el-table-column property="name" label="证明文件状态" width="120"></el-table-column>
               <el-table-column label="操作">
-                <template>
+                <template slot-scope="scope">
                   <el-dropdown>
                     <span class="el-dropdown-link">
                       <i class="el-icon-more el-icon--center"></i>
