@@ -163,7 +163,7 @@
 <script>
 import { conditionConfig, tableData } from "../../assets/mockdata/mockdata";
 import InventReportTable from "@/components/InventReportComponents/InventReportTable.vue";
-import Step from "@/components/StepComponents/Step.vue";
+import Step from "@/components/InventReportComponents/Step.vue";
 export default {
   name: "InventoryReport",
   components: {
