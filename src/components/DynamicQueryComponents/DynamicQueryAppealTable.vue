@@ -8,7 +8,7 @@
     @selection-change="handleSelectionChange"
     :default-sort="{prop: 'date', order: 'descending'}"
   >
-    <el-table-column align="center" type="selection"></el-table-column>
+    <!-- <el-table-column align="center" type="selection"></el-table-column> -->
     <el-table-column prop="applyNum" label="申请单号" width="120" sortable></el-table-column>
     <el-table-column prop="complaintMonth" label="申诉月份" width="240" sortable>
       <template slot-scope="scope">
