@@ -194,6 +194,7 @@ export default {
       this.ifFilterShow = false;
     },
     clearFilters() {
+      this.procode = "";
       this.time = "";
       this.value1 = "";
       this.value2 = "";
