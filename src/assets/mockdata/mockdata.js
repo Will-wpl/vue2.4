@@ -1,48 +1,48 @@
 const conditionConfig = {
   options1: [{
     value: '选项1',
-    label: '黄金糕'
+    label: '罗氏一区'
   }, {
     value: '选项2',
-    label: '双皮奶'
+    label: '罗氏二区'
   }],
   options2: [{
     value: '选项1',
-    label: '黄金糕'
+    label: '止咳糖浆'
   }, {
     value: '选项2',
-    label: '双皮奶'
+    label: '滴眼液'
   }, {
     value: '选项3',
-    label: '蚵仔煎'
+    label: '头胞克肟分散片'
   }],
   options3: [{
     value: '选项1',
-    label: '黄金糕'
+    label: '审批中'
   }],
   options4: [{
     value: '选项1',
-    label: '蚵仔煎'
+    label: '合资'
   }],
   options5: [{
     value: '选项1',
-    label: '黄金糕'
+    label: '罗氏制药'
   }],
   options6: [{
     value: '选项1',
-    label: '黄金糕'
+    label: '上海市'
   }],
   options7: [{
     value: '选项1',
-    label: '双皮奶'
+    label: '上海市'
   }],
   options8: [{
     value: '选项1',
-    label: '黄金糕'
+    label: '已完成'
   }],
   options9: [{
     value: '选项1',
-    label: '蚵仔煎'
+    label: '已完成'
   }]
 }
 
