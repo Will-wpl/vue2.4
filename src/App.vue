@@ -5,8 +5,8 @@
         <Header />
       </el-container>
       <el-container>
-        <i v-show="isNavUnfoldShow" style="float: right; margin-left:3px; margin-top: 3px;" class="el-icon-s-unfold"></i>
-        <Navigator @clicked="hideSideNav" :isNavShow="isNavUnfoldShow" />
+        <i @click="showSideNav" v-show="isNavUnfoldShow" style="float: right; margin-left:3px; margin-top: 3px;" class="el-icon-s-unfold"></i>
+        <Navigator @clicked="hideSideNav" :isPopupSideNav="!isNavUnfoldShow" />
 
         <el-container>
           <router-view />
@@ -29,13 +29,12 @@ export default {
   },
   data() {
     return {
-      isNavShow: false,
       isNavUnfoldShow: false
     };
   },
   methods: {
     showSideNav() {
-      this.isShowNav = true;
+      this.isNavUnfoldShow = false;
     },
     hideSideNav(value) {
       this.isNavUnfoldShow = value;

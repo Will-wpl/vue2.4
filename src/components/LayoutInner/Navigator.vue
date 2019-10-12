@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isSideNavShow">
+  <div v-show="isPopupSideNav">
     <i
       @click="hideSideNav"
       style="float: right; margin-right:3px; margin-top: 3px;"
@@ -43,20 +43,16 @@
 
 <script>
 export default {
-  // props: {
-  //   event: Object,
-  //   isNavShow: Boolean
-  // },
+  props: {
+    event: Object,
+    isPopupSideNav: Boolean
+  },
   data() {
     return {
-      isShowNav: true,
       isSideNavShow: true
     };
   },
   methods: {
-    showSideNav() {
-      this.isShowNav = true;
-    },
     hideSideNav(event) {
       this.isSideNavShow = false;
       this.$emit("clicked", 'this.isSideNavShow');
