@@ -7,6 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import Vuelidate from 'vuelidate';
 // import {get, post, patch, put} from './server/httpServer'
 // Vue.prototype.$get = get;
 // Vue.prototype.$post = post;
@@ -14,6 +15,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 // Vue.prototype.$put = put;
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
+Vue.use(Vuelidate);
 
 Vue.config.productionTip = false;
 
