@@ -5,7 +5,8 @@
         <Header />
       </el-container>
       <el-container>
-        <Navigator />
+        <i v-show="isNavUnfoldShow" style="float: right; margin-left:3px; margin-top: 3px;" class="el-icon-s-unfold"></i>
+        <Navigator @clicked="hideSideNav" :isNavShow="isNavUnfoldShow" />
 
         <el-container>
           <router-view />
@@ -25,6 +26,21 @@ export default {
   components: {
     Header,
     Navigator
+  },
+  data() {
+    return {
+      isNavShow: false,
+      isNavUnfoldShow: false
+    };
+  },
+  methods: {
+    showSideNav() {
+      this.isShowNav = true;
+    },
+    hideSideNav(value) {
+      this.isNavUnfoldShow = value;
+      console.log(value) // someValue
+    }
   }
 };
 </script>
