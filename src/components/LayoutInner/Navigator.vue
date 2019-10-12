@@ -18,7 +18,7 @@
         </router-link>
         <el-submenu index="2">
           <template slot="title">
-            <i class="el-icon-location"></i>
+            <i class="el-icon-document"></i>
             <span>进销存报告</span>
           </template>
           <el-menu-item-group title>
@@ -32,10 +32,33 @@
         </el-submenu>
         <router-link class="event-link" :to="{ name: 'DynamicQuery'}">
           <el-menu-item index="3">
-            <i class="el-icon-setting"></i>
+            <i class="el-icon-search"></i>
             <span>动态查询</span>
           </el-menu-item>
         </router-link>
+        <el-submenu index="4">
+          <template slot="title">
+            <i class="el-icon-setting"></i>
+            <span>系统管理</span>
+          </template>
+          <el-menu-item-group title>
+            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 1 }}">
+              <el-menu-item index="4-1">用户权限设置</el-menu-item>
+            </router-link>
+            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
+              <el-menu-item index="4-2">申诉窗口期设置</el-menu-item>
+            </router-link>
+            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
+              <el-menu-item index="4-3">操作日志记录</el-menu-item>
+            </router-link>
+            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
+              <el-menu-item index="4-4">提醒设置</el-menu-item>
+            </router-link>
+            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
+              <el-menu-item index="4-5">申诉理由设置</el-menu-item>
+            </router-link>
+          </el-menu-item-group>
+        </el-submenu>
       </el-menu>
     </el-aside>
   </div>
