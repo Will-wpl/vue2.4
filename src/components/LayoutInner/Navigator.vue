@@ -6,17 +6,21 @@
       class="el-icon-s-fold"
     ></i>
     <el-aside width="200px">
-      <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
-      >
+      <el-menu default-active="1" class="el-menu-vertical-demo">
         <router-link class="event-link" :to="{ name: 'Overview' }">
           <el-menu-item index="1">
             <i class="el-icon-menu"></i>
             <span>首页</span>
           </el-menu-item>
         </router-link>
-        <el-submenu index="2">
+        <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 1 }}">
+          <el-menu-item index="2">
+            <i class="el-icon-document"></i>
+            <span>进销存报告</span>
+          </el-menu-item>
+        </router-link>
+
+        <!-- <el-submenu index="2">
           <template slot="title">
             <i class="el-icon-document"></i>
             <span>进销存报告</span>
@@ -29,7 +33,7 @@
               <el-menu-item index="2-2">item one</el-menu-item>
             </router-link>
           </el-menu-item-group>
-        </el-submenu>
+        </el-submenu>-->
         <router-link class="event-link" :to="{ name: 'DynamicQuery'}">
           <el-menu-item index="3">
             <i class="el-icon-search"></i>
@@ -78,7 +82,7 @@ export default {
   methods: {
     hideSideNav(event) {
       this.isSideNavShow = false;
-      this.$emit("clicked", 'this.isSideNavShow');
+      this.$emit("clicked", "this.isSideNavShow");
     }
   }
 };
