@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import Overview from "@/views/OverviewPage/Overview.vue"
 import InventoryReport from "@/views/InventoryReportPage/InventoryReport.vue"
 import DynamicQuery from "@/views/DynamicQuery/DynamicQuery.vue"
+import Login from '@/views/Login.vue';
 
 
 Vue.use(Router);
@@ -29,6 +30,11 @@ export default new Router({
       name: 'DynamicQuery',
       component: DynamicQuery,
       props: true
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
     }
   ]
 });
