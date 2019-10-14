@@ -4,7 +4,7 @@
     <div class="validation-check" v-if="error">
       <div class="validation-msg">
         <span class="validation-msg-item" v-for="(item,index) in msgList" :key="index">
-          <b v-if="showMsg(index)">{{item.text}}</b>
+          <b class="el-icon-circle-close" v-if="showMsg(index)">{{item.text}}</b>
         </span>
       </div>
     </div>
@@ -24,11 +24,10 @@ export default {
   methods:{
       showMsg(index){
           let flag = true;
-          let vm = this
           for(let i=0; i< index; i++){
-              flag = !vm.msgList[i].show && flag;
+              flag = !this.msgList[i].show && flag;
           }
-          flag = vm.msgList[index].show && flag;
+          flag = this.msgList[index].show && flag;
           return flag;
       }
   }

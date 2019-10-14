@@ -17,7 +17,7 @@ import errorMsg from '@/components/Common/CommonVuelidate.vue';
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
-Vue.component('errorMsg',errorMsg);
+Vue.component('el-errorMsg',errorMsg);
 Vue.config.productionTip = false;
 
 new Vue({

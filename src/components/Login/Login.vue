@@ -9,7 +9,7 @@
         <span>Channel Data Management Platform</span>
       </el-col>
       <el-col class="login-info">
-        <errorMsg
+        <el-errorMsg
           :error="$v.userName.$error"
           type
           :msgList="[
@@ -24,8 +24,8 @@
             prefix-icon="el-icon-s-custom"
             v-model="userName"
           ></el-input>
-        </errorMsg>
-        <errorMsg
+        </el-errorMsg>
+        <el-errorMsg
           :error="$v.password.$error"
           type
           :msgList="[
@@ -41,7 +41,7 @@
             prefix-icon="el-icon-key"
             v-model="password"
           ></el-input>
-        </errorMsg>
+        </el-errorMsg>
         <el-button type="primary" round @click="goPage">登 录</el-button>
       </el-col>
     </el-col>
