@@ -153,7 +153,7 @@ h4 {
   color: #014282;
 }
 .el-main {
-  background-image: url("~@/assets/DataMgtBackgroupPic.png");
+  background-image: url("~@/assets/background_login.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
