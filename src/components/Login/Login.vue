@@ -67,8 +67,8 @@ export default {
       this.$emit("go");
     }
   },
-  mounted(){
-    if(sessionStorage.loginToken){
+  mounted() {
+    if (sessionStorage.loginToken) {
       this.$emit("go");
     }
   },
@@ -130,15 +130,27 @@ i.el-input__icon {
 }
 .login-info button {
   width: 100%;
-  background: #246ccd;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(42, 143, 226),
+    rgba(27, 62, 177)
+  ); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(
+    right,
+    rgba(42, 143, 226),
+    rgba(27, 62, 177)
+  ); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(
+    right,
+    rgba(42, 143, 226),
+    rgba(27, 62, 177)
+  ); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #2a8fe2, #1b3eb1);
   outline: none;
 }
 h4 {
   text-align: left;
   color: #014282;
-}
-.container-fluid {
-  height: 100%;
 }
 .el-main {
   background-image: url("~@/assets/DataMgtBackgroupPic.png");
@@ -148,31 +160,5 @@ h4 {
   background-size: cover;
   height: 100%;
   padding: 0;
-}
-
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 18px;
-  opacity: 0.75;
-  line-height: 300px;
-  margin: 0;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-  text-align: center;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-  text-align: center;
-}
-
-.el-carousel {
-  width: 250px;
-  align-self: left;
-  margin-bottom: 10px;
-  border-radius: 25px;
-  text-align: center;
 }
 </style>
