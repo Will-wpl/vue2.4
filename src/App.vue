@@ -1,19 +1,24 @@
 <template>
   <div id="app">
-    <div>
+    <div v-if="loginStatus" class="wholeH">
       <el-container id="header">
         <Header />
       </el-container>
-      <el-container>
-        <i @click="showSideNav" v-show="isNavUnfoldShow" style="float: right; margin-left:3px; margin-top: 3px;" class="el-icon-s-unfold"></i>
+      <el-container class="wholeH">
+        <i
+          @click="showSideNav"
+          v-show="isNavUnfoldShow"
+          style="float: right; margin-left:3px; margin-top: 3px;"
+          class="el-icon-s-unfold"
+        ></i>
         <Navigator @clicked="hideSideNav" :isPopupSideNav="!isNavUnfoldShow" />
-
         <el-container>
           <router-view />
         </el-container>
       </el-container>
     </div>
     <!-- <Layout /> -->
+    <Login v-if="!loginStatus" @go="showMainPage" />
   </div>
 </template>
 
@@ -21,15 +26,17 @@
 // import Layout from "@/views/LayoutInner.vue";
 import Header from "@/components/LayoutInner/Header.vue";
 import Navigator from "@/components/LayoutInner/Navigator.vue";
-
+import Login from "@/components/Login/Login.vue";
 export default {
   components: {
     Header,
-    Navigator
+    Navigator,
+    Login
   },
   data() {
     return {
-      isNavUnfoldShow: false
+      isNavUnfoldShow: false,
+      loginStatus: false
     };
   },
   methods: {
@@ -38,7 +45,10 @@ export default {
     },
     hideSideNav(value) {
       this.isNavUnfoldShow = value;
-      console.log(value) // someValue
+      console.log(value); // someValue
+    },
+    showMainPage(){
+      this.loginStatus = true;
     }
   }
 };
@@ -52,7 +62,9 @@ export default {
   text-align: left;
   color: #2c3e50;
 }
-
+.wholeH {
+  height: 100%;
+}
 #nav {
   padding: 30px;
 }

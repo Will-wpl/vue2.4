@@ -8,6 +8,7 @@ import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import Vuelidate from 'vuelidate';
+import errorMsg from '@/components/Common/CommonVuelidate.vue';
 // import {get, post, patch, put} from './server/httpServer'
 // Vue.prototype.$get = get;
 // Vue.prototype.$post = post;
@@ -16,7 +17,7 @@ import Vuelidate from 'vuelidate';
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
-
+Vue.component('errorMsg',errorMsg);
 Vue.config.productionTip = false;
 
 new Vue({
