@@ -1,43 +1,54 @@
 <template>
-  <div class=".container-fluid">
-    <div class="row">
-      <div class="col">
-        <div class="dms-login-content">
-          <div class="dms-login-logo">
-            <img src="../assets/icon_logo_b.png" />
-            <span class="dms-login-logo-tt">CDMS</span>
-          </div>
-          <div class="dms-login-content-tt">
-            <span class="dms-login-content-largett">商业管理系统</span>
-            <p>China Dealer Management System</p>
-          </div>
-          <i class="dms-icon-user"></i>
-          <input type="text" class="dms-login-input login-input-usr" placeholder="用户名" />
-          <i class="dms-icon-pass"></i>
-          <input type="password" class="dms-login-input login-input-pass" placeholder="密码" />
-          <div>
-            <a class="login-btn">登 录</a>
+  <el-main>
+    <div class=".container-fluid">
+      <div class="row">
+        <div class="col-4">
+          <div class=".container-fluid">
+            <div class="row">
+              <div class="col4">
+                <img src="../assets/icon_logo_b.png" />
+                <span class="dms-login-logo-tt">CDMS</span>
+              </div>
+            </div>
+
+            <div class="row mt">
+              <div class="dms-login-content-tt">
+                <span class="dms-login-content-largett">商业管理系统</span>
+                <p>China Dealer Management System</p>
+              </div>
+            </div>
+            <div class="row">
+              <i class="dms-icon-user"></i>
+              <input type="text" class="dms-login-input login-input-usr" placeholder="用户名" />
+              <i class="dms-icon-pass"></i>
+              <input type="password" class="dms-login-input login-input-pass" placeholder="密码" />
+              <div>
+                <a class="login-btn">登 录</a>
+              </div>
+            </div>
           </div>
         </div>
+        <div id="leftBg" class="col-8"></div>
       </div>
     </div>
-    <div id="leftBg" class="row">
-      <div  class="col">One of three columns</div>
-    </div>
-  </div>
+  </el-main>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style>
+<style scoped>
 #leftBg {
   background-image: url("~@/assets/background_login.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
+}
+
+.mt {
+  margin-top: 50px;
 }
 
 .dms-login-content {
@@ -96,7 +107,7 @@ export default {};
 
 .login-btn {
   display: block;
-  color: #fff;
+  color: #fff !important;
   width: 250px;
   height: 38px;
   border-radius: 20px;
@@ -121,5 +132,14 @@ export default {};
   background: linear-gradient(to right, #2a8fe2, #1b3eb1);
   margin-left: 90px;
   margin-top: 30px;
+}
+
+.dms-login-logo-tt {
+  color: #007ac3;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 5px;
+  position:absolute;
 }
 </style>
