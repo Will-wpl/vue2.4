@@ -55,7 +55,7 @@
             <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 3 }}">
               <el-menu-item index="4-3">操作日志记录</el-menu-item>
             </router-link>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 4 }}">
+            <router-link class="event-link" :to="{ name: 'RemindSetting'}">
               <el-menu-item index="4-4">提醒设置</el-menu-item>
             </router-link>
             <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 5 }}">
