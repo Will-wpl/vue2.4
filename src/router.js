@@ -6,12 +6,13 @@ import InventoryReport from "@/views/InventoryReportPage/InventoryReport.vue"
 import DynamicQuery from "@/views/DynamicQuery/DynamicQuery.vue"
 import PermissionSetting from "@/views/SystemManagement/PermissionSetting.vue"
 import RemindSetting from "@/views/SystemManagement/RemindSetting.vue"
+import Login from '@/views/Login.vue';
 
 Vue.use(Router);
 
 export default new Router({
   mode: "history",
-  // base: process.env.BASE_URL,
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
@@ -30,6 +31,11 @@ export default new Router({
       name: 'DynamicQuery',
       component: DynamicQuery,
       props: true
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/PermissionSetting',
