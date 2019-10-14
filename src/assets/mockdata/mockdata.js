@@ -391,8 +391,16 @@ const DynamicTableData = [
   }
 ]
 
+const PermissionTableData = [
+  { jurisdiction: "东区", userName: "johnsmih", name: "李文", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: false },
+  { jurisdiction: "南区", userName: "johnsmih", name: "李文", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: true },
+  { jurisdiction: "北区", userName: "johnsmih", name: "李文", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: true },
+  { jurisdiction: "西区", userName: "johnsmih", name: "李文", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: true }
+]
+
 export {
   conditionConfig,
   tableData,
-  DynamicTableData
+  DynamicTableData,
+  PermissionTableData
 }

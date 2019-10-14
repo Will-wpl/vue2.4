@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import Overview from "@/views/OverviewPage/Overview.vue"
 import InventoryReport from "@/views/InventoryReportPage/InventoryReport.vue"
 import DynamicQuery from "@/views/DynamicQuery/DynamicQuery.vue"
+import PermissionSetting from "@/views/SystemManagement/PermissionSetting.vue"
 
 
 Vue.use(Router);
@@ -28,6 +29,12 @@ export default new Router({
       path: '/DynamicQuery',
       name: 'DynamicQuery',
       component: DynamicQuery,
+      props: true
+    },
+    {
+      path: '/PermissionSetting',
+      name: 'PermissionSetting',
+      component: PermissionSetting,
       props: true
     }
   ]
