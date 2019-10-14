@@ -391,8 +391,31 @@ const DynamicTableData = [
   }
 ]
 
+const PermissionTableData = [
+  { jurisdiction: "东区", userName: "johnsmih", name: "李文", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: false },
+  { jurisdiction: "南区", userName: "johnsmih", name: "李文", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: true },
+  { jurisdiction: "北区", userName: "johnsmih", name: "李文", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: true },
+  { jurisdiction: "西区", userName: "johnsmih", name: "李文", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: true }
+]
+
+const RemindTableData = [
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每1天", switch: false },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每1天", switch: false },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每3天", switch: true },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每1天", switch: false },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每4天", switch: true },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每1天", switch: false },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每2天", switch: false },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每1天", switch: true },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每8天", switch: false },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每5天", switch: false },
+  { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每1天", switch: false }
+]
+
 export {
   conditionConfig,
   tableData,
-  DynamicTableData
+  DynamicTableData,
+  PermissionTableData,
+  RemindTableData
 }

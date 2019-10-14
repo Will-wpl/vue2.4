@@ -4,8 +4,8 @@ import Home from "./views/Home.vue";
 import Overview from "@/views/OverviewPage/Overview.vue"
 import InventoryReport from "@/views/InventoryReportPage/InventoryReport.vue"
 import DynamicQuery from "@/views/DynamicQuery/DynamicQuery.vue"
-import Login from '@/views/Login.vue';
-
+import PermissionSetting from "@/views/SystemManagement/PermissionSetting.vue"
+import RemindSetting from "@/views/SystemManagement/RemindSetting.vue"
 
 Vue.use(Router);
 
@@ -35,6 +35,18 @@ export default new Router({
       path: '/Login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/PermissionSetting',
+      name: 'PermissionSetting',
+      component: PermissionSetting,
+      props: true
+    },
+    {
+      path: '/RemindSetting',
+      name: 'RemindSetting',
+      component: RemindSetting,
+      props: true
     }
   ]
 });

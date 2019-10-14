@@ -46,19 +46,19 @@
             <span>系统管理</span>
           </template>
           <el-menu-item-group title>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 1 }}">
+            <router-link class="event-link" :to="{ name: 'PermissionSetting' }">
               <el-menu-item index="4-1">用户权限设置</el-menu-item>
             </router-link>
             <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
               <el-menu-item index="4-2">申诉窗口期设置</el-menu-item>
             </router-link>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
+            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 3 }}">
               <el-menu-item index="4-3">操作日志记录</el-menu-item>
             </router-link>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
+            <router-link class="event-link" :to="{ name: 'RemindSetting'}">
               <el-menu-item index="4-4">提醒设置</el-menu-item>
             </router-link>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
+            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 5 }}">
               <el-menu-item index="4-5">申诉理由设置</el-menu-item>
             </router-link>
           </el-menu-item-group>
@@ -80,7 +80,7 @@ export default {
     };
   },
   methods: {
-    hideSideNav(event) {
+    hideSideNav() {
       this.isSideNavShow = false;
       this.$emit("clicked", "this.isSideNavShow");
     }
