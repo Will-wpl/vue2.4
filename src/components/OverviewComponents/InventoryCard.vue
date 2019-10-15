@@ -7,8 +7,14 @@
       </div>
       <div class="positionBottom">
         <div class="row">
-          <div class="col-sm col-md col-lg textC line">已反馈 <span>{{ event.feedback }}</span></div>
-          <div class="col-sm col-md col-lg textC">未反馈 <span>{{ event.unfeedback }}</span></div>
+          <div class="col-sm col-md col-lg textC line">
+            已反馈
+            <span>{{ event.feedback }}</span>
+          </div>
+          <div class="col-sm col-md col-lg textC">
+            未反馈
+            <span>{{ event.unfeedback }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -18,13 +24,21 @@
         <div class="col-sm col-md col-lg textR fontBig">{{ event.cyVal }}</div>
       </div>
     </div>
-    <div class="event-card -shadow certificateFile" :style="{height:cardheight+'px'}" v-if="type=='certificateFile'">
+    <div
+      class="event-card -shadow certificateFile"
+      :style="{height:cardheight+'px'}"
+      v-if="type=='certificateFile'"
+    >
       <div class="row">
         <div class="col-sm col-md col-lg-12 el-icon-tickets">{{ event.title }}</div>
         <div class="col-sm col-md col-lg-12 textR fontBig positionBottom">{{ event.cyVal }}</div>
       </div>
     </div>
-    <div class="event-card -shadow toBeconfirmed" :style="{height:cardheight+'px'}" v-if="type=='toBeconfirmed'">
+    <div
+      class="event-card -shadow toBeconfirmed"
+      :style="{height:cardheight+'px'}"
+      v-if="type=='toBeconfirmed'"
+    >
       <div class="row">
         <div class="col-sm col-md col-lg-12 el-icon-tickets">{{ event.title }}</div>
         <div class="col-sm col-md col-lg-12 textR fontBig positionBottom">{{ event.cyVal }}</div>
@@ -38,22 +52,46 @@ export default {
   props: {
     event: Object,
     type: "",
-    cardheight:""
+    cardheight: ""
   }
 };
 </script>
 
 <style scoped>
-.el-icon-tickets:before{ margin-right:8px;}
-.textR{ text-align: right;}
-.textC{ text-align: center;}
-.line{ border-right: 1px solid #ddd;}
-.fontBig{font-size: 30px;}
-.el-icon-tickets{ line-height: 44px;}
-.mt{margin-top: 10px;}
-.certificateFile{background:#0066cc url("~@/assets/iconFile.png") left bottom 25px no-repeat; background-position-x: 20px; background-size:45px;}
-.toBeconfirmed{background:#0066cc url("~@/assets/iconDqr.png") left bottom 25px no-repeat; background-position-x: 20px; background-size:45px;}
-.padR{ padding-right: 20px;}
+.el-icon-tickets:before {
+  margin-right: 8px;
+}
+.textR {
+  text-align: right;
+}
+.textC {
+  text-align: center;
+}
+.line {
+  border-right: 1px solid #ddd;
+}
+.fontBig {
+  font-size: 30px;
+}
+.el-icon-tickets {
+  line-height: 44px;
+}
+.mt {
+  margin-top: 10px;
+}
+.certificateFile {
+  background: #0066cc url("~@/assets/iconFile.png") left bottom 25px no-repeat;
+  background-position-x: 20px;
+  background-size: 45px;
+}
+.toBeconfirmed {
+  background: #0066cc url("~@/assets/iconDqr.png") left bottom 25px no-repeat;
+  background-position-x: 20px;
+  background-size: 45px;
+}
+.padR {
+  padding-right: 20px;
+}
 .event-card {
   height: 30%;
   padding: 20px;
@@ -63,8 +101,15 @@ export default {
   cursor: pointer;
   background-color: #0066cc;
 }
-.positionBottom{ width: 100%; position: absolute; bottom:20px; left: 0px;}
-.positionBottom span{font-size: 25px;}
+.positionBottom {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+}
+.positionBottom span {
+  font-size: 25px;
+}
 .event-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);

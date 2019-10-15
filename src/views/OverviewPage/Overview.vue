@@ -3,15 +3,27 @@
     <div>
       <div class="container-fluid">
         <div class="row align-items-start">
-          <div class="col-sm col-md col-lg-3">
+          <div class="col-sm col-md col-lg">
             <h4>系统实时动态概览</h4>
           </div>
-          <div class="col-sm col-md col-lg"></div>
-          <div class="col-sm col-md col-lg-3">
-            <el-carousel arrow="always" :interval="50000" height="100px">
+          <div class="col-sm col-md col-lg">
+            <el-carousel arrow="always" class="carousel-time" :interval="50000" height="90px">
               <el-carousel-item v-for="(item,index) in notis" :key="index">
-                <p style>{{ item.title }}</p>
-                <p>{{ item.title }}</p>
+                <div class="row">
+                  <div class="col-sm col-md col-lg carousel-time-left">
+                    <p>距离</p>
+                    <p>
+                      <span>{{ item.time }}</span>
+                    </p>
+                    <p>申诉关闭</p>
+                  </div>
+                  <div class="col-sm col-md col-lg carousel-time-right">
+                    <p>
+                      <b>17</b>天
+                      <bdo>22</bdo>小时
+                    </p>
+                  </div>
+                </div>
               </el-carousel-item>
             </el-carousel>
           </div>
@@ -19,19 +31,43 @@
         <div class="row">
           <div class="col-sm col-md col-lg">
             <h5>进销存</h5>
-            <InventoryEventCard v-for="event in events" cardheight="200" type="PurchaseSale" :key="event.id" :event="event" />
+            <InventoryEventCard
+              v-for="event in events"
+              cardheight="200"
+              type="PurchaseSale"
+              :key="event.id"
+              :event="event"
+            />
           </div>
           <div class="col-sm col-md col-lg">
             <h5>申诉概览</h5>
-            <InventoryEventCard v-for="event in events2" cardheight="88" :key="event.id" :event="event" type="Overview" />
+            <InventoryEventCard
+              v-for="event in events2"
+              cardheight="88"
+              :key="event.id"
+              :event="event"
+              type="Overview"
+            />
           </div>
           <div class="col-sm col-md col-lg">
             <h5>证明文件</h5>
-            <InventoryEventCard v-for="event in events3" cardheight="200" :key="event.id" :event="event" type="certificateFile" />
+            <InventoryEventCard
+              v-for="event in events3"
+              cardheight="200"
+              :key="event.id"
+              :event="event"
+              type="certificateFile"
+            />
           </div>
           <div class="col-sm col-md col-lg">
             <h5>调整数据</h5>
-            <InventoryEventCard v-for="event in events4" cardheight="200" :key="event.id" :event="event" type="toBeconfirmed" />
+            <InventoryEventCard
+              v-for="event in events4"
+              cardheight="200"
+              :key="event.id"
+              :event="event"
+              type="toBeconfirmed"
+            />
           </div>
         </div>
       </div>
@@ -52,13 +88,13 @@ export default {
     return {
       notis: [
         {
-          title: "Justin Test"
+          time: "2019年9月"
         },
         {
-          title: "Justin Test1"
+          time: "2019年10月"
         },
         {
-          title: "Justin Test2"
+          time: "2019年11月"
         }
       ],
       events: [
@@ -67,10 +103,10 @@ export default {
           title: "有差异",
           date: "Aug 28 2018",
           time: "10:00",
-          icon:"",
-          cyVal:120,
-          feedback:60,
-          unfeedback:65,
+          icon: "",
+          cyVal: 120,
+          feedback: 60,
+          unfeedback: 65,
           location: "Daytona Beach",
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
@@ -81,10 +117,10 @@ export default {
           title: "无差异",
           date: "Aug 28 2018",
           time: "10:00",
-          icon:"",
-          cyVal:84,
-          feedback:23,
-          unfeedback:7,
+          icon: "",
+          cyVal: 84,
+          feedback: 23,
+          unfeedback: 7,
           location: "Daytona Beach",
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
@@ -97,10 +133,10 @@ export default {
           title: "待处理",
           date: "Aug 28 2018",
           time: "10:00",
-          icon:"",
-          cyVal:11,
-          feedback:60,
-          unfeedback:65,
+          icon: "",
+          cyVal: 11,
+          feedback: 60,
+          unfeedback: 65,
           location: "Daytona Beach",
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
@@ -111,10 +147,10 @@ export default {
           title: "已返回",
           date: "Aug 28 2018",
           time: "10:00",
-          icon:"",
-          cyVal:20,
-          feedback:60,
-          unfeedback:65,
+          icon: "",
+          cyVal: 20,
+          feedback: 60,
+          unfeedback: 65,
           location: "Daytona Beach",
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
@@ -125,10 +161,10 @@ export default {
           title: "审批中",
           date: "Aug 28 2018",
           time: "10:00",
-          icon:"",
-          cyVal:30,
-          feedback:60,
-          unfeedback:65,
+          icon: "",
+          cyVal: 30,
+          feedback: 60,
+          unfeedback: 65,
           location: "Daytona Beach",
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
@@ -141,10 +177,10 @@ export default {
           title: "证明文件待补全",
           date: "Aug 28 2018",
           time: "10:00",
-          icon:"",
-          cyVal:120,
-          feedback:60,
-          unfeedback:65,
+          icon: "",
+          cyVal: 120,
+          feedback: 60,
+          unfeedback: 65,
           location: "Daytona Beach",
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
@@ -157,10 +193,10 @@ export default {
           title: "待确认数据",
           date: "Aug 28 2018",
           time: "10:00",
-          icon:"",
-          cyVal:120,
-          feedback:60,
-          unfeedback:65,
+          icon: "",
+          cyVal: 120,
+          feedback: 60,
+          unfeedback: 65,
           location: "Daytona Beach",
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
@@ -171,10 +207,41 @@ export default {
   }
 };
 </script>
+<style>
+.el-carousel div.el-carousel__container {
+  border-radius: 100px;
+  width: 400px;
+  margin: 0 auto;
+  background: #fff;
+}
+.el-carousel div.el-carousel__container .el-carousel__arrow {
+  background: none;
+  outline: none;
+  font-size: 35px;
+  height: auto;
+  color: #007AC3;
+}
+.el-carousel div.el-carousel__container .el-carousel__arrow--left {
+  left: -40px;
+}
+.el-carousel div.el-carousel__container .el-carousel__arrow--right {
+  right: -40px;
+}
+</style>
 <style scoped>
+h5,
 h4 {
   text-align: left;
   color: #014282;
+}
+.align-items-start {
+  margin-bottom: 30px;
+}
+.align-items-start h4 {
+  line-height: 90px;
+}
+.carousel-time {
+  float: right;
 }
 .el-main {
   background-image: url("~@/assets/DataMgtBackgroupPic.png");
@@ -192,21 +259,53 @@ h4 {
   margin: 0;
 }
 
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-  text-align: center;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
-  text-align: center;
-}
-
 .el-carousel {
-  width: 250px;
+  width: 480px;
   align-self: left;
-  margin-bottom: 10px;
-  border-radius: 25px;
-  text-align: center;
+}
+.el-carousel div.el-carousel__container {
+  border-radius: 100px;
+  overflow: hidden;
+  background: #fff;
+}
+.carousel-time .row {
+  margin: 0;
+  align-items: center;
+  height: 100%;
+}
+.carousel-time-left {
+  font-size: 12px;
+  margin-left: 15px;
+}
+.carousel-time-left p {
+  line-height: 20px;
+  margin: 0;
+  font-size: 14px;
+  color: #707070;
+}
+.carousel-time-left p span {
+  color: #007ac3;
+  font-size: 18px;
+  font-weight: bold;
+}
+.carousel-time-right {
+  padding-right: 15px;
+  padding-left: 0px;
+}
+.carousel-time-right p {
+  margin: 0;
+  font-size: 16px;
+  color: #707070;
+  padding-right: 35px;
+  background: url("~@/assets/iconCountdown.png") no-repeat right;
+  background-size: 30px;
+}
+.carousel-time-right p b {
+  font-size: 32px;
+  font-weight: bold;
+}
+.carousel-time-right p bdo {
+  font-size: 28px;
+  font-weight: bold;
 }
 </style>
