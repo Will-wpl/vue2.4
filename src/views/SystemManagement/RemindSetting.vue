@@ -81,7 +81,7 @@
         </div>
       </div>
       <el-dialog title="提醒规则" :visible.sync="dialogFormVisible">
-        <el-form :model="form" label-position="right">
+        <el-form :model="form" label-position="top">
           <el-form-item label="提醒规则名" :label-width="formLabelWidth">
             <el-input v-model="form.name" autocomplete="off" placeholder="提醒规则名"></el-input>
           </el-form-item>

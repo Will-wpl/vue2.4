@@ -9,7 +9,7 @@
           <div class="col-sm col-md col-lg"></div>
           <div class="col-sm col-md col-lg-3">
             <el-carousel arrow="always" :interval="50000" height="100px">
-              <el-carousel-item v-for="item in notis" :key="item">
+              <el-carousel-item v-for="(item,index) in notis" :key="index">
                 <p style>{{ item.title }}</p>
                 <p>{{ item.title }}</p>
               </el-carousel-item>
@@ -19,54 +19,20 @@
         <div class="row">
           <div class="col-sm col-md col-lg">
             <h5>进销存</h5>
+            <InventoryEventCard v-for="event in events" cardheight="200" type="PurchaseSale" :key="event.id" :event="event" />
           </div>
           <div class="col-sm col-md col-lg">
             <h5>申诉概览</h5>
+            <InventoryEventCard v-for="event in events2" cardheight="88" :key="event.id" :event="event" type="Overview" />
           </div>
           <div class="col-sm col-md col-lg">
             <h5>证明文件</h5>
+            <InventoryEventCard v-for="event in events3" cardheight="200" :key="event.id" :event="event" type="certificateFile" />
           </div>
           <div class="col-sm col-md col-lg">
             <h5>调整数据</h5>
+            <InventoryEventCard v-for="event in events4" cardheight="200" :key="event.id" :event="event" type="toBeconfirmed" />
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm col-md col-lg">
-            <InventoryEventCard v-for="event in events" :key="event.id" :event="event" />
-          </div>
-          <div class="col-sm col-md col-lg">
-            <table style="width:100%">
-              <tr>
-                <th>
-                  <EventCard v-for="event in events" :key="event.id" :event="event" />
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <EventCard v-for="event in events" :key="event.id" :event="event" />
-                </th>
-              </tr>
-            </table>
-          </div>
-          <div class="col-sm col-md col-lg">
-            <EventCard v-for="event in events" :key="event.id" :event="event" />
-          </div>
-          <div class="col-sm col-md col-lg">
-            <EventCard v-for="event in events" :key="event.id" :event="event" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm col-md col-lg-3">
-            <InventoryEventCard v-for="event in events" :key="event.id" :event="event" />
-          </div>
-          <div class="col-sm col-md col-lg-3">
-            <EventCard v-for="event in events" :key="event.id" :event="event" />
-            <br />
-            <br />
-            <br />
-            <br />
-          </div>
-          <div class="col-sm col-md col-lg"></div>
         </div>
       </div>
       <!-- <img src="@/assets/DataMgtBackgroupPic.png" /> -->
@@ -99,49 +65,105 @@ export default {
       ],
       events: [
         {
-          id: 1,
-          title: "Truck Cleanup",
+          id: "events1-1",
+          title: "有差异",
           date: "Aug 28 2018",
           time: "10:00",
+          icon:"",
+          cyVal:120,
+          feedback:60,
+          unfeedback:65,
           location: "Daytona Beach",
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
           category: "sustainability"
         }
-        // ,
-        // {
-        //   id: 2,
-        //   title: "Park Cleanup",
-        //   date: "Nov 12 2018",
-        //   time: "12:00",
-        //   location: "132 N Magnolia Street, Orlando, Florida",
-        //   description: "We're going to clean up this park.",
-        //   organizer: "Adam Jahr",
-        //   category: "nature"
-        // }
-        // ,
-        // {
-        //   id: 3,
-        //   title: "Pet Adoption Day",
-        //   date: "Dec 2 2018",
-        //   time: "12:00",
-        //   location: "132 N Magnolia Street, Orlando, Florida",
-        //   description: "Help animals find new homes.",
-        //   organizer: "Gregg Pollack",
-        //   category: "animal welfare"
-        // }
+      ],
+      events2: [
+        {
+          id: "events2-1",
+          title: "待处理",
+          date: "Aug 28 2018",
+          time: "10:00",
+          icon:"",
+          cyVal:11,
+          feedback:60,
+          unfeedback:65,
+          location: "Daytona Beach",
+          description: "Let's clean up this beach.",
+          organizer: "Adam Jahr",
+          category: "sustainability"
+        },
+        {
+          id: "events2-2",
+          title: "已返回",
+          date: "Aug 28 2018",
+          time: "10:00",
+          icon:"",
+          cyVal:20,
+          feedback:60,
+          unfeedback:65,
+          location: "Daytona Beach",
+          description: "Let's clean up this beach.",
+          organizer: "Adam Jahr",
+          category: "sustainability"
+        },
+        {
+          id: "events2-3",
+          title: "审批中",
+          date: "Aug 28 2018",
+          time: "10:00",
+          icon:"",
+          cyVal:30,
+          feedback:60,
+          unfeedback:65,
+          location: "Daytona Beach",
+          description: "Let's clean up this beach.",
+          organizer: "Adam Jahr",
+          category: "sustainability"
+        }
+      ],
+      events3: [
+        {
+          id: "events3-1",
+          title: "证明文件待补全",
+          date: "Aug 28 2018",
+          time: "10:00",
+          icon:"",
+          cyVal:120,
+          feedback:60,
+          unfeedback:65,
+          location: "Daytona Beach",
+          description: "Let's clean up this beach.",
+          organizer: "Adam Jahr",
+          category: "sustainability"
+        }
+      ],
+      events4: [
+        {
+          id: "events4-1",
+          title: "待确认数据",
+          date: "Aug 28 2018",
+          time: "10:00",
+          icon:"",
+          cyVal:120,
+          feedback:60,
+          unfeedback:65,
+          location: "Daytona Beach",
+          description: "Let's clean up this beach.",
+          organizer: "Adam Jahr",
+          category: "sustainability"
+        }
       ]
     };
   }
 };
 </script>
-
 <style scoped>
 h4 {
   text-align: left;
   color: #014282;
 }
-
 .el-main {
   background-image: url("~@/assets/DataMgtBackgroupPic.png");
   background-repeat: no-repeat;

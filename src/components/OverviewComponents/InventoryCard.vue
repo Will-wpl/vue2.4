@@ -1,10 +1,34 @@
 <template>
   <router-link class="event-link" :to="{ name: 'Overview', params: { id: event.id } }">
-    <div class="event-card -shadow">
-      <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
-      <h4 class="title">{{ event.title }}</h4>
-      <span>Place Holder</span>
-      <!-- <BaseIcon name="users">{{ event.attendees.length }} attending</BaseIcon> -->
+    <div class="event-card -shadow" :style="{height:cardheight+'px'}" v-if="type=='PurchaseSale'">
+      <div class="row">
+        <div class="col-sm col-md col-lg-6 el-icon-tickets">{{ event.title }}</div>
+        <div class="col-sm col-md col-lg textR fontBig">{{ event.cyVal }}</div>
+      </div>
+      <div class="positionBottom">
+        <div class="row">
+          <div class="col-sm col-md col-lg textC line">已反馈 <span>{{ event.feedback }}</span></div>
+          <div class="col-sm col-md col-lg textC">未反馈 <span>{{ event.unfeedback }}</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="event-card -shadow" :style="{height:cardheight+'px'}" v-if="type=='Overview'">
+      <div class="row">
+        <div class="col-sm col-md col-lg-6 el-icon-tickets">{{ event.title }}</div>
+        <div class="col-sm col-md col-lg textR fontBig">{{ event.cyVal }}</div>
+      </div>
+    </div>
+    <div class="event-card -shadow certificateFile" :style="{height:cardheight+'px'}" v-if="type=='certificateFile'">
+      <div class="row">
+        <div class="col-sm col-md col-lg-12 el-icon-tickets">{{ event.title }}</div>
+        <div class="col-sm col-md col-lg-12 textR fontBig positionBottom">{{ event.cyVal }}</div>
+      </div>
+    </div>
+    <div class="event-card -shadow toBeconfirmed" :style="{height:cardheight+'px'}" v-if="type=='toBeconfirmed'">
+      <div class="row">
+        <div class="col-sm col-md col-lg-12 el-icon-tickets">{{ event.title }}</div>
+        <div class="col-sm col-md col-lg-12 textR fontBig positionBottom">{{ event.cyVal }}</div>
+      </div>
     </div>
   </router-link>
 </template>
@@ -12,20 +36,35 @@
 <script>
 export default {
   props: {
-    event: Object
+    event: Object,
+    type: "",
+    cardheight:""
   }
 };
 </script>
 
 <style scoped>
+.el-icon-tickets:before{ margin-right:8px;}
+.textR{ text-align: right;}
+.textC{ text-align: center;}
+.line{ border-right: 1px solid #ddd;}
+.fontBig{font-size: 30px;}
+.el-icon-tickets{ line-height: 44px;}
+.mt{margin-top: 10px;}
+.certificateFile{background:#0066cc url("~@/assets/iconFile.png") left bottom 25px no-repeat; background-position-x: 20px; background-size:45px;}
+.toBeconfirmed{background:#0066cc url("~@/assets/iconDqr.png") left bottom 25px no-repeat; background-position-x: 20px; background-size:45px;}
+.padR{ padding-right: 20px;}
 .event-card {
-  height: 85%;
+  height: 30%;
   padding: 20px;
   margin-bottom: 24px;
+  position: relative;
   transition: all 0.2s linear;
   cursor: pointer;
   background-color: #0066cc;
 }
+.positionBottom{ width: 100%; position: absolute; bottom:20px; left: 0px;}
+.positionBottom span{font-size: 25px;}
 .event-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);

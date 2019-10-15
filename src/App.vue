@@ -4,7 +4,7 @@
       <el-container id="header">
         <Header />
       </el-container>
-      <el-container>
+      <el-container class="wholeH">
         <i
           @click="showSideNav"
           v-show="isNavUnfoldShow"
