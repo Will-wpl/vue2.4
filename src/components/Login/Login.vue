@@ -89,6 +89,10 @@ export default {
 };
 </script>
 <style>
+html,body,#app{
+        height: 100%;
+        overflow: hidden;
+      }
 input.el-input__inner {
   border-radius: 100px;
   border-color: #bcdbf6;

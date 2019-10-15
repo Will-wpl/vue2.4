@@ -77,6 +77,20 @@ export default {
           description: "Let's clean up this beach.",
           organizer: "Adam Jahr",
           category: "sustainability"
+        },
+        {
+          id: "events1-2",
+          title: "无差异",
+          date: "Aug 28 2018",
+          time: "10:00",
+          icon:"",
+          cyVal:84,
+          feedback:23,
+          unfeedback:7,
+          location: "Daytona Beach",
+          description: "Let's clean up this beach.",
+          organizer: "Adam Jahr",
+          category: "sustainability"
         }
       ],
       events2: [
@@ -170,7 +184,6 @@ h4 {
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
-  margin-right: 1%;
 }
 
 .el-carousel__item h3 {

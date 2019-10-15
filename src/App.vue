@@ -12,7 +12,7 @@
           class="el-icon-s-unfold"
         ></i>
         <Navigator @clicked="hideSideNav" :isPopupSideNav="!isNavUnfoldShow" />
-        <el-container>
+        <el-container class="pd">
           <router-view />
         </el-container>
       </el-container>
@@ -47,7 +47,7 @@ export default {
       this.isNavUnfoldShow = value;
       console.log(value); // someValue
     },
-    showMainPage(){
+    showMainPage() {
       this.loginStatus = true;
     }
   }
@@ -61,6 +61,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
+}
+.pd {
+  padding-bottom: 60px;
 }
 .wholeH {
   height: 100%;
