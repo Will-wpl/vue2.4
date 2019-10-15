@@ -93,12 +93,12 @@ html,body,#app{
         height: 100%;
         overflow: hidden;
       }
-input.el-input__inner {
-  border-radius: 100px;
-  border-color: #bcdbf6;
+.input-inner input {
+  border-radius: 100px !important;
+  border-color: #bcdbf6 !important;
 }
-i.el-input__icon {
-  color: #5888be;
+.input-inner i {
+  color: #5888be !important;
 }
 </style>
 <style scoped>
