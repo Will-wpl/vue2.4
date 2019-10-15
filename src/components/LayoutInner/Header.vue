@@ -9,28 +9,22 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 #RocheMark {
-  width: 95px;
-  height: 60px;
-  margin-left: 0px;
-  float: left;
+  width: 90px;
 }
 
 #header {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
-
+.el-header{
+  display: flex; align-items: center; 
+}
 .TitleWords {
-  height: 37px;
   font-size: 28px;
   font-family: "PingFang SC";
   font-weight: bold;
-  line-height: 32px;
   color: rgba(0, 102, 204, 1);
-  opacity: 1;
-  float: left;
-  margin-top: 15px;
   margin-left: 10px;
 }
 </style>
