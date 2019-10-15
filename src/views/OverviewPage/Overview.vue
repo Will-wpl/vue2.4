@@ -41,13 +41,11 @@
 </template> 
 
 <script>
-import EventCard from "@/components/OverviewComponents/EventCard.vue";
 import InventoryEventCard from "@/components/OverviewComponents/InventoryCard.vue";
 
 export default {
   name: "AppealOverview",
   components: {
-    EventCard,
     InventoryEventCard
   },
   data() {
