@@ -3,114 +3,13 @@
     <div>
       <div class="container-fluid">
         <div class="row align-items-start">
-          <div class="col-sm col-md col-lg-3">
+          <div class="col-sm col-md col-lg">
             <h4>
-              进销存报告({{ pageId }})
+              进销存报告({{ pageId }}) <span>2019/07/02 00：21 最后更新</span>
             </h4>
           </div>
-          <div class="col-sm col-md col-lg-2"></div>
           <div class="col-sm col-md col-lg">
             <Step :step="1" />
-          </div>
-        </div>
-        <div class="row mt20">
-          <div class="col-sm col-md col-lg-4">
-            <el-input v-model="procode" placeholder="请输入内容"></el-input>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-date-picker type="datetime" v-model="time" placeholder="选择日期时间"></el-date-picker>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value1" placeholder="选择品牌">
-              <el-option
-                v-for="item in condition.options1"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value2" placeholder="选择产品">
-              <el-option
-                v-for="item in condition.options2"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value3" placeholder="集团信息">
-              <el-option
-                v-for="item in condition.options3"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-        </div>
-        <div class="row mt20">
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value4" placeholder="选择大区">
-              <el-option
-                v-for="item in condition.options4"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value5" placeholder="选择区域">
-              <el-option
-                v-for="item in condition.options5"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value6" placeholder="选择省份">
-              <el-option
-                v-for="item in condition.options6"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value7" placeholder="多渠道准入代表">
-              <el-option
-                v-for="item in condition.options7"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value8" placeholder="商业等级">
-              <el-option
-                v-for="item in condition.options8"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-          <div class="col-sm col-md col-lg-2">
-            <el-select v-model="value9" placeholder="集团信息">
-              <el-option
-                v-for="item in condition.options9"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
           </div>
         </div>
         <div class="row mt20">
@@ -214,6 +113,7 @@ h4 {
   text-align: left;
   color: #297fd5;
 }
+h4 span{ color: #a2a0a2; font-size: 14px;}
 .white_bg {
   background: #fff;
   padding: 10px 0px;
