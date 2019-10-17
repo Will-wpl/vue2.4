@@ -26,7 +26,7 @@
 // import Layout from "@/views/LayoutInner.vue";
 import Header from "@/components/LayoutInner/Header.vue";
 import Navigator from "@/components/LayoutInner/Navigator.vue";
-import Login from "@/components/Login/Login.vue";
+import Login from "@/views/Login.vue";
 export default {
   components: {
     Header,
