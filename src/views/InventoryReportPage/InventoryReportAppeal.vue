@@ -33,12 +33,12 @@
             <div class="line"></div>
             <div class="appeal-left-menu">
               <div
-                @click="showAppealDetail($event,item)"
+                @click="showAppealDetail($event,item,index)"
                 v-for="(item,index) in appealList"
                 :event="item"
                 :key="index"
               >
-                <AppealNav :event="item" />
+                <AppealNav :event="item" :active="item.active" />
               </div>
             </div>
           </div>
@@ -96,11 +96,20 @@ export default {
       //   })
       //   .catch(_ => {});
     },
-    showAppealDetail(e, item) {
+    showAppealDetail(e, item,index) {
       this.appealObj = item;
+      this.appealList.map(item=>{item.active = false})
+      this.$set(this.appealList[index],'active',true)
     }
   },
   created(){
+      this.appealList.map((item,index)=>{
+        if(index==0){
+          item.active = true
+        }else{
+          item.active = false
+        }
+      })
       this.appealObj = this.appealList[0];
     },
   data() {
