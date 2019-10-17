@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="row mt20">
-          <el-button icon="el-icon-search" round>申请明细调整</el-button>
+          <router-link class="event-link" :to="{ name: 'InventoryReportAppeal', params: { id: pageId } }"><el-button icon="el-icon-search" round>申请明细调整</el-button></router-link>
           <el-button icon="el-icon-search" round>导出进销存报告</el-button>
         </div>
       </div>

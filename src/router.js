@@ -7,7 +7,7 @@ import DynamicQuery from "@/views/DynamicQuery/DynamicQuery.vue"
 import PermissionSetting from "@/views/SystemManagement/PermissionSetting.vue"
 import RemindSetting from "@/views/SystemManagement/RemindSetting.vue"
 import Login from '@/views/Login.vue';
-
+import InventoryReportAppeal from "@/views/InventoryReportPage/InventoryReportAppeal.vue"
 Vue.use(Router);
 
 export default new Router({
@@ -47,6 +47,11 @@ export default new Router({
       path: '/RemindSetting',
       name: 'RemindSetting',
       component: RemindSetting,
+      props: true
+    },{
+      path: '/InventoryReportAppeal:id',
+      name: 'InventoryReportAppeal',
+      component: InventoryReportAppeal,
       props: true
     }
   ]
