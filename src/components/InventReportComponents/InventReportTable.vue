@@ -29,23 +29,23 @@
     <el-table-column class-name="thead-blue" label="A">
       <el-table-column prop="frist_logical_inventory" label="期初逻辑库存" width="150" sortable></el-table-column>
     </el-table-column>
-    <el-table-column label="B">
+    <el-table-column class-name="thead-blue" label="B">
       <el-table-column prop="logical_purchasing" label="逻辑采购" width="150" sortable></el-table-column>
     </el-table-column>
-    <el-table-column label="C">
+    <el-table-column class-name="thead-blue" label="C">
       <el-table-column prop="sales_volumes" label="营销数量" width="150" sortable></el-table-column>
     </el-table-column>
-    <el-table-column label="D">
+    <el-table-column class-name="thead-blue" label="D">
       <el-table-column prop="inventory_adjustment" label="调整库存" width="150" sortable></el-table-column>
     </el-table-column>
-    <el-table-column label="E">
+    <el-table-column class-name="thead-blue" label="E">
       <el-table-column prop="logical_inventory" label="逻辑库存" width="150" sortable></el-table-column>
     </el-table-column>
-    <el-table-column label="F">
+    <el-table-column class-name="thead-blue" label="F">
       <el-table-column prop="actual_inventory" label="实际库存" width="150" sortable></el-table-column>
     </el-table-column>
-    <el-table-column label="G">
-      <el-table-column prop="inventory_variance" label="库存差异（逻辑vs实际）" width="150" sortable></el-table-column>
+    <el-table-column class-name="thead-blue" label="G">
+      <el-table-column prop="inventory_variance" label="库存差异（逻辑vs实际）" width="250" sortable></el-table-column>
     </el-table-column>
     <el-table-column>
       <el-table-column label="操作" width="100">
@@ -84,7 +84,10 @@ export default {
 .el-table thead.is-group th {
   background: #fff;
 }
-.thead-blue {
-  color: #297fd5 !important;
+</style>
+<style>
+.el-table th.thead-blue>.cell {
+  text-align: center;
+  color: #297fd5;
 }
-</style>>
+</style>

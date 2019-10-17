@@ -141,7 +141,7 @@
         <div class="row mt20">
           <InventReportTable :tableData="tableData" />
         </div>
-        <div class="row mt20 white_bg">
+        <div class="row white_bg">
           <div class="block">
             <el-pagination
               background
