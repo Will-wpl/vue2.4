@@ -1,8 +1,10 @@
 import LoginService from '@/services/services/loginServices.js';
+import qs from 'qs'
 
 export const namespaced = true
 
 export const state = {
+    user: null,
     isLogin: false,
     events: [],
     eventsTotal: 0,
@@ -11,8 +13,16 @@ export const state = {
 }
 
 export const mutations = {
-    ADD_EVENT(state, event) {
-        state.events.push(event)
+    SET_USER_DATA(state, userData) {
+        console.log("Mutation Enter")
+        state.user = userData
+        localStorage.setItem('user', JSON.stringify(userData))
+        console.log("User: "+ localStorage.getItem('user'))
+        axios.defaults.headers.common['Authorization'] = `Bearer ${
+            userData.token
+            }`
+
+        console.log("header:"+ axios.defaults.headers)
     },
     SET_EVENT(state, event) {
         state.event = event
@@ -21,24 +31,12 @@ export const mutations = {
 
 
 export const actions = {
-    createEvent({ commit, dispatch }, event) {
-        return LoginService.get()
-            .then(() => {
-                commit('ADD_EVENT', event)
-                commit('SET_EVENT', event)
-                const notification = {
-                    type: 'success',
-                    message: 'Your event has been created!'
-                }
-                dispatch('notification/add', notification, { root: true })
-            })
-            .catch(error => {
-                const notification = {
-                    type: 'error',
-                    message: 'There was a problem creating your event: ' + error.message
-                }
-                dispatch('notification/add', notification, { root: true })
-                throw error
+    login({ commit }, credentials) {
+        return LoginService
+            .Login(credentials)
+            .then((response) => {
+                console.log(response.data)
+                commit('SET_USER_DATA', response.data)
             })
     }
 
@@ -47,7 +45,10 @@ export const actions = {
 
 
 export const getters = {
+    loggedIn(state) {
+        return !!state.user
+    },
     getEventById: state => id => {
-      return state.events.find(event => event.id === id)
+        return state.events.find(event => event.id === id)
     }
-  }
+}

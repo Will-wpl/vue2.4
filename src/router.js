@@ -10,7 +10,7 @@ import Login from '@/views/Login.vue';
 import InventoryReportAppeal from "@/views/InventoryReportPage/InventoryReportAppeal.vue"
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -55,4 +55,15 @@ export default new Router({
       props: true
     }
   ]
-});
+})
+
+router.beforeEach((to, from, next) => {
+  const loggedIn = localStorage.getItem('user')
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
+    next('/')
+  }
+  next()
+})
+
+export default router

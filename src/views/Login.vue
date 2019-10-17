@@ -8,48 +8,52 @@
         渠道数据管理平台
         <span>Channel Data Management Platform</span>
       </el-col>
-      <el-col class="login-info">
-        <el-errorMsg
-          :error="$v.userName.$error"
-          type
-          :msgList="[
+      <form @submit.prevent="login">
+        <el-col class="login-info">
+          <el-errorMsg
+            :error="$v.userName.$error"
+            type
+            :msgList="[
           {
             show:!$v.userName.required,
             text:'用户名不能为空'}
           ]"
-        >
-          <el-input
-            placeholder="用户名"
-            class="input-inner"
-            prefix-icon="el-icon-s-custom"
-            v-model="userName"
-          ></el-input>
-        </el-errorMsg>
-        <el-errorMsg
-          :error="$v.password.$error"
-          type
-          :msgList="[
+          >
+            <el-input
+              placeholder="用户名"
+              class="input-inner"
+              prefix-icon="el-icon-s-custom"
+              v-model="userName"
+            ></el-input>
+          </el-errorMsg>
+          <el-errorMsg
+            :error="$v.password.$error"
+            type
+            :msgList="[
           {
             show:!$v.password.required,
             text:'密码不能为空'}
           ]"
-        >
-          <el-input
-            type="password"
-            class="input-inner"
-            placeholder="密码"
-            prefix-icon="el-icon-key"
-            v-model="password"
-          ></el-input>
-        </el-errorMsg>
-        <el-button type="primary" round @click="goPage">登 录</el-button>
-      </el-col>
+          >
+            <el-input
+              type="password"
+              class="input-inner"
+              placeholder="密码"
+              prefix-icon="el-icon-key"
+              v-model="password"
+            ></el-input>
+          </el-errorMsg>
+          <!-- <el-button type="primary" round @click="goPage">登 录</el-button> -->
+          <button type="submit" name="button">登 录</button>
+        </el-col>
+      </form>
     </el-col>
   </el-main>
 </template> 
 
 <script>
 import { required } from "vuelidate/lib/validators";
+import store from "@/store/store";
 export default {
   name: "Login",
   components: {},
@@ -65,6 +69,22 @@ export default {
       }
       sessionStorage.loginToken = this.userName;
       this.$emit("go");
+    },
+    login() {
+      store
+        .dispatch("login/login", {
+          userName: this.userName,
+          password: this.password
+        })
+        .then(() => {
+          console.log("Suceeded!");
+          this.$router.push({ name: "Overview" });
+        })
+        .catch(err => {
+          console.log("Outer Failed");
+          console.log(this.error);
+          this.error = err.response;
+        });
     }
   },
   mounted() {
@@ -83,16 +103,19 @@ export default {
   data() {
     return {
       userName: "",
-      password: ""
+      password: "",
+      error: null
     };
   }
 };
 </script>
 <style>
-html,body,#app{
-        height: 100%;
-        overflow: hidden;
-      }
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+}
 .input-inner input {
   border-radius: 100px !important;
   border-color: #bcdbf6 !important;

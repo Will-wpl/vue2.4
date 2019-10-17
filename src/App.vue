@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="loginStatus" class="wholeH">
+    <div v-if="loggedIn" class="wholeH">
       <el-container id="header">
         <Header />
       </el-container>
@@ -18,7 +18,7 @@
       </el-container>
     </div>
     <!-- <Layout /> -->
-    <Login v-if="!loginStatus" @go="showMainPage" />
+    <Login v-if="!loggedIn" @go="showMainPage" />
   </div>
 </template>
 
@@ -27,6 +27,8 @@
 import Header from "@/components/LayoutInner/Header.vue";
 import Navigator from "@/components/LayoutInner/Navigator.vue";
 import Login from "@/views/Login.vue";
+import store from "@/store/store";
+import { mapState } from 'vuex'
 export default {
   components: {
     Header,
@@ -36,7 +38,10 @@ export default {
   data() {
     return {
       isNavUnfoldShow: false,
-      loginStatus: false
+      loginStatus: false,
+      userName: "",
+      password: "",
+      error: null
     };
   },
   methods: {
@@ -50,6 +55,9 @@ export default {
     showMainPage() {
       this.loginStatus = true;
     }
+  },
+  computed: {
+    ...mapState(['login'])
   }
 };
 </script>
