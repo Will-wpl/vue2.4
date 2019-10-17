@@ -23,7 +23,7 @@
       <el-table-column prop="level" label="等级" width="200" sortable></el-table-column>
     </el-table-column>
     <el-table-column>
-      <el-table-column prop="product" label="产品" width="220" sortable></el-table-column>
+      <el-table-column prop="product" label="产品" width="280" sortable></el-table-column>
     </el-table-column>
     <el-table-column class-name="thead-blue" label="A" >
       <el-table-column prop="frist_logical_inventory" width="140" label="期初逻辑库存" sortable></el-table-column>
