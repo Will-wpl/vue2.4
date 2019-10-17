@@ -57,6 +57,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:1,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -71,6 +72,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:1,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -85,6 +87,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -99,6 +102,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -113,6 +117,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -127,6 +132,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -141,6 +147,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -155,6 +162,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -169,6 +177,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -183,6 +192,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -197,6 +207,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -211,6 +222,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -225,6 +237,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152
@@ -239,6 +252,7 @@ const tableData = [
     logical_purchasing: 333,
     sales_volumes: 654,
     inventory_adjustment: 342,
+    intransit:0,
     logical_inventory: 632,
     actual_inventory: 834,
     inventory_variance: 1152

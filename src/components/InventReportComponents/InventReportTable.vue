@@ -26,26 +26,29 @@
     <el-table-column>
       <el-table-column prop="product" label="产品" width="220" sortable></el-table-column>
     </el-table-column>
-    <el-table-column class-name="thead-blue" label="A">
-      <el-table-column prop="frist_logical_inventory" label="期初逻辑库存" width="150" sortable></el-table-column>
+    <el-table-column class-name="thead-blue" label="A" >
+      <el-table-column prop="frist_logical_inventory" width="140" label="期初逻辑库存" sortable></el-table-column>
     </el-table-column>
     <el-table-column class-name="thead-blue" label="B">
-      <el-table-column prop="logical_purchasing" label="逻辑采购" width="150" sortable></el-table-column>
+      <el-table-column prop="logical_purchasing" width="120" label="逻辑采购"  sortable></el-table-column>
     </el-table-column>
     <el-table-column class-name="thead-blue" label="C">
-      <el-table-column prop="sales_volumes" label="营销数量" width="150" sortable></el-table-column>
+      <el-table-column prop="sales_volumes" width="120" label="营销数量" sortable></el-table-column>
     </el-table-column>
     <el-table-column class-name="thead-blue" label="D">
-      <el-table-column prop="inventory_adjustment" label="调整库存" width="150" sortable></el-table-column>
+      <el-table-column prop="inventory_adjustment" width="120" label="调整库存" sortable></el-table-column>
     </el-table-column>
     <el-table-column class-name="thead-blue" label="E">
-      <el-table-column prop="logical_inventory" label="逻辑库存" width="150" sortable></el-table-column>
+      <el-table-column prop="intransit" width="120" label="在途"  sortable></el-table-column>
     </el-table-column>
     <el-table-column class-name="thead-blue" label="F">
-      <el-table-column prop="actual_inventory" label="实际库存" width="150" sortable></el-table-column>
+      <el-table-column prop="logical_inventory" label="逻辑库存" width="120"  sortable></el-table-column>
     </el-table-column>
     <el-table-column class-name="thead-blue" label="G">
-      <el-table-column prop="inventory_variance" label="库存差异（逻辑vs实际）" width="250" sortable></el-table-column>
+      <el-table-column prop="actual_inventory" label="实际库存" width="120" sortable></el-table-column>
+    </el-table-column>
+    <el-table-column class-name="thead-blue" label="H">
+      <el-table-column prop="inventory_variance" width="220" label="库存差异（逻辑vs实际）" sortable></el-table-column>
     </el-table-column>
     <el-table-column>
       <el-table-column label="操作" width="100">
