@@ -25,23 +25,23 @@
       </div>
     </div>
     <div
-      class="event-card -shadow certificateFile"
+      class="event-card -shadow"
       :style="{height:cardheight+'px'}"
       v-if="type=='certificateFile'"
     >
       <div class="row alignCenter">
         <div :class="['col-sm','col-md','col-lg','event-card-title','nopadding']">{{ event.title }}</div>
-        <div class="col-sm col-md col-lg positionBottom"><p class="textR fontBig">{{ event.cyVal }}</p></div>
+        <div class="col-sm col-md col-lg positionBottom certificateFile"><p class="textR fontBig">{{ event.cyVal }}</p></div>
       </div>
     </div>
     <div
-      class="event-card -shadow toBeconfirmed"
+      class="event-card -shadow"
       :style="{height:cardheight+'px'}"
       v-if="type=='toBeconfirmed'"
     >
       <div class="row alignCenter">
         <div :class="['col-sm','col-md','col-lg','event-card-title','nopadding']">{{ event.title }}</div>
-        <div class="col-sm col-md col-lg-12 positionBottom"><p class="textR fontBig">{{ event.cyVal }}</p></div>
+        <div class="col-sm col-md col-lg-12 positionBottom toBeconfirmed"><p class="textR fontBig">{{ event.cyVal }}</p></div>
       </div>
     </div>
   </router-link>
@@ -107,14 +107,14 @@ export default {
   margin-top: 10px;
 }
 .certificateFile {
-  background: #0066cc url("~@/assets/iconFile.png") left bottom 25px no-repeat;
+  background:url("~@/assets/iconFile.png") left no-repeat;
   background-position-x: 20px;
-  background-size: 45px;
+  background-size: 40px;
 }
 .toBeconfirmed {
-  background: #0066cc url("~@/assets/iconDqr.png") left bottom 25px no-repeat;
+  background:url("~@/assets/iconDqr.png") left no-repeat;
   background-position-x: 20px;
-  background-size: 45px;
+  background-size: 40px;
 }
 .padR {
   padding-right: 20px;
