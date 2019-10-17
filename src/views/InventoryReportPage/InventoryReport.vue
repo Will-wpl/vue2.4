@@ -18,7 +18,7 @@
             <span>符合筛选条件记录共（10）条</span>
           </h5>
           <div class="col-1 align-self-end textR">
-            <i @click="showFilter" style="color:#007AC3" class="el-icon-s-operation OpIcons">筛选</i>
+            <i @click="drawer = true" style="color:#007AC3" class="el-icon-s-operation OpIcons">筛选</i>
           </div>
         </div>
         <div class="row mt20">
@@ -50,8 +50,61 @@
             ></el-pagination>
           </div>
         </div>
+        <div class="row mt20">
+          <el-button icon="el-icon-search" round>申请明细调整</el-button>
+          <el-button icon="el-icon-search" round>导出进销存报告</el-button>
+        </div>
       </div>
     </div>
+    <el-drawer
+    title="设置表格显示内容"
+    :visible.sync="drawer"
+    :direction="direction"
+    :before-close="handleClose">
+    <div class="row filterbox">
+      <div class="col-sm col-md col-lg"><el-checkbox v-model="checked">全部</el-checkbox></div>
+    </div>
+    <div class="row filterbox">
+      <div class="col-sm col-md col-lg-12 mb">商业信息</div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+    </div>
+    <div class="row filterbox">
+      <div class="col-sm col-md col-lg-12 mb">产品信息</div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+    </div>
+    <div class="row filterbox">
+      <div class="col-sm col-md col-lg-12 mb">商业信息</div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+    </div>
+    <div class="row filterbox">
+      <div class="col-sm col-md col-lg-12 mb">历史数据</div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+      <div class="col-sm col-md col-lg-4"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+    </div>
+    <div class="row filterbox">
+      <div class="col-sm col-md col-lg-12 mb">申请状态</div>
+      <div class="col-sm col-md col-lg"><el-checkbox v-model="checked">商业代码</el-checkbox></div>
+    </div>
+    <div class="posBtn">
+      <el-button round>恢复默认显示</el-button>
+      <el-button type="primary" round>生效</el-button>
+    </div>
+  </el-drawer>
   </el-main>
 </template>
 <script>
@@ -71,12 +124,20 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     },
-    showFilter(){
-
+    handleClose(done) {
+      done();
+        // this.$confirm('确认关闭？')
+        //   .then(_ => {
+        //     done();
+        //   })
+        //   .catch(_ => {});
     }
   },
   data() {
     return {
+      drawer: false,
+      direction: 'rtl',
+      checked:'',
       procode: "",
       time: "",
       value1: "",
@@ -107,8 +168,14 @@ export default {
   }
 };
 </script>
-
+<style>
+.el-drawer__header{ margin-bottom: 15px !important;}
+.el-table td, .el-table th{ padding: 5px 0px !important; font-size: 13px;}
+</style>
 <style scoped>
+.mb{ margin-bottom: 10px;}
+.filterbox{ border-bottom: 1px solid #D6D6D6; padding: 10px; margin: 0;}
+.posBtn{ position: absolute; bottom: 0px; width: 100%; text-align: right;  padding: 15px; background: #fff; box-shadow: 0px 0px 8px #ccc;}
 h4 {
   text-align: left;
   color: #297fd5;
