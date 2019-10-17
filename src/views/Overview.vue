@@ -132,6 +132,20 @@ export default {
         // }
       ]
     };
+  },
+  created() {
+    return LoginService.getToken()
+      .then(res => {
+        this.token = res.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
+  computed: {
+    name() {
+      return this.data;
+    }
   }
 };
 </script>
