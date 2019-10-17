@@ -120,13 +120,14 @@ export default {
   padding-right: 20px;
 }
 .event-card {
+  border-radius: 8px;
   height: 30%;
   padding: 20px;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
   position: relative;
   transition: all 0.2s linear;
   cursor: pointer;
-  background-color: #0066cc;
+  background:rgba(0,102,204,0.8);
 }
 .positionBottom {
   width: 100%;

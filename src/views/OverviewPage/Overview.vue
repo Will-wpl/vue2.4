@@ -33,7 +33,7 @@
             <h5>进销存</h5>
             <InventoryEventCard
               v-for="event in events"
-              cardheight="200"
+              cardheight="186"
               type="PurchaseSale"
               :key="event.id"
               :event="event"
@@ -53,7 +53,7 @@
             <h5>证明文件</h5>
             <InventoryEventCard
               v-for="event in events3"
-              cardheight="200"
+              cardheight="186"
               :key="event.id"
               :event="event"
               type="certificateFile"
@@ -63,7 +63,7 @@
             <h5>调整数据</h5>
             <InventoryEventCard
               v-for="event in events4"
-              cardheight="200"
+              cardheight="186"
               :key="event.id"
               :event="event"
               type="toBeconfirmed"
