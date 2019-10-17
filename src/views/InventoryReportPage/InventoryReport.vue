@@ -114,17 +114,13 @@
           </div>
         </div>
         <div class="row mt20">
-          <div class="col-sm col-md col-lg-10"></div>
-          <div class="col-sm col-md col-lg-2 textR">
-            <el-button size="mini" round>取消</el-button>
-            <el-button size="mini" round>筛选</el-button>
-          </div>
-        </div>
-        <div class="row mt20">
-          <h5 class="col-lg-12 total">
+          <h5 class="col-sm col-md col-lg total">
             总记录：180
             <span>符合筛选条件记录共（10）条</span>
           </h5>
+          <div class="col-1 align-self-end textR">
+            <i @click="showFilter" style="color:#007AC3" class="el-icon-s-operation OpIcons">筛选</i>
+          </div>
         </div>
         <div class="row mt20">
           <h5 class="col-lg-12 textR formulas">
@@ -175,6 +171,9 @@ export default {
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    showFilter(){
+
     }
   },
   data() {
@@ -222,6 +221,7 @@ h4 {
 .total {
   color: #a2a0a2;
   font-size: 15px;
+  margin: 0;
 }
 .total span {
   color: #297fd5;
