@@ -37,14 +37,17 @@
             <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
               <el-menu-item index="4-2">申诉窗口期设置</el-menu-item>
             </router-link>
+            <router-link class="event-link" :to="{ name: 'DynamicReport'}">
+              <el-menu-item index="4-3">申诉报表</el-menu-item>
+            </router-link>
             <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 3 }}">
-              <el-menu-item index="4-3">操作日志记录</el-menu-item>
+              <el-menu-item index="4-4">操作日志记录</el-menu-item>
             </router-link>
             <router-link class="event-link" :to="{ name: 'RemindSetting'}">
-              <el-menu-item index="4-4">提醒设置</el-menu-item>
+              <el-menu-item index="4-5">提醒设置</el-menu-item>
             </router-link>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 5 }}">
-              <el-menu-item index="4-5">申诉理由设置</el-menu-item>
+            <router-link class="event-link" :to="{ name: 'AppealReasonSetting'}">
+              <el-menu-item index="4-6">申诉理由设置</el-menu-item>
             </router-link>
           </el-menu-item-group>
         </el-submenu>
