@@ -426,10 +426,45 @@ const RemindTableData = [
   { remindName: "无操作提醒", condition: "未操作 xxxxx操作 ", triggerTime: "窗口期3天前", sendRemind: "提醒邮件1", receiveRole: "销售代表", remindFrequency: "每1天", switch: false }
 ]
 
+const AppealReasonTableData = [
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细","3. 逻辑库存调整"], switch: true },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: true },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: true },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["3. 逻辑库存调整", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: true },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: true },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "3. 逻辑库存调整"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["3. 逻辑库存调整", "2补量明细"], switch: true },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false },
+  { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false }
+]
+
+
 export {
   conditionConfig,
   tableData,
   DynamicTableData,
   PermissionTableData,
-  RemindTableData
+  RemindTableData,
+  AppealReasonTableData
 }

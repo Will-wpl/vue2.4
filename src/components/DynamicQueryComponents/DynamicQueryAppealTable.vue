@@ -4,6 +4,7 @@
     :data="tableData"
     ref="multipleTable"
     border
+    stripe
     height="500"
     @selection-change="handleSelectionChange"
     :default-sort="{prop: 'date', order: 'descending'}"

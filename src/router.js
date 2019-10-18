@@ -8,6 +8,9 @@ import PermissionSetting from "@/views/SystemManagement/PermissionSetting.vue"
 import RemindSetting from "@/views/SystemManagement/RemindSetting.vue"
 import Login from '@/views/Login.vue';
 import InventoryReportAppeal from "@/views/InventoryReportPage/InventoryReportAppeal.vue"
+import DynamicReport from "@/views/SystemManagement/DynamicReport.vue"
+import AppealReasonSetting from "@/views/SystemManagement/AppealReasonSetting.vue"
+
 Vue.use(Router);
 
 const router = new Router({
@@ -52,6 +55,16 @@ const router = new Router({
       path: '/InventoryReportAppeal:id',
       name: 'InventoryReportAppeal',
       component: InventoryReportAppeal,
+      props: true
+    },{
+      path: '/DynamicReport',
+      name: 'DynamicReport',
+      component: DynamicReport,
+      props: true
+    },{
+      path: '/AppealReasonSetting',
+      name: 'AppealReasonSetting',
+      component: AppealReasonSetting,
       props: true
     }
   ]

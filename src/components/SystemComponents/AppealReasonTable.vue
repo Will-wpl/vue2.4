@@ -9,13 +9,15 @@
     :default-sort="{prop: 'date', order: 'descending'}"
   >
     <!-- <el-table-column align="center" type="selection"></el-table-column> -->
-    <el-table-column prop="remindName" label="提醒规则名" width="150" sortable></el-table-column>
-    <el-table-column prop="condition" label="判断条件" width="150" sortable></el-table-column>
-    <el-table-column prop="triggerTime" label="触发时间" width="200" sortable></el-table-column>
-    <el-table-column prop="sendRemind" label="发送提醒" width="200" sortable></el-table-column>
-    <el-table-column prop="receiveRole" label="提醒接收角色" align="center" width="150" sortable></el-table-column>
-    <el-table-column prop="remindFrequency" label="提醒频率" width="400" sortable></el-table-column>
-    <el-table-column prop="switch" label="是否启用" width="150" sortable>
+    <el-table-column prop="number" label="编号" sortable></el-table-column>
+    <el-table-column prop="reason" label="理由" sortable></el-table-column>
+    <el-table-column prop="type" label="类型" sortable></el-table-column>
+    <el-table-column prop="relation" label="关联申诉表单" width="500" sortable>
+        <template slot-scope="scope">
+            <div class="jlist-tag" v-html="creataTag(scope.row.relation)"></div>
+        </template>
+    </el-table-column>
+    <el-table-column prop="switch" label="是否启用" sortable>
       <template slot-scope="scope">
         <el-switch v-model="scope.row.switch" active-color="#1D77D2" inactive-color="#aaa"></el-switch>
       </template>
@@ -24,27 +26,52 @@
       <template slot-scope="scope">
         <el-dropdown>
           <span class="el-dropdown-link">
-            <i class="el-icon-more el-icon--center"></i>
+            <i class="el-icon-s-unfold el-icon--center"></i>
             <b v-show="false">{{scope.row.edit}}</b>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
-              <template slot-scope="scope">
-                    <div v-show="false">{{scope}}</div> 
-                    <span class="el-icon-edit btnBlue" @click="showEditing" slot="reference">编辑</span>
-                </template>
-            </el-dropdown-item>
-            <el-dropdown-item>
-              <template slot-scope="scope">
-                    <div v-show="false">{{scope}}</div> 
-                    <span class="el-icon-delete btnRed" slot="reference">删除</span>
-                </template>
-            </el-dropdown-item>
-            <el-dropdown-item>
-                <template slot-scope="scope">
-                    <div v-show="false">{{scope}}</div> 
-                    <span class="el-icon-delete btnBlue" slot="reference">发送手动提醒</span>
-                </template>
+              <el-popover placement="right" width="600" trigger="click">
+                <h4 class="popover-title">操作员管理</h4>
+                <div class="popover-select">
+                  <span>理由</span>
+                  <el-select v-model="value1" placeholder="理由">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
+                </div>
+                <div class="popover-select">
+                  <span>类型</span>
+                  <el-select v-model="value2" placeholder="类型">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
+                </div>
+                <div class="popover-select">
+                  <span>关联申诉表单</span>
+                  <el-select v-model="value2" placeholder="关联申诉表单">
+                    <el-option
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"
+                    ></el-option>
+                  </el-select>
+                </div>
+                <div class="popover-select textR">
+                  <el-button type="primary" round>确认</el-button>
+                  <el-button round>取消</el-button>
+                </div>
+                <span slot="reference">编辑</span>
+              </el-popover>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -68,9 +95,13 @@ export default {
         console.log(row)
 　　　　　this.currentSelectItem = row
       },
-      showEditing(){
-          this.$emit("edit");
+    creataTag(arr) {
+      let html = "";
+      for (let i = 0; i < arr.length; i++) {
+        html += `<span style="padding: 2px 8px; border:1px solid #ddd; margin-right: 10px;">${arr[i]}</span>`;
       }
+      return html;
+    }
   },
   props: ["tableData"],
   mounted() {
@@ -140,8 +171,6 @@ export default {
 </script>
 <style scoped>
 .el-radio__label{ display: none;}
-.btnBlue{ color: #1D77D2; padding-left: 5px;}
-.btnRed{ color: red; padding-left: 5px;}
 .popover-title {
   font-size: 15px;
 }
