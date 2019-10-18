@@ -84,12 +84,12 @@ export default {
     InventoryEventCard
   },
   mounted(){
-    this.$ajax.getHomeData({}).then((res)=>{
-      this.$store.dispatch('saveHomeData',res.data);
-      console.log(this.jdata.code);
-    }).catch((err)=>{
-      console.log(err);
-    })
+    // this.$ajax.getHomeData({}).then((res)=>{
+    //   this.$store.dispatch('saveHomeData',res.data);
+    //   console.log(this.jdata.code);
+    // }).catch((err)=>{
+    //   console.log(err);
+    // })
   },
   computed: {
     jdata(){
