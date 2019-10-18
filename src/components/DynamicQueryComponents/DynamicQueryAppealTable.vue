@@ -48,11 +48,12 @@
     </el-table-column>
     <el-table-column prop="complaintStatus" label="申诉单状态" width="150" sortable></el-table-column>
     <el-table-column prop="fileStatus" label="证明文件状态" width="100" sortable></el-table-column>
-    <el-table-column label="操作" fixed="right" width="100">
+    <el-table-column label="操作" prop="edit" fixed="right" width="100">
       <template slot-scope="scope">
                   <el-dropdown>
                     <span class="el-dropdown-link">
                       <i class="el-icon-more el-icon--center"></i>
+                      <i v-show="false">{{ scope.row.edit }}</i>
                     </span>
                     <el-dropdown-menu slot="dropdown">
                       <el-dropdown-item>查看</el-dropdown-item>

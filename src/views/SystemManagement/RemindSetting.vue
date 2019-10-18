@@ -62,7 +62,7 @@
           <div class="col-sm col-md col-lg w100 mt20">
             <div class="systembox">
               <h4 class="system-title row">
-                <div class="col-sm col-md col-lg">全部提醒 5</div>
+                <div class="col-sm col-md col-lg pad0">全部提醒 5</div>
                 <div class="col-sm col-md col-lg-2 el-icon-plus textR blue" @click="showEdit">新增</div>
               </h4>
               <RemindTable :tableData="tableData" @edit="showEdit" />
@@ -299,6 +299,7 @@ export default {
 .line {
   margin-top: 15px;
 }
+.pad0{padding: 0;}
 .el-form--label-top .el-form-item__label {
   margin: 0;
 }
