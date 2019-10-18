@@ -239,6 +239,8 @@ export default {
 .el-carousel div.el-carousel__container .el-carousel__arrow--right {
   right: -40px;
 }
+.el-main .el-tabs__header{ margin-bottom: 0px; background: #fff;}
+.el-main .el-tabs__header .el-tabs__nav{ margin-left: 20px;}
 </style>
 <style scoped>
 h5,
