@@ -43,8 +43,8 @@
               v-model="password"
             ></el-input>
           </el-errorMsg>
-          <!-- <el-button type="primary" round @click="goPage">登 录</el-button> -->
-          <button type="submit" name="button">登 录</button>
+          <el-button type="primary" round @click="goPage">登 录</el-button>
+          <!-- <button type="submit" name="button">登 录</button> -->
         </el-col>
       </form>
     </el-col>
@@ -81,8 +81,8 @@ export default {
           this.$router.push({ name: "Overview" });
         })
         .catch(err => {
-          console.log("Outer Failed");
-          console.log(this.error);
+          console.log("Login Outer Failed");
+          console.log(err);
           this.error = err.response;
         });
     }

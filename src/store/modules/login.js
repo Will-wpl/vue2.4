@@ -1,5 +1,6 @@
 import LoginService from '@/services/services/loginServices.js';
 import qs from 'qs'
+import axios from 'axios'
 
 export const namespaced = true
 
@@ -17,10 +18,10 @@ export const mutations = {
         console.log("Mutation Enter")
         state.user = userData
         localStorage.setItem('user', JSON.stringify(userData))
-        console.log("User: " + localStorage.getItem('user'))
+        console.log("Mutation User: " + localStorage.getItem('user'))
         axios.defaults.headers.common['Authorization'] = userData.token
 
-        console.log("header:" + axios.defaults.headers)
+        console.log("Mutation header:" + axios.defaults.headers.common['Authorization'])
     },
     CLEAR_USER_DATA() {
         localStorage.removeItem('user')
@@ -34,9 +35,12 @@ export const actions = {
         return LoginService
             .Login(credentials)
             .then((response) => {
-                console.log(response.data)
+                console.log("Actions: " + response.data.userName)
                 commit('SET_USER_DATA', response.data)
             })
+    },
+    logout({ commit }) {
+        commit('CLEAR_USER_DATA')
     }
 
 

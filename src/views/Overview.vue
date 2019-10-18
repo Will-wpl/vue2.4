@@ -218,7 +218,7 @@ export default {
   outline: none;
   font-size: 35px;
   height: auto;
-  color: #007AC3;
+  color: #007ac3;
 }
 .el-carousel div.el-carousel__container .el-carousel__arrow--left {
   left: -40px;
@@ -238,6 +238,13 @@ h4 {
 }
 .align-items-start h4 {
   line-height: 90px;
+}
+.el-main .el-tabs__header {
+  margin-bottom: 0px;
+  background: #fff;
+}
+.el-main .el-tabs__header .el-tabs__nav {
+  margin-left: 20px;
 }
 .carousel-time {
   float: right;
