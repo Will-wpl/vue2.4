@@ -78,7 +78,6 @@
 
 <script>
 import InventoryEventCard from "@/components/OverviewComponents/InventoryCard.vue";
-import {mapState, mapGetters, mapMutations} from 'vuex'
 export default {
   name: "AppealOverview",
   components: {
