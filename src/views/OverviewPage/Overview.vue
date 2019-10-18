@@ -78,11 +78,24 @@
 
 <script>
 import InventoryEventCard from "@/components/OverviewComponents/InventoryCard.vue";
-
+import {mapState, mapGetters, mapMutations} from 'vuex'
 export default {
   name: "AppealOverview",
   components: {
     InventoryEventCard
+  },
+  mounted(){
+    this.$ajax.getHomeData({}).then((res)=>{
+      this.$store.dispatch('saveHomeData',res.data);
+      console.log(this.jdata.code);
+    }).catch((err)=>{
+      console.log(err);
+    })
+  },
+  computed: {
+    jdata(){
+      return this.$store.state.home.datas.homeData
+    }
   },
   data() {
     return {

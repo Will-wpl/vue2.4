@@ -1,4 +1,4 @@
-import LoginService from '@/services/services/loginServices.js';
+import LoginService from '@/services/services/Services.js';
 import qs from 'qs'
 
 export const namespaced = true

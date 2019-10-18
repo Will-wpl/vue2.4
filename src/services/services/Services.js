@@ -1,4 +1,4 @@
-import { settings } from '../../services/ApiSettings'
+import { settings } from '../ApiSettings'
 import axios from 'axios'
 import qs from 'qs'
 
@@ -21,5 +21,8 @@ export default {
     },
     PureLogin(credentials) {
         return axios.post(settings.baseURL + '/values/LoginPostTest', qs.stringify(credentials))
+    },
+    getHomeData(data) {
+        return axios.get(settings.testUrl + '/activiti/mgjCurriculum/kcList');
     }
 }
