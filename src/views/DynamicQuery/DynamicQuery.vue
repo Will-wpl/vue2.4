@@ -124,7 +124,7 @@
             <el-button size="mini" round>筛选</el-button>
           </div>
         </div>
-        <div class="row">
+        <div class="row mt20">
           <div class="col-sm col-md col-lg w100">
             <el-tabs v-model="activeName">
               <el-tab-pane label="申诉单" name="first">
