@@ -28,7 +28,8 @@ import Header from "@/components/LayoutInner/Header.vue";
 import Navigator from "@/components/LayoutInner/Navigator.vue";
 import Login from "@/views/Login.vue";
 import store from "@/store/store";
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   components: {
     Header,
@@ -57,7 +58,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['login'])
+    ...mapState(["login"]),
+    ...mapGetters('login', ['loggedIn'])
   }
 };
 </script>

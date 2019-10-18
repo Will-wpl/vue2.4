@@ -18,9 +18,7 @@ export const mutations = {
         state.user = userData
         localStorage.setItem('user', JSON.stringify(userData))
         console.log("User: "+ localStorage.getItem('user'))
-        axios.defaults.headers.common['Authorization'] = `Bearer ${
-            userData.token
-            }`
+        axios.defaults.headers.common['Authorization'] = userData.token
 
         console.log("header:"+ axios.defaults.headers)
     },
