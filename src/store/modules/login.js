@@ -1,3 +1,6 @@
+import LoginService from '@/services/services/loginServices.js';
+import qs from 'qs'
+
 export const namespaced = true
 
 export const state = {
@@ -19,15 +22,16 @@ export const mutations = {
 
         console.log("header:" + axios.defaults.headers)
     },
-    SET_EVENT(state, event) {
-        state.event = event
+    CLEAR_USER_DATA() {
+        localStorage.removeItem('user')
+        location.reload()
     }
 }
 
 
 export const actions = {
     login({ commit }, credentials) {
-        return this.$ajax
+        return LoginService
             .Login(credentials)
             .then((response) => {
                 console.log(response.data)
