@@ -19,21 +19,6 @@
             <span>进销存报告</span>
           </el-menu-item>
         </router-link>
-
-        <!-- <el-submenu index="2">
-          <template slot="title">
-            <i class="el-icon-document"></i>
-            <span>进销存报告</span>
-          </template>
-          <el-menu-item-group title>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 1 }}">
-              <el-menu-item index="2-1">item one</el-menu-item>
-            </router-link>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
-              <el-menu-item index="2-2">item one</el-menu-item>
-            </router-link>
-          </el-menu-item-group>
-        </el-submenu>-->
         <router-link class="event-link" :to="{ name: 'DynamicQuery'}">
           <el-menu-item index="3">
             <i class="el-icon-search"></i>

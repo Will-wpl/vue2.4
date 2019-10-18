@@ -24,8 +24,10 @@ export const mutations = {
         console.log("Mutation header:" + axios.defaults.headers.common['Authorization'])
     },
     CLEAR_USER_DATA() {
+        console.log("Enter Logout Mutation")
         localStorage.removeItem('user')
         location.reload()
+        console.log("Leave Logout Mutation")
     }
 }
 
@@ -40,6 +42,7 @@ export const actions = {
             })
     },
     logout({ commit }) {
+        console.log("Enter Logout Action")
         commit('CLEAR_USER_DATA')
     }
 

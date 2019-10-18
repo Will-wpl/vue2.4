@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="loginStatus" class="wholeH">
+    <div v-if="loggedIn" class="wholeH">
       <el-container id="header">
         <Header />
       </el-container>
@@ -18,7 +18,7 @@
       </el-container>
     </div>
     <!-- <Layout /> -->
-    <Login v-if="!loginStatus" @go="showMainPage" />
+    <Login v-if="!loggedIn" @go="showMainPage" />
   </div>
 </template>
 
