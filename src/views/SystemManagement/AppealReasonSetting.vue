@@ -103,6 +103,7 @@ export default {
   },
   data() {
     return {
+      formLabelWidth: "120px",
       ifFilterShow: false,
       procode: "",
       activeName: "first",

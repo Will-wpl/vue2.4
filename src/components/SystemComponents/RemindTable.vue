@@ -30,21 +30,21 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
               <template slot-scope="scope">
-                    <div v-show="false">{{scope}}</div> 
-                    <span class="el-icon-edit btnBlue" @click="showEditing" slot="reference">编辑</span>
-                </template>
+                <div v-show="false">{{scope}}</div>
+                <span class="el-icon-edit btnBlue" @click="showEditing" slot="reference">编辑</span>
+              </template>
             </el-dropdown-item>
             <el-dropdown-item>
               <template slot-scope="scope">
-                    <div v-show="false">{{scope}}</div> 
-                    <span class="el-icon-delete btnRed" slot="reference">删除</span>
-                </template>
+                <div v-show="false">{{scope}}</div>
+                <span class="el-icon-delete btnRed" slot="reference">删除</span>
+              </template>
             </el-dropdown-item>
             <el-dropdown-item>
-                <template slot-scope="scope">
-                    <div v-show="false">{{scope}}</div> 
-                    <span class="el-icon-delete btnBlue" slot="reference">发送手动提醒</span>
-                </template>
+              <template slot-scope="scope">
+                <div v-show="false">{{scope}}</div>
+                <span class="el-icon-delete btnBlue" slot="reference">发送手动提醒</span>
+              </template>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -59,18 +59,17 @@ export default {
     handleClick(row) {
       console.log(row);
     },
-    handleSelectionChange (row) {
-        this.tableData.forEach(item => {
-          if (item.id !== row.id) {
-            item.checked = false
-          }
-        })
-        console.log(row)
-　　　　　this.currentSelectItem = row
-      },
-      showEditing(){
-          this.$emit("edit");
-      }
+    handleSelectionChange(row) {
+      this.tableData.forEach(item => {
+        if (item.id !== row.id) {
+          item.checked = false;
+        }
+      });
+      this.currentSelectItem = row;
+    },
+    showEditing() {
+      this.$emit("edit");
+    }
   },
   props: ["tableData"],
   mounted() {
@@ -101,33 +100,36 @@ export default {
           label: "北京烤鸭"
         }
       ],
-      value1: "",input1:"",
-      value2: "",input2:"",
-      checked: null,currentSelectItem:{},
+      value1: "",
+      input1: "",
+      value2: "",
+      input2: "",
+      checked: null,
+      currentSelectItem: {},
       gridData: [
         {
-          id:1,
+          id: 1,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
           email: "joycezhu@roche.com"
         },
         {
-          id:2,
+          id: 2,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
           email: "joycezhu@roche.com"
         },
         {
-          id:3,
+          id: 3,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
           email: "joycezhu@roche.com"
         },
         {
-          id:4,
+          id: 4,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
@@ -139,9 +141,17 @@ export default {
 };
 </script>
 <style scoped>
-.el-radio__label{ display: none;}
-.btnBlue{ color: #1D77D2; padding-left: 5px;}
-.btnRed{ color: red; padding-left: 5px;}
+.el-radio__label {
+  display: none;
+}
+.btnBlue {
+  color: #1d77d2;
+  padding-left: 5px;
+}
+.btnRed {
+  color: red;
+  padding-left: 5px;
+}
 .popover-title {
   font-size: 15px;
 }
