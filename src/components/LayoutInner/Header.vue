@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      userName: sessionStorage.loginToken ? sessionStorage.loginToken : ""
+      userName: sessionStorage.loginToken ? sessionStorage.loginToken : "Mr. Justin"
     };
   }
 };
