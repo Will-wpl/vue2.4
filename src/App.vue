@@ -72,6 +72,7 @@ export default {
   text-align: center;
   background: #fff url("~@/assets/nav-left.png") no-repeat center;
   background-size: 15px;
+  cursor: pointer;
 }
 .bgRight{
   background: #fff url("~@/assets/nav-right.png") no-repeat center;
