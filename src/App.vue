@@ -1,9 +1,29 @@
 <template>
   <div id="app">
-    <div v-if="loginStatus" class="wholeH">
-      <el-container id="header">
-        <Header />
-      </el-container>
+    <div v-if="loggedIn" class="wholeH">
+      <!-- <el-container id="header"> -->
+      <el-row>
+        <el-col :span="10">
+          <div class="grid-content">
+            <Header />
+          </div>
+        </el-col>
+        <el-col :span="3" :offset="11">
+          <div class="logout">
+            <el-dropdown>
+              <span class="el-dropdown-link">
+                Mr. Justin
+                <i class="el-icon-arrow-down el-icon--right"></i>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>手册</el-dropdown-item>
+                <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+        </el-col>
+      </el-row>
+      <!-- </el-container> -->
       <el-container class="wholeH">
         <i
           @click="showSideNav"
@@ -18,7 +38,7 @@
       </el-container>
     </div>
     <!-- <Layout /> -->
-    <Login v-if="!loginStatus" @go="showMainPage" />
+    <Login v-if="!loggedIn" @go="showMainPage" />
   </div>
 </template>
 
@@ -55,11 +75,14 @@ export default {
     },
     showMainPage() {
       this.loginStatus = true;
+    },
+    logout() {
+      store.dispatch("login/logout");
     }
   },
   computed: {
     ...mapState(["login"]),
-    ...mapGetters('login', ['loggedIn'])
+    ...mapGetters("login", ["loggedIn"])
   }
 };
 </script>
@@ -72,6 +95,22 @@ export default {
   text-align: left;
   color: #2c3e50;
 }
+
+.el-dropdown-link {
+  cursor: pointer;
+  color: rgba(0, 102, 204, 1);
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:25px;
+}
+.el-icon-arrow-down {
+  font-size: 15px;
+}
+
 .pd {
   padding-bottom: 60px;
 }

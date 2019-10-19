@@ -3,7 +3,7 @@
     <img id="RocheMark" src="@/assets/RoucheBrandMark.png" />
     <span class="TitleWords">渠道数据管理平台</span>
 
-    <i @click="logout" class="el-icon-document">Log Out</i>
+    <!-- <i @click="logout" class="el-icon-document">Log Out</i> -->
   </el-header>
   
 </template>
