@@ -1,10 +1,5 @@
 <template>
   <div v-show="isPopupSideNav">
-    <i
-      @click="hideSideNav"
-      style="float: right; margin-right:3px; margin-top: 3px;"
-      class="el-icon-s-fold"
-    ></i>
     <el-aside width="200px">
       <el-menu default-active="1" class="el-menu-vertical-demo">
         <router-link class="event-link" :to="{ name: 'Overview' }">
@@ -34,7 +29,7 @@
             <router-link class="event-link" :to="{ name: 'PermissionSetting' }">
               <el-menu-item index="4-1">用户权限设置</el-menu-item>
             </router-link>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 2 }}">
+            <router-link class="event-link" :to="{ name: 'WindowPeriodSetting'}">
               <el-menu-item index="4-2">申诉窗口期设置</el-menu-item>
             </router-link>
             <router-link class="event-link" :to="{ name: 'DynamicReport'}">

@@ -11,6 +11,7 @@ import InventoryReportAppeal from "@/views/InventoryReportPage/InventoryReportAp
 import DynamicReport from "@/views/SystemManagement/DynamicReport.vue"
 import AppealReasonSetting from "@/views/SystemManagement/AppealReasonSetting.vue"
 import OperationLog from "@/views/SystemManagement/OperationLog.vue"
+import WindowPeriodSetting from "@/views/SystemManagement/WindowPeriodSetting.vue"
 
 Vue.use(Router);
 
@@ -71,6 +72,11 @@ const router = new Router({
       path: '/OperationLog',
       name: 'OperationLog',
       component: OperationLog,
+      props: true
+    },{
+      path: '/WindowPeriodSetting',
+      name: 'WindowPeriodSetting',
+      component: WindowPeriodSetting,
       props: true
     }
   ]

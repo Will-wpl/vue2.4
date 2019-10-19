@@ -483,6 +483,93 @@ const OperationLogTableData = [
   { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" }
 ]
 
+const windowPeriodSettingMonth = [
+  {
+    monthDay: new Date(2000, 10, 10, 10, 10),
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: new Date(2000, 10, 10, 10, 10),
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  },
+  {
+    monthDay: "",
+    monthTime: "",
+    appealDay: "",
+    appealTime: "",
+    realAppealMonth: "",
+  }
+]
+
 
 export {
   conditionConfig,
@@ -491,5 +578,6 @@ export {
   PermissionTableData,
   RemindTableData,
   AppealReasonTableData,
-  OperationLogTableData
+  OperationLogTableData,
+  windowPeriodSettingMonth
 }

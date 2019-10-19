@@ -5,14 +5,9 @@
         <Header />
       </el-container>
       <el-container class="wholeH">
-        <i
-          @click="showSideNav"
-          v-show="isNavUnfoldShow"
-          style="float: right; margin-left:3px; margin-top: 3px;"
-          class="el-icon-s-unfold"
-        ></i>
-        <Navigator @clicked="hideSideNav" :isPopupSideNav="!isNavUnfoldShow" />
-        <el-container class="pd">
+        <Navigator :isPopupSideNav="!isNavUnfoldShow" />
+        <el-container class="pd posR">
+          <div :class="['sideNav',isNavUnfoldShow?'bgRight':'']" @click="showSideNav"></div>
           <router-view />
         </el-container>
       </el-container>
@@ -47,7 +42,7 @@ export default {
   },
   methods: {
     showSideNav() {
-      this.isNavUnfoldShow = false;
+      this.isNavUnfoldShow = !this.isNavUnfoldShow;
     },
     hideSideNav(value) {
       this.isNavUnfoldShow = value;
@@ -59,18 +54,35 @@ export default {
   },
   computed: {
     ...mapState(["login"]),
-    ...mapGetters('login', ['loggedIn'])
+    ...mapGetters("login", ["loggedIn"])
   }
 };
 </script>
 
 <style>
+.sideNav {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  text-align: center;
+  background: #fff url("~@/assets/nav-left.png") no-repeat center;
+  background-size: 15px;
+}
+.bgRight{
+  background: #fff url("~@/assets/nav-right.png") no-repeat center;
+  background-size: 15px;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: left;
   color: #2c3e50;
+}
+.posR {
+  position: relative;
 }
 .pd {
   padding-bottom: 60px;

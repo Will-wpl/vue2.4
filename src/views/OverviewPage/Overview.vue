@@ -241,6 +241,9 @@ export default {
 }
 .el-main .el-tabs__header{ margin-bottom: 0px; background: #fff;}
 .el-main .el-tabs__header .el-tabs__nav{ margin-left: 20px;}
+.al-center{ align-items: center;}
+.mg0{margin: 0 !important;}
+.padL0{padding-left: 0px !important;}
 </style>
 <style scoped>
 h5,
