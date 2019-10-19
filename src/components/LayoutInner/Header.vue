@@ -10,6 +10,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item icon="el-icon-switch-button" @click="logout">退出登录</el-dropdown-item>
+          <el-dropdown-item icon="el-icon-s-order">手册</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -39,6 +40,13 @@ export default {
 
 #header {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.el-dropdown-link {
+  cursor: pointer;
+  color: rgba(0, 102, 204, 1);
+}
+.el-icon-arrow-down {
+  font-size: 15px;
 }
 .el-header {
   display: flex;

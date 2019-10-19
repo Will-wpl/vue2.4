@@ -50,6 +50,9 @@ export default {
     },
     showMainPage() {
       this.loginStatus = true;
+    },
+    logout() {
+      store.dispatch("login/logout");
     }
   },
   computed: {
@@ -84,6 +87,21 @@ export default {
 .posR {
   position: relative;
 }
+
+/* .el-dropdown-link {
+  cursor: pointer;
+  color: rgba(0, 102, 204, 1);
+} */
+
+/* .logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:25px;
+} */
+/* .el-icon-arrow-down {
+  font-size: 15px;
+} */
 .pd {
   padding-bottom: 60px;
 }

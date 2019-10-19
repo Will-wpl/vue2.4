@@ -43,8 +43,8 @@
               v-model="password"
             ></el-input>
           </el-errorMsg>
-          <!-- <el-button type="primary" round @click="goPage">登 录</el-button> -->
-          <button type="submit" name="button">登 录</button>
+          <el-button type="primary" round @click="goPage">登 录</el-button>
+          <!-- <button type="submit" name="button">登 录</button> -->
         </el-col>
       </form>
     </el-col>
