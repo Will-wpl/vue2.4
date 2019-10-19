@@ -73,6 +73,7 @@ export default {
   background: #fff url("~@/assets/nav-left.png") no-repeat center;
   background-size: 15px;
   cursor: pointer;
+  z-index: 999;
 }
 .bgRight{
   background: #fff url("~@/assets/nav-right.png") no-repeat center;
