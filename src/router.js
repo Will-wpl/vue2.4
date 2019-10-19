@@ -10,6 +10,7 @@ import Login from '@/views/Login.vue';
 import InventoryReportAppeal from "@/views/InventoryReportPage/InventoryReportAppeal.vue"
 import DynamicReport from "@/views/SystemManagement/DynamicReport.vue"
 import AppealReasonSetting from "@/views/SystemManagement/AppealReasonSetting.vue"
+import OperationLog from "@/views/SystemManagement/OperationLog.vue"
 
 Vue.use(Router);
 
@@ -65,6 +66,11 @@ const router = new Router({
       path: '/AppealReasonSetting',
       name: 'AppealReasonSetting',
       component: AppealReasonSetting,
+      props: true
+    },{
+      path: '/OperationLog',
+      name: 'OperationLog',
+      component: OperationLog,
       props: true
     }
   ]

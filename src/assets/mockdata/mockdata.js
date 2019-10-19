@@ -459,6 +459,30 @@ const AppealReasonTableData = [
   { number: "R001", reason: "上游发货在途 ", type: "在途", relation: ["1数据卸载更新", "2补量明细"], switch: false }
 ]
 
+const OperationLogTableData = [
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" },
+  { userRole: "MCA区域数据运维", userName: "mwang ", userFullName: "王xx", userAction: "更改 2019年9月申诉窗口期", userChange: "由 2019-09-02 ~ 2019-09-14更改为  2019-09-01 ~ 2019-09-15",userUpdate:"2019-09-21 12:23:23" }
+]
+
 
 export {
   conditionConfig,
@@ -466,5 +490,6 @@ export {
   DynamicTableData,
   PermissionTableData,
   RemindTableData,
-  AppealReasonTableData
+  AppealReasonTableData,
+  OperationLogTableData
 }

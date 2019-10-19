@@ -40,7 +40,7 @@
             <router-link class="event-link" :to="{ name: 'DynamicReport'}">
               <el-menu-item index="4-3">申诉报表</el-menu-item>
             </router-link>
-            <router-link class="event-link" :to="{ name: 'InventoryReport', params: { id: 3 }}">
+            <router-link class="event-link" :to="{ name: 'OperationLog'}">
               <el-menu-item index="4-4">操作日志记录</el-menu-item>
             </router-link>
             <router-link class="event-link" :to="{ name: 'RemindSetting'}">
