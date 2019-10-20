@@ -8,7 +8,7 @@
         渠道数据管理平台
         <span>Channel Data Management Platform</span>
       </el-col>
-      <!-- <form @submit.prevent="login"> -->
+      <form @submit.prevent="login">
         <el-col class="login-info">
           <el-errorMsg
             :error="$v.userName.$error"
@@ -47,7 +47,7 @@
           <el-button type="primary" round @click="login">登 录</el-button>
           <!-- <button type="submit" name="button">登 录</button> -->
         </el-col>
-      <!-- </form> -->
+      </form>
     </el-col>
   </el-main>
 </template> 
@@ -83,7 +83,7 @@ export default {
         })
         .catch(err => {
           console.log("Login Outer Failed");
-          console.log(err.response);
+          console.log(err);
           this.error = err.response;
         });
     }
