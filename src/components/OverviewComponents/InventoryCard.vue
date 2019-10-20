@@ -31,17 +31,17 @@
     >
       <div class="row alignCenter">
         <div :class="['col-sm','col-md','col-lg','event-card-title','nopadding']">{{ event.title }}</div>
-        <div class="col-sm col-md col-lg positionBottom certificateFile"><p class="textR fontBig">{{ event.cyVal }}</p></div>
+        <div class="col-sm col-md col-lg positionBottom certificateFile">
+          <p class="textR fontBig">{{ event.cyVal }}</p>
+        </div>
       </div>
     </div>
-    <div
-      class="event-card -shadow"
-      :style="{height:cardheight+'px'}"
-      v-if="type=='toBeconfirmed'"
-    >
+    <div class="event-card -shadow" :style="{height:cardheight+'px'}" v-if="type=='toBeconfirmed'">
       <div class="row alignCenter">
         <div :class="['col-sm','col-md','col-lg','event-card-title','nopadding']">{{ event.title }}</div>
-        <div class="col-sm col-md col-lg-12 positionBottom toBeconfirmed"><p class="textR fontBig">{{ event.cyVal }}</p></div>
+        <div class="col-sm col-md col-lg-12 positionBottom toBeconfirmed">
+          <p class="textR fontBig">{{ event.cyVal }}</p>
+        </div>
       </div>
     </div>
   </router-link>
@@ -51,6 +51,7 @@
 export default {
   props: {
     event: Object,
+    /* eslint-disable */
     type: "",
     cardheight: ""
   }
@@ -62,7 +63,7 @@ export default {
   font-size: 20px;
   padding-left: 30px;
 }
-.nopadding{
+.nopadding {
   padding: 0;
 }
 .alignCenter {
@@ -72,7 +73,7 @@ export default {
 .iconycy {
   background: url("~@/assets/iconycy.png") left no-repeat;
 }
-.iconwcy{
+.iconwcy {
   background: url("~@/assets/iconwcy.png") left no-repeat;
 }
 .iconsync1 {
@@ -83,6 +84,9 @@ export default {
 }
 .iconsync3 {
   background: url("~@/assets/iconsync3.png") left no-repeat;
+}
+.iconSp {
+  background: url("~@/assets/iconSp.png") left no-repeat;
 }
 .el-icon-tickets:before {
   margin-right: 8px;
@@ -107,12 +111,12 @@ export default {
   margin-top: 10px;
 }
 .certificateFile {
-  background:url("~@/assets/iconFile.png") left no-repeat;
+  background: url("~@/assets/iconFile.png") left no-repeat;
   background-position-x: 20px;
   background-size: 40px;
 }
 .toBeconfirmed {
-  background:url("~@/assets/iconDqr.png") left no-repeat;
+  background: url("~@/assets/iconDqr.png") left no-repeat;
   background-position-x: 20px;
   background-size: 40px;
 }
@@ -127,7 +131,7 @@ export default {
   position: relative;
   transition: all 0.2s linear;
   cursor: pointer;
-  background:rgba(0,102,204,0.8);
+  background: rgba(0, 102, 204, 0.8);
 }
 .positionBottom {
   width: 100%;
@@ -139,7 +143,9 @@ export default {
 .positionBottom span {
   font-size: 25px;
 }
-.positionBottom p {margin: 0;}
+.positionBottom p {
+  margin: 0;
+}
 .event-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);

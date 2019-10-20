@@ -69,6 +69,16 @@
               type="toBeconfirmed"
             />
           </div>
+          <div class="col-sm col-md col-lg">
+            <h5>审批概览</h5>
+            <InventoryEventCard
+              v-for="event in events5"
+              cardheight="88"
+              :key="event.id"
+              :event="event"
+              type="Overview"
+            />
+          </div>
         </div>
       </div>
       <!-- <img src="@/assets/DataMgtBackgroupPic.png" /> -->
@@ -207,6 +217,36 @@ export default {
           time: "10:00",
           icon: "",
           cyVal: 120,
+          feedback: 60,
+          unfeedback: 65,
+          location: "Daytona Beach",
+          description: "Let's clean up this beach.",
+          organizer: "Adam Jahr",
+          category: "sustainability"
+        }
+      ],
+      events5: [
+        {
+          id: "events5-1",
+          title: "待审批",
+          date: "Aug 28 2018",
+          time: "10:00",
+          icon: "iconsync1",
+          cyVal: 3,
+          feedback: 60,
+          unfeedback: 65,
+          location: "Daytona Beach",
+          description: "Let's clean up this beach.",
+          organizer: "Adam Jahr",
+          category: "sustainability"
+        },
+        {
+          id: "events5-2",
+          title: "已审批",
+          date: "Aug 28 2018",
+          time: "10:00",
+          icon: "iconSp",
+          cyVal: 7,
           feedback: 60,
           unfeedback: 65,
           location: "Daytona Beach",

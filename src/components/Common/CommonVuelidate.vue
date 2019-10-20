@@ -21,31 +21,44 @@ export default {
       default: () => []
     }
   },
-  methods:{
-      showMsg(index){
-          let flag = true;
-          for(let i=0; i< index; i++){
-              flag = !this.msgList[i].show && flag;
-          }
-          flag = this.msgList[index].show && flag;
-          return flag;
+  methods: {
+    showMsg(index) {
+      let flag = true;
+      for (let i = 0; i < index; i++) {
+        flag = !this.msgList[i].show && flag;
       }
+      flag = this.msgList[index].show && flag;
+      return flag;
+    }
   }
 };
 </script>
 <style scoped>
- .validation-whole{
-     position: relative; display: inline-flex; flex-direction: column;
-     width: 100%; margin-bottom: 15px; margin-top: 2px;
- }
- .validation-whole .validation-check{
-     position: relative;
- }
- .validation-whole .validation-msg{
-     font-size: 12px; font-weight: normal; top:0px; 
-     color: #d64f3c; padding: 5px 10px; border-radius: 10px;
- }
- .validation-whole .validation-check .is-error .input-inner:hover + .validation-check .validation-msg{
-     display: block;
- }
+.validation-whole {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 2px;
+}
+.validation-whole .validation-check {
+  position: relative;
+}
+.validation-whole .validation-msg {
+  font-size: 12px;
+  font-weight: normal;
+  top: 0px;
+  color: #d64f3c;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.validation-whole
+  .validation-check
+  .is-error
+  .input-inner:hover
+  + .validation-check
+  .validation-msg {
+  display: block;
+}
 </style>
