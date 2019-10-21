@@ -17,9 +17,9 @@
             ></i>
           </div>
 
-          <el-drawer title="设置表格显示内容" :visible.sync="drawer" :direction="direction">
-            <br>
-            <span>Hi, there!</span>
+          <el-drawer size="38%" title="设置表格显示内容" :visible.sync="drawer" :direction="direction">
+            <span style="margin-left:20px">全部</span>
+            <DynamicQueryTableSettings></DynamicQueryTableSettings>
           </el-drawer>
         </div>
         <!-- Filter Section -->
@@ -178,10 +178,12 @@ import {
   DynamicTableData
 } from "../../assets/mockdata/mockdata";
 import DynamicSearchTable from "@/components/DynamicQueryComponents/DynamicQueryAppealTable.vue";
+import DynamicQueryTableSettings from "@/components/DynamicQueryComponents/DynamicQueryTableSettings.vue";
 export default {
   name: "DynamicSearch",
   components: {
-    DynamicSearchTable
+    DynamicSearchTable,
+    DynamicQueryTableSettings
   },
   methods: {
     handleSizeChange(val) {
@@ -243,6 +245,12 @@ export default {
 .w100 {
   width: 100%;
 }
+
+#el-drawer__title span{
+  font-size: 120%;
+  font-weight: bold;
+}
+
 .align-self-end {
   text-align: right;
 }
