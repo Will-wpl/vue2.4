@@ -8,13 +8,19 @@
           </div>
           <div class="col"></div>
           <div class="col-1 align-self-end">
-            <i @click="showFilter" style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
+            <i @click="drawer = true" style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
             <i
               @click="hideFilter"
               style="color:#007AC3; margin-left: 10px;"
-              class="el-icon-arrow-up OpIcons"
+              :class="[ifFilterShow?'el-icon-arrow-up':'el-icon-arrow-down']"
+              class="OpIcons"
             ></i>
           </div>
+
+          <el-drawer title="设置表格显示内容" :visible.sync="drawer" :direction="direction">
+            <br>
+            <span>Hi, there!</span>
+          </el-drawer>
         </div>
         <!-- Filter Section -->
         <div v-show="ifFilterShow" class="row mt20">
@@ -187,11 +193,8 @@ export default {
     handleClick(e) {
       console.log(e);
     },
-    showFilter() {
-      this.ifFilterShow = true;
-    },
     hideFilter() {
-      this.ifFilterShow = false;
+      this.ifFilterShow = !this.ifFilterShow;
     },
     clearFilters() {
       this.procode = "";
@@ -209,6 +212,8 @@ export default {
   },
   data() {
     return {
+      drawer: false,
+      direction: "rtl",
       ifFilterShow: true,
       procode: "",
       activeName: "first",
