@@ -5,7 +5,7 @@
     ref="multipleTable"
     :height="height"
     stripe
-    @selection-change="handleSelectionChange"
+    @selection-change="handleSelectionChange" class="reportTable"
     :default-sort="{prop: 'date', order: 'descending'}"
   >
     <el-table-column>
@@ -85,6 +85,9 @@ export default {
   }
 };
 </script>
+<style>
+.reportTable .el-table__body-wrapper{ height: 397px !important;}
+</style>
 <style scoped>
 .el-table,
 .el-table thead.is-group th {
