@@ -69,7 +69,7 @@
               type="toBeconfirmed"
             />
           </div>
-          <div class="col-sm col-md col-lg">
+          <!-- <div class="col-sm col-md col-lg">
             <h5>审批概览</h5>
             <InventoryEventCard
               v-for="event in events5"
@@ -78,7 +78,7 @@
               :event="event"
               type="Overview"
             />
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- <img src="@/assets/DataMgtBackgroupPic.png" /> -->

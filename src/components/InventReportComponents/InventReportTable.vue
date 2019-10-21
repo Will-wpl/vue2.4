@@ -3,7 +3,7 @@
     :header-cell-style="{color:'#333',fontSize:'14px',fontWeight:900,background:'#fff'}"
     :data="tableData"
     ref="multipleTable"
-    height="500"
+    :height="height"
     stripe
     @selection-change="handleSelectionChange"
     :default-sort="{prop: 'date', order: 'descending'}"
@@ -11,10 +11,13 @@
     <el-table-column>
       <el-table-column align="center" type="selection"></el-table-column>
     </el-table-column>
-    <el-table-column>
-      <el-table-column prop="month" label="每月" width="150" sortable></el-table-column>
+    <!-- <el-table-column>
+      <el-table-column prop="yearMonth" label="年月" width="120" sortable></el-table-column>
+    </el-table-column> -->
+    <el-table-column class-name="thead-blue" v-for="(item,index) in filter" :key="index" :label="item.type=='data_information'?'A':''">
+      <el-table-column :prop="item.fieldName" :label="item.name" width="150" sortable></el-table-column>
     </el-table-column>
-    <el-table-column>
+    <!-- <el-table-column>
       <el-table-column prop="num" label="商品编号" width="200" sortable></el-table-column>
     </el-table-column>
     <el-table-column>
@@ -49,7 +52,7 @@
     </el-table-column>
     <el-table-column class-name="thead-blue" label="H">
       <el-table-column prop="inventory_variance" width="220" label="库存差异（逻辑vs实际）" sortable></el-table-column>
-    </el-table-column>
+    </el-table-column> -->
     <!-- <el-table-column>
       <el-table-column label="操作" width="100">
         <template slot-scope="scope">
@@ -71,7 +74,7 @@ export default {
       this.multipleSelection = val;
     }
   },
-  props: ["tableData"],
+  props: ["tableData","filter","height"],
   mounted() {
     console.log(this.tableData);
   },
