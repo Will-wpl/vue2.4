@@ -5,7 +5,8 @@
     ref="multipleTable"
     :height="height"
     stripe
-    @selection-change="handleSelectionChange" class="reportTable"
+    @selection-change="handleSelectionChange"
+    class="reportTable"
     :default-sort="{prop: 'date', order: 'descending'}"
   >
     <el-table-column>
@@ -13,9 +14,38 @@
     </el-table-column>
     <!-- <el-table-column>
       <el-table-column prop="yearMonth" label="年月" width="120" sortable></el-table-column>
-    </el-table-column> -->
-    <el-table-column class-name="thead-blue" v-for="(item,index) in filter" :key="index" :label="item.type=='data_information'?'A':''">
-      <el-table-column :prop="item.fieldName" :label="item.name" width="150" sortable></el-table-column>
+    </el-table-column>-->
+    <el-table-column
+      class-name="thead-blue"
+      v-for="(item,index) in filter"
+      :key="index"
+      :label="item.type=='data_information'?'A':''"
+    >
+      <el-table-column
+        :prop="item.fieldName"
+        :label="item.name"
+        v-if="!item.toolTips"
+        width="150"
+        sortable
+      ></el-table-column>
+      <el-table-column
+        :prop="item.fieldName"
+        :label="item.name"
+        v-if="item.toolTips"
+        width="150"
+        sortable
+      >
+        <template slot-scope="scope">
+          <el-popover trigger="click" placement="bottom">
+            <p>{{item.toolTips}}</p>
+            <div slot="reference">
+              {{ item.fieldName=="logicProcurement"?scope.row.logicProcurement:
+              (item.fieldName=="salesVolumes"?scope.row.salesVolumes:
+              (item.fieldName=="adjustingInventory"?scope.row.adjustingInventory:scope.row.actualInventory)) }}
+            </div>
+          </el-popover>
+        </template>
+      </el-table-column>
     </el-table-column>
     <!-- <el-table-column>
       <el-table-column prop="num" label="商品编号" width="200" sortable></el-table-column>
@@ -52,7 +82,7 @@
     </el-table-column>
     <el-table-column class-name="thead-blue" label="H">
       <el-table-column prop="inventory_variance" width="220" label="库存差异（逻辑vs实际）" sortable></el-table-column>
-    </el-table-column> -->
+    </el-table-column>-->
     <!-- <el-table-column>
       <el-table-column label="操作" width="100">
         <template slot-scope="scope">
@@ -60,7 +90,7 @@
           <el-button type="text" size="small">编辑</el-button>
         </template>
       </el-table-column>
-    </el-table-column> -->
+    </el-table-column>-->
   </el-table>
 </template>
 
@@ -74,7 +104,7 @@ export default {
       this.multipleSelection = val;
     }
   },
-  props: ["tableData","filter","height"],
+  props: ["tableData", "filter", "height"],
   mounted() {
     console.log(this.tableData);
   },
@@ -86,7 +116,9 @@ export default {
 };
 </script>
 <style>
-.reportTable .el-table__body-wrapper{ height: 397px !important;}
+.reportTable .el-table__body-wrapper {
+  height: 397px !important;
+}
 </style>
 <style scoped>
 .el-table,
@@ -95,7 +127,7 @@ export default {
 }
 </style>
 <style>
-.el-table th.thead-blue>.cell {
+.el-table th.thead-blue > .cell {
   text-align: center;
   color: #297fd5;
 }

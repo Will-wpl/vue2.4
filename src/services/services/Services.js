@@ -22,7 +22,7 @@ export default {
     PureLogin(credentials) {
         return axios.post(settings.baseURL + '/values/LoginPostTest', qs.stringify(credentials))
     },
-    getHomeData(data) {
-        return axios.get(settings.testUrl + '/activiti/mgjCurriculum/kcList');
+    getHomeData() {
+        return axios.get(settings.baseURL + '/homeindex');
     }
 }

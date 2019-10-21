@@ -32,7 +32,7 @@
           <div class="col-sm col-md col-lg">
             <h5>进销存</h5>
             <InventoryEventCard
-              v-for="event in events"
+              v-for="event in events1"
               cardheight="186"
               type="PurchaseSale"
               :key="event.id"
@@ -94,7 +94,13 @@ export default {
     InventoryEventCard
   },
   mounted(){
-    this.$axios.getHomeData({}).then((res)=>{
+    this.$axios.getHomeData().then((res)=>{
+      // this.notis = res.data.notis;
+      // this.events1 = res.data.events1;
+      // this.events2 = res.data.events2;
+      // this.events3 = res.data.events3;
+      // this.events4 = res.data.events4;
+      // this.events5 = res.data.events5;
       this.$store.dispatch('saveHomeData',res.data);
       console.log(this.jdata.code);
     }).catch((err)=>{
@@ -119,7 +125,7 @@ export default {
           time: "2019年11月"
         }
       ],
-      events: [
+      events1: [
         {
           id: "events1-1",
           title: "有差异",
