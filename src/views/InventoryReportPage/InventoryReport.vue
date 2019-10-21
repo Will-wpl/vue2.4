@@ -150,6 +150,7 @@ export default {
       this.filter = this.configForInventoryReport.filter(item => {
         return item.checked === true;
       });
+      this.drawer = false;
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
