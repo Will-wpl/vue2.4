@@ -18,9 +18,9 @@
     </el-table-column>
     <el-table-column
       class-name="thead-blue"
-      v-for="(item,index) in filter"
+      v-for="(item,index) in filterData"
       :key="index"
-      :label="item.type=='data_information'?'A':''"
+      :label="item.type=='data_information'?item.label:''"
     >
       <el-table-column
         :prop="item.fieldName"
@@ -107,12 +107,32 @@ export default {
   },
   props: ["tableData", "filter", "height", "id"],
   mounted() {
-    console.log(this.tableData);
   },
   data() {
     return {
-      multipleSelection: []
+      multipleSelection: [],
+      filterData: [],
+      headConfig: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+      headNameArr:[]
     };
+  },
+  watch: {
+    filter:function(newVal){
+      this.filterData = newVal;
+      this.headNameArr = newVal.filter(item=>{
+        return item.type=='data_information'
+      });
+      this.headNameArr.map((item,i)=>{
+        item.label = this.headConfig[i]
+      })
+      this.filterData.map((item,index)=>{
+        if(item.type == "data_information"){
+          item = this.headNameArr.find(it=>{
+            return it.fieldName == item.fieldName
+          })
+        }
+      })
+    }
   }
 };
 </script>

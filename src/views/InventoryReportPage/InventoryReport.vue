@@ -289,10 +289,6 @@ h4 span {
 .el-main {
   background: #eef2f6;
 }
-.el-select,
-.el-input {
-  width: 100% !important;
-}
 .el-carousel__item h3 {
   color: #475669;
   font-size: 18px;
