@@ -229,31 +229,8 @@ body {
 }
 
 .login-btn {
-  display: block;
-  color: #fff !important;
   width: 100%;
-  border-radius: 20px;
-  line-height: 36px;
   text-align: center;
-  cursor: pointer;
-  background: -webkit-linear-gradient(
-    left,
-    rgba(42, 143, 226),
-    rgba(27, 62, 177)
-  ); /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(
-    right,
-    rgba(42, 143, 226),
-    rgba(27, 62, 177)
-  ); /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(
-    right,
-    rgba(42, 143, 226),
-    rgba(27, 62, 177)
-  ); /* Firefox 3.6 - 15 */
-  background: linear-gradient(to right, #2a8fe2, #1b3eb1);
-  margin-left: 90px;
-  margin-top: 30px;
 }
 
 .dms-login-logo-tt {
