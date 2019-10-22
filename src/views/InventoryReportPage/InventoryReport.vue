@@ -35,7 +35,7 @@
           </h5>
         </div>
         <div class="row mt20">
-          <InventReportTable :tableData="tableData" :filter="filter" :height="tableHeight" />
+          <InventReportTable id="reportTable" :tableData="tableData" :filter="filter" :height="tableHeight" />
         </div>
         <div class="row white_bg">
           <div class="block">
@@ -54,11 +54,11 @@
         <div class="row mt20">
           <router-link
             class="event-link"
-            :to="{ name: 'InventoryReportAppeal', params: { id: pageId } }"
+            :to="{ name: 'InventoryReportAppeal', params: { id: pageId,filter: filter } }"
           >
             <el-button icon="el-icon-search" round>申请明细调整</el-button>
           </router-link>
-          <el-button icon="el-icon-search" round>导出进销存报告</el-button>
+          <el-button class="ml10" icon="el-icon-search" round @click="exportExcel">导出进销存报告</el-button>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@
       </div>
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-12 mb">商业信息</div>
-        <div v-for="(item,index) in configForInventoryReport" :key="index">
+        <div v-for="(item,index) in ReportConfig" :key="index">
           <div class="col-sm col-md col-lg-4" v-if="item.type=='business_information'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
           </div>
@@ -83,7 +83,7 @@
       </div>
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-12 mb">产品信息</div>
-        <div v-for="(item,index) in configForInventoryReport" :key="index">
+        <div v-for="(item,index) in ReportConfig" :key="index">
           <div class="col-sm col-md col-lg-4" v-if="item.type=='product_information'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
           </div>
@@ -91,7 +91,7 @@
       </div>
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-12 mb">数据信息</div>
-        <div v-for="(item,index) in configForInventoryReport" :key="index">
+        <div v-for="(item,index) in ReportConfig" :key="index">
           <div class="col-sm col-md col-lg-4" v-if="item.type=='data_information'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
           </div>
@@ -99,21 +99,21 @@
       </div>
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-12 mb">历史数据</div>
-        <div v-for="(item,index) in configForInventoryReport" :key="index">
+        <div v-for="(item,index) in ReportConfig" :key="index">
           <div class="col-sm col-md col-lg-4" v-if="item.type=='history_information'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
           </div>
         </div>
       </div>
       <div class="row filterbox">
-        <div v-for="(item,index) in configForInventoryReport" :key="index">
+        <div v-for="(item,index) in ReportConfig" :key="index">
           <div class="col-sm col-md col-lg-4" v-if="item.type=='application_status'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
           </div>
         </div>
       </div>
       <div class="posBtn">
-        <el-button round>恢复默认显示</el-button>
+        <el-button round @click="backDefault">恢复默认显示</el-button>
         <el-button type="primary" @click="doTable" round>生效</el-button>
       </div>
     </el-drawer>
@@ -127,6 +127,8 @@ import {
 } from "../../assets/mockdata/mockdata";
 import InventReportTable from "@/components/InventReportComponents/InventReportTable.vue";
 import Step from "@/components/InventReportComponents/Step.vue";
+import FileSaver from 'file-saver'
+import XLSX from 'xlsx'
 export default {
   name: "InventoryReport",
   components: {
@@ -136,18 +138,32 @@ export default {
   methods: {
     checkAll(val){
       if(val){
-        this.configForInventoryReport.map(item=>{
+        this.ReportConfig.map(item=>{
           item.checked = true;
         })
       }else{
-        this.configForInventoryReport.map(item=>{
+        this.ReportConfig.map(item=>{
           item.checked = false;
         })
       }
     },
+    backDefault(){
+      this.ReportConfig = JSON.parse(this.defaultConfig);
+      this.checked = false;
+    },
+    exportExcel () {
+         /* generate workbook object from table */
+         var wb = XLSX.utils.table_to_book(document.querySelector('#reportTable'))
+         /* get binary string as output */
+         var wbout = XLSX.write(wb, { bookType: 'xlsx', bookSST: true, type: 'array' })
+         try {
+             FileSaver.saveAs(new Blob([wbout], { type: 'application/octet-stream' }), 'InventoryReport.xlsx')
+         } catch (e) { if (typeof console !== 'undefined') console.log(e, wbout) }
+         return wbout
+     },
     doTable() {
       this.tableHeight = 500;
-      this.filter = this.configForInventoryReport.filter(item => {
+      this.filter = this.ReportConfig.filter(item => {
         return item.checked === true;
       });
       this.drawer = false;
@@ -191,18 +207,14 @@ export default {
       currentPage3: 3,
       currentPage4: 4,
       pageId: "",
-      configForInventoryReport: configForInventoryReport,
+      defaultConfig : JSON.stringify(configForInventoryReport),
+      ReportConfig: configForInventoryReport,
       filter: []
     };
   },
   mounted() {
     this.pageId = this.$route.params.id;
     this.doTable();
-    // configForInventoryReport.map(item=>{
-    //   if(item.type == "business_information"){
-    //     this.business_information.push(item)
-    //   }
-    // })
   },
   watch: {
     $route(path) {
@@ -220,8 +232,10 @@ export default {
   padding: 5px 0px !important;
   font-size: 13px;
 }
+.el-button{outline: none;}
 </style>
 <style scoped>
+.ml10{ margin-left: 10px;}
 .mb {
   margin-bottom: 10px;
 }
@@ -238,6 +252,9 @@ export default {
   padding: 15px;
   background: #fff;
   box-shadow: 0px 0px 8px #ccc;
+}
+.posBtn button{
+  outline: none;
 }
 h4 {
   text-align: left;

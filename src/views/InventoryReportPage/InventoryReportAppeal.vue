@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="row mt20">
-          <InventReportTable :tableData="tableData" />
+          <InventReportTable :tableData="tableData" :filter="filter" height="500" />
         </div>
         <div class="row white_bg">
           <div class="block">
@@ -68,7 +68,7 @@
   </el-main>
 </template>
 <script>
-import { conditionConfig, tableData } from "../../assets/mockdata/mockdata";
+import { conditionConfig, tableData,configForInventoryReport } from "../../assets/mockdata/mockdata";
 import InventReportTable from "@/components/InventReportComponents/InventReportTable.vue";
 import Step from "@/components/InventReportComponents/Step.vue";
 import AppealNav from "@/components/Common/AppealNav.vue";
@@ -152,16 +152,19 @@ export default {
       checked: "",
       input: "",
       condition: conditionConfig,
+      ReportConfig: configForInventoryReport,
       tableData: tableData,
       currentPage1: 1,
       currentPage2: 2,
       currentPage3: 3,
       currentPage4: 4,
-      pageId: ""
+      pageId: "",
+      filter: []
     };
   },
   mounted() {
     this.pageId = this.$route.params.id;
+    this.filter = this.$route.params.filter;
   },
   watch: {
     $route(path) {

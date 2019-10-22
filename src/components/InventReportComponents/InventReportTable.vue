@@ -2,19 +2,20 @@
   <el-table
     :header-cell-style="{color:'#333',fontSize:'14px',fontWeight:900,background:'#fff'}"
     :data="tableData"
+    :id="id"
     ref="multipleTable"
     :height="height"
     stripe
     @selection-change="handleSelectionChange"
     class="reportTable"
-    :default-sort="{prop: 'date', order: 'descending'}"
+    :default-sort="{prop: 'yearMonth', order: 'descending'}"
   >
     <el-table-column>
       <el-table-column align="center" type="selection"></el-table-column>
     </el-table-column>
-    <!-- <el-table-column>
+    <el-table-column>
       <el-table-column prop="yearMonth" label="年月" width="120" sortable></el-table-column>
-    </el-table-column>-->
+    </el-table-column>
     <el-table-column
       class-name="thead-blue"
       v-for="(item,index) in filter"
@@ -104,7 +105,7 @@ export default {
       this.multipleSelection = val;
     }
   },
-  props: ["tableData", "filter", "height"],
+  props: ["tableData", "filter", "height", "id"],
   mounted() {
     console.log(this.tableData);
   },
