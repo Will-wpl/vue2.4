@@ -17,7 +17,13 @@
             ></i>
           </div>
 
-          <el-drawer size="38%" title="设置表格显示内容" :visible.sync="drawer" :direction="direction">
+          <el-drawer
+            id="dynamicQueryDrawer"
+            size="38%"
+            title="设置表格显示内容"
+            :visible.sync="drawer"
+            :direction="direction"
+          >
             <span style="margin-left:20px">全部</span>
             <DynamicQueryTableSettings></DynamicQueryTableSettings>
           </el-drawer>
@@ -241,12 +247,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .w100 {
   width: 100%;
 }
 
-#el-drawer__title span{
+#el-drawer__title span {
   font-size: 120%;
   font-weight: bold;
 }
@@ -285,5 +291,11 @@ h4 {
 .el-select,
 .el-input {
   width: 100% !important;
+}
+</style>
+
+<style >
+#dynamicQueryDrawer .el-drawer__body {
+  overflow-y: auto;
 }
 </style>
