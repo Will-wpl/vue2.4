@@ -11,10 +11,14 @@
           </div>
 
           <div class="row mt">
-            <div class="dms-login-content-tt">
-              <span class="dms-login-content-largett">商业管理系统</span>
-              <p>China Dealer Management System</p>
+            <div class="col-1"></div>
+            <div class="col-10">
+              <div class="dms-login-content-tt">
+                <span class="dms-login-content-largett">数字一体化系统</span>
+                <p>China Sales Data Management System</p>
+              </div>
             </div>
+            <div class="col-1"></div>
           </div>
           <div class="row marginTop">
             <div class="container">
@@ -29,13 +33,12 @@
                       text:'用户名不能为空'}
                     ]"
                   />
-                    <el-input
-                      placeholder="用户名"
-                      class="formInput"
-                      prefix-icon="el-icon-s-custom"
-                      v-model="userName"
-                    ></el-input>
-                  
+                  <el-input
+                    placeholder="用户名"
+                    class="formInput"
+                    prefix-icon="el-icon-s-custom"
+                    v-model="userName"
+                  ></el-input>
                 </div>
                 <div class="col-2"></div>
               </div>
@@ -50,14 +53,13 @@
                         text:'密码不能为空'}
                       ]"
                   />
-                    <el-input
-                      type="password"
-                      class="formInput"
-                      placeholder="密码"
-                      prefix-icon="el-icon-key"
-                      v-model="password"
-                    ></el-input>
-                  
+                  <el-input
+                    type="password"
+                    class="formInput"
+                    placeholder="密码"
+                    prefix-icon="el-icon-key"
+                    v-model="password"
+                  ></el-input>
                 </div>
                 <div class="col-2"></div>
               </div>
@@ -165,21 +167,23 @@ export default {
 }
 
 .dms-login-content-tt {
-  margin-left: 90px;
   color: #007ac3;
   font-weight: bold;
   font-size: 24px;
-  margin-bottom: 40px;
 }
 
 .dms-login-content-tt p {
   font-size: 14px;
   margin-top: 8px;
+  text-align: center;
 }
 .dms-login-content-largett {
+  display: block;
   font-size: 20px;
   letter-spacing: 12px;
-  margin-left: 8%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .dms-login-content .dms-icon-user,
