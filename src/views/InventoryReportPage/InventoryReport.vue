@@ -82,40 +82,30 @@
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-12 mb">商业信息</div>
         <div class="col-sm col-md col-lg-4" v-for="(item,index) in filterReportConfig('business_information')" :key="index">
-          <div v-if="item.type=='business_information'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
-          </div>
         </div>
       </div>
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-12 mb">产品信息</div>
         <div class="col-sm col-md col-lg-4"  v-for="(item,index) in filterReportConfig('product_information')" :key="index">
-          <div v-if="item.type=='product_information'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
-          </div>
         </div>
       </div>
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-12 mb">数据信息</div>
         <div class="col-sm col-md col-lg-4" v-for="(item,index) in filterReportConfig('data_information')" :key="index">
-          <div v-if="item.type=='data_information'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
-          </div>
         </div>
       </div>
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-12 mb">历史数据</div>
         <div class="col-sm col-md col-lg-4" v-for="(item,index) in filterReportConfig('history_information')" :key="index">
-          <div v-if="item.type=='history_information'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
-          </div>
         </div>
       </div>
       <div class="row filterbox">
         <div class="col-sm col-md col-lg-4" v-for="(item,index) in filterReportConfig('application_status')" :key="index">
-          <div v-if="item.type=='application_status'">
             <el-checkbox v-model="item.checked">{{item.name}}</el-checkbox>
-          </div>
         </div>
       </div>
       <div class="posBtn">
