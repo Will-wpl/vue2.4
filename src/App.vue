@@ -8,7 +8,7 @@
             <Header />
           </div>
         </el-col>
-        <el-col :span="3" :offset="11">
+        <el-col :span="4" :offset="10">
           <div class="logout">
             <el-dropdown>
               <span class="el-dropdown-link">
