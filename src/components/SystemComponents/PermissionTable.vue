@@ -6,7 +6,7 @@
     height="500"
     stripe
     @selection-change="handleSelectionChange"
-    :default-sort="{prop: 'date', order: 'descending'}"
+    :default-sort="{prop: 'name', order: 'descending'}"
   >
     <!-- <el-table-column align="center" type="selection"></el-table-column> -->
     <el-table-column prop="jurisdiction" label="辖区" width="150" sortable></el-table-column>
@@ -77,16 +77,27 @@ export default {
         html += `<span style="padding: 2px 8px; border:1px solid #ddd; margin-right: 10px;">${arr[i]}</span>`;
       }
       return html;
+    },
+    watchData(data){
+      this.thistableData = data;
+      let jsonTable = JSON.stringify(this.thistableData);
+      this.deepCloneTableData = JSON.parse(jsonTable);
     }
   },
   props: ["tableData"],
   created(){
-    this.thistableData = this.tableData;
-    let jsonTable = JSON.stringify(this.thistableData);
-    this.deepCloneTableData = JSON.parse(jsonTable);
+    this.watchData(this.tableData);
   },
   mounted() {
     console.log(this.tableData);
+  },
+  watch:{
+    tableData:function(newVal){
+      this.watchData(newVal);
+    }
+  },
+  watchData(){
+
   },
   data() {
     return {

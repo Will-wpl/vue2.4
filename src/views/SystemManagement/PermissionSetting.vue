@@ -24,7 +24,7 @@
           <div class="col-sm col-md col-lg-2">
             <el-select clearable v-model="userRole" placeholder="选择用户角色">
               <el-option
-                v-for="item in condition.options2"
+                v-for="item in rolelist"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
@@ -33,7 +33,7 @@
           </div>
           <div v-show="ifFilterShow" class="col-sm col-md col-lg textR">
             <el-button @click="clearFilters" round>取消</el-button>
-            <el-button round>筛选</el-button>
+            <el-button round @click="doFilters">筛选</el-button>
           </div>
         </div>
         <div class="row">
@@ -74,6 +74,14 @@ export default {
     PermissionTable
   },
   methods: {
+    doFilters(){
+      let userRole = this.userRole;
+      let userName = this.userName;
+      this.tableData = JSON.parse(this.tableStorge).filter(item=>{
+        return item.role.includes(userRole) && item.userName.includes(userName)
+      })
+      console.log(this.tableData);
+    },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },
@@ -103,10 +111,29 @@ export default {
       userRole: "",
       condition: conditionConfig,
       tableData: PermissionTableData,
+      tableStorge:JSON.stringify(PermissionTableData),
       currentPage1: 1,
       currentPage2: 2,
       currentPage3: 3,
-      currentPage4: 4
+      currentPage4: 4,
+      rolelist:[
+        {
+          value: "MCA代表",
+          label: "MCA代表"
+        },
+        {
+          value: "MCA区域数据运维",
+          label: "MCA区域数据运维"
+        },
+        {
+          value: "大区管理",
+          label: "大区管理"
+        },
+        {
+          value: "MCA经理",
+          label: "MCA经理"
+        }
+      ]
     };
   },
   mounted() {}
