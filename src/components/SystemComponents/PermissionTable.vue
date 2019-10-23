@@ -1,7 +1,7 @@
 <template>
   <el-table
     :header-cell-style="{ color : '#333', fontSize : '14px', fontWeight : 900, background : '#fff'}"
-    :data="tableData"
+    :data="thistableData"
     ref="multipleTable"
     height="500"
     stripe
@@ -33,66 +33,10 @@
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
-              <el-popover placement="right" width="600" trigger="click">
-                <h4 class="popover-title">操作员管理</h4>
-                <el-table class="w100" :data="gridData">
-                  <el-table-column property="userName" label="用户名"></el-table-column>
-                  <el-table-column property="role" label="职位"></el-table-column>
-                  <el-table-column property="name" label="姓名"></el-table-column>
-                  <el-table-column property="email" label="邮箱"></el-table-column>
-                </el-table>
-                <div class="popover-select">
-                  <span>用户角色</span>
-                  <el-select v-model="value1" placeholder="MCA区域数据运维">
-                    <el-option
-                      v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select>
-                </div>
-                <div class="popover-select">
-                  <span>权限范围</span>
-                  <el-select v-model="value2" placeholder="全国">
-                    <el-option
-                      v-for="item in options"
-                      :key="item.value"
-                      :label="item.label"
-                      :value="item.value"
-                    ></el-option>
-                  </el-select>
-                </div>
-                <div class="popover-select textR">
-                  <el-button type="primary" round>确认</el-button>
-                  <el-button round>取消</el-button>
-                </div>
-                <span slot="reference">编辑</span>
-              </el-popover>
+              <PermissionEdit :rowData="deepCloneTableData[scope.$index]" :index="scope.$index" :gridData="gridData" :areaRole="areaRole" :range="range" @changeEdit="getChange" />
             </el-dropdown-item>
             <el-dropdown-item>
-              <el-popover placement="right" width="600" trigger="click">
-                <div class="popover-select">
-                  <span>请指定一名同事负责交接</span>
-                  <el-input placeholder="Joyce" suffix-icon="el-icon-search" v-model="input1"></el-input>
-                </div>
-                <el-table :data="gridData" @current-change="handleSelectionChange">
-                  <el-table-column
-                    width="55" align="center">
-                    <template slot-scope="scope"> 
-          　　　　　　　<el-radio v-model="checked" :label="scope.row.id">&nbsp;</el-radio>
-                    </template>
-                  </el-table-column>
-                  <el-table-column property="role" label="职位"></el-table-column>
-                  <el-table-column  property="name" label="姓名"></el-table-column>
-                  <el-table-column property="email" label="邮箱"></el-table-column>
-                </el-table>
-                <div class="popover-select textR">
-                  <el-button type="primary" round>转交权限</el-button>
-                  <el-button round>取消</el-button>
-                </div>
-                <span slot="reference">权限代管</span>
-              </el-popover>
+              <PermissionTransfer :gridData="gridData" :index="scope.$index" :rowData="deepCloneTableData[scope.$index]" @changeTransfer="getChange" />
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -102,8 +46,19 @@
 </template>
 
 <script>
+import PermissionEdit from "@/components/SystemComponents/PermissionModule/PermissionEdit.vue";
+import PermissionTransfer from "@/components/SystemComponents/PermissionModule/PermissionTransfer.vue";
 export default {
+  components:{
+    PermissionEdit,
+    PermissionTransfer
+  },
   methods: {
+    getChange(data,index){
+      let json = JSON.stringify(data);
+      this.$set( this.thistableData, index , JSON.parse(json));
+      console.log(this.thistableData);
+    },
     handleClick(row) {
       console.log(row);
     },
@@ -125,36 +80,61 @@ export default {
     }
   },
   props: ["tableData"],
+  created(){
+    this.thistableData = this.tableData;
+    let jsonTable = JSON.stringify(this.thistableData);
+    this.deepCloneTableData = JSON.parse(jsonTable);
+  },
   mounted() {
     console.log(this.tableData);
   },
   data() {
     return {
       multipleSelection: [],
-      options: [
+      thistableData : [],
+      deepCloneTableData :[],
+      areaRole: [
         {
-          value: "选项1",
-          label: "黄金糕"
+          value: "MCA代表",
+          label: "MCA代表"
         },
         {
-          value: "选项2",
-          label: "双皮奶"
+          value: "MCA区域数据运维",
+          label: "MCA区域数据运维"
         },
         {
-          value: "选项3",
-          label: "蚵仔煎"
+          value: "大区管理",
+          label: "大区管理"
         },
         {
-          value: "选项4",
-          label: "龙须面"
+          value: "MCA经理",
+          label: "MCA经理"
+        }
+      ],
+      range: [
+        {
+          value: "全国",
+          label: "全国"
         },
         {
-          value: "选项5",
-          label: "北京烤鸭"
+          value: "东区",
+          label: "东区"
+        },
+        {
+          value: "南区",
+          label: "南区"
+        },
+        {
+          value: "北区",
+          label: "北区"
+        },
+        {
+          value: "西区",
+          label: "西区"
         }
       ],
       value1: "",input1:"",
-      value2: "",input2:"",
+      value2: [],input2:"",
       checked: null,currentSelectItem:{},
       gridData: [
         {
@@ -162,28 +142,32 @@ export default {
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
-          email: "joycezhu@roche.com"
+          email: "joycezhu@roche.com",
+          checked:true
         },
         {
           id:2,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
-          email: "joycezhu@roche.com"
+          email: "joycezhu@roche.com",
+          checked:false
         },
         {
           id:3,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
-          email: "joycezhu@roche.com"
+          email: "joycezhu@roche.com",
+          checked:false
         },
         {
           id:4,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
-          email: "joycezhu@roche.com"
+          email: "joycezhu@roche.com",
+          checked:false
         }
       ]
     };

@@ -19,10 +19,10 @@
         <!-- Filter Section -->
         <div v-show="ifFilterShow" class="row mt20">
           <div class="col-sm col-md col-lg-4">
-            <el-input clearable v-model="procode" placeholder="用户名/姓名关键字搜索"></el-input>
+            <el-input clearable v-model="userName" placeholder="用户名/姓名关键字搜索"></el-input>
           </div>
           <div class="col-sm col-md col-lg-2">
-            <el-select clearable v-model="value2" placeholder="选择用户角色">
+            <el-select clearable v-model="userRole" placeholder="选择用户角色">
               <el-option
                 v-for="item in condition.options2"
                 :key="item.value"
@@ -39,18 +39,21 @@
         <div class="row">
           <div class="col-sm col-md col-lg w100 mt20">
             <div class="systembox">
-              <h4 class="system-title">操作人员 <span>2019/07/02  00:21  最后更新</span></h4>
+              <h4 class="system-title">
+                操作人员
+                <span>2019/07/02 00:21 最后更新</span>
+              </h4>
               <PermissionTable :tableData="tableData" />
-                  <el-pagination
-                    background
-                    @size-change="handleSizeChange"
-                    @current-change="handleCurrentChange"
-                    :current-page="currentPage1"
-                    :page-size="100"
-                    layout="prev, pager, next, jumper,total"
-                    :total="400"
-                    class="white_bg"
-                  ></el-pagination>
+              <el-pagination
+                background
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="currentPage1"
+                :page-size="100"
+                layout="prev, pager, next, jumper,total"
+                :total="400"
+                class="white_bg"
+              ></el-pagination>
             </div>
           </div>
         </div>
@@ -87,17 +90,8 @@ export default {
       this.ifFilterShow = false;
     },
     clearFilters() {
-      this.procode = "";
-      this.time = "";
-      this.value1 = "";
-      this.value2 = "";
-      this.value3 = "";
-      this.value4 = "";
-      this.value5 = "";
-      this.value6 = "";
-      this.value7 = "";
-      this.value8 = "";
-      this.value9 = "";
+      this.userName = "";
+      this.userRole = "";
     }
   },
   data() {
@@ -105,16 +99,8 @@ export default {
       ifFilterShow: true,
       procode: "",
       activeName: "first",
-      time: "",
-      value1: "",
-      value2: "",
-      value3: "",
-      value4: "",
-      value5: "",
-      value6: "",
-      value7: "",
-      value8: "",
-      value9: "",
+      userName: "",
+      userRole: "",
       condition: conditionConfig,
       tableData: PermissionTableData,
       currentPage1: 1,
@@ -128,8 +114,19 @@ export default {
 </script>
 
 <style scoped>
-.systembox{ width: 100%; border:1px solid #ddd; padding: 15px; background: #fff;}
-.system-title{ color: #a2a0a2; font-size: 15px; margin: 0; border-bottom: 1px solid #DCDFE6; padding-bottom: 15px;}
+.systembox {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 15px;
+  background: #fff;
+}
+.system-title {
+  color: #a2a0a2;
+  font-size: 15px;
+  margin: 0;
+  border-bottom: 1px solid #dcdfe6;
+  padding-bottom: 15px;
+}
 .w100 {
   width: 100%;
 }
