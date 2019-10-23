@@ -43,7 +43,7 @@
                 操作人员
                 <span>2019/07/02 00:21 最后更新</span>
               </h4>
-              <PermissionTable :tableData="tableData" />
+              <PermissionTable :tableData="tableData" @updateStorage="update" />
               <el-pagination
                 background
                 @size-change="handleSizeChange"
@@ -81,6 +81,11 @@ export default {
         return item.role.includes(userRole) && item.userName.includes(userName)
       })
       console.log(this.tableData);
+    },
+    update(index,item){
+      let tableStorge = JSON.parse(this.tableStorge);
+      tableStorge[index] = item;
+      this.tableStorge = JSON.stringify(tableStorge);
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);

@@ -6,7 +6,7 @@
     height="500"
     stripe
     @selection-change="handleSelectionChange"
-    :default-sort="{prop: 'name', order: 'descending'}"
+    :default-sort="{prop: 'date', order: 'descending'}"
   >
     <!-- <el-table-column align="center" type="selection"></el-table-column> -->
     <el-table-column prop="jurisdiction" label="辖区" width="150" sortable></el-table-column>
@@ -57,6 +57,7 @@ export default {
     getChange(data,index){
       let json = JSON.stringify(data);
       this.$set( this.thistableData, index , JSON.parse(json));
+      this.$emit('updateStorage',index , JSON.parse(json));
       console.log(this.thistableData);
     },
     handleClick(row) {
