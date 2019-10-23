@@ -25,6 +25,10 @@
 <script>
 export default {
   methods: {
+    getPropData(){
+      let row = JSON.stringify(this.rowData);
+      this.row = JSON.parse(row);
+    },
     submit() {
       this.visible = false;
       this.$emit("changeTransfer", this.row, this.index);
@@ -32,7 +36,12 @@ export default {
   },
   props: ["rowData", "gridData", "index"],
   created() {
-    this.row = this.rowData;
+    this.getPropData();
+  },
+  watch:{
+    rowData:function(){
+      this.getPropData();
+    }
   },
   mounted() {},
   data() {

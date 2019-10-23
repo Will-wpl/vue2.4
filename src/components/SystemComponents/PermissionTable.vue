@@ -6,6 +6,7 @@
     height="500"
     stripe
     @selection-change="handleSelectionChange"
+    @sort-change="sortChange"
     :default-sort="{prop: 'date', order: 'descending'}"
   >
     <!-- <el-table-column align="center" type="selection"></el-table-column> -->
@@ -13,7 +14,7 @@
     <el-table-column prop="userName" label="用户名" width="150" sortable></el-table-column>
     <el-table-column prop="name" label="姓名" width="200" sortable></el-table-column>
     <el-table-column prop="email" label="邮箱" width="200" sortable></el-table-column>
-    <el-table-column prop="role" label="用户角色" align="center" width="150" sortable></el-table-column>
+    <el-table-column prop="role" label="用户角色" align="center" width="250" sortable></el-table-column>
     <el-table-column prop="jlist" label="代管权限" width="400" sortable>
       <template slot-scope="scope">
         <div class="jlist-tag" v-html="creataTag(scope.row.jlist)"></div>
@@ -33,10 +34,22 @@
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
-              <PermissionEdit :rowData="deepCloneTableData[scope.$index]" :index="scope.$index" :gridData="gridData" :areaRole="areaRole" :range="range" @changeEdit="getChange" />
+              <PermissionEdit
+                :rowData="scope.row"
+                :index="scope.row.edit"
+                :gridData="gridData"
+                :areaRole="areaRole"
+                :range="range"
+                @changeEdit="getChange"
+              />
             </el-dropdown-item>
             <el-dropdown-item>
-              <PermissionTransfer :gridData="gridData" :index="scope.$index" :rowData="deepCloneTableData[scope.$index]" @changeTransfer="getChange" />
+              <PermissionTransfer
+                :gridData="gridData"
+                :index="scope.row.edit"
+                :rowData="scope.row"
+                @changeTransfer="getChange"
+              />
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -49,29 +62,26 @@
 import PermissionEdit from "@/components/SystemComponents/PermissionModule/PermissionEdit.vue";
 import PermissionTransfer from "@/components/SystemComponents/PermissionModule/PermissionTransfer.vue";
 export default {
-  components:{
+  components: {
     PermissionEdit,
     PermissionTransfer
   },
   methods: {
-    getChange(data,index){
+    getChange(data, index) {
       let json = JSON.stringify(data);
-      this.$set( this.thistableData, index , JSON.parse(json));
-      this.$emit('updateStorage',index , JSON.parse(json));
+      this.$set(this.thistableData, index, JSON.parse(json));
+      this.$emit("updateStorage", index, JSON.parse(json));
       console.log(this.thistableData);
+    },
+    sortChange(row) {
+      console.log(row);
     },
     handleClick(row) {
       console.log(row);
     },
-    handleSelectionChange (row) {
-        this.tableData.forEach(item => {
-          if (item.id !== row.id) {
-            item.checked = false
-          }
-        })
-        console.log(row)
-　　　　　this.currentSelectItem = row
-      },
+    handleSelectionChange(row) {
+      console.log(row);
+    },
     creataTag(arr) {
       let html = "";
       for (let i = 0; i < arr.length; i++) {
@@ -79,32 +89,30 @@ export default {
       }
       return html;
     },
-    watchData(data){
+    watchData(data) {
       this.thistableData = data;
       let jsonTable = JSON.stringify(this.thistableData);
       this.deepCloneTableData = JSON.parse(jsonTable);
     }
   },
   props: ["tableData"],
-  created(){
+  created() {
     this.watchData(this.tableData);
   },
   mounted() {
     console.log(this.tableData);
   },
-  watch:{
-    tableData:function(newVal){
+  watch: {
+    tableData: function(newVal) {
       this.watchData(newVal);
     }
   },
-  watchData(){
-
-  },
+  watchData() {},
   data() {
     return {
       multipleSelection: [],
-      thistableData : [],
-      deepCloneTableData :[],
+      thistableData: [],
+      deepCloneTableData: [],
       areaRole: [
         {
           value: "MCA代表",
@@ -145,41 +153,44 @@ export default {
           label: "西区"
         }
       ],
-      value1: "",input1:"",
-      value2: [],input2:"",
-      checked: null,currentSelectItem:{},
+      value1: "",
+      input1: "",
+      value2: [],
+      input2: "",
+      checked: null,
+      currentSelectItem: {},
       gridData: [
         {
-          id:1,
+          id: 1,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
           email: "joycezhu@roche.com",
-          checked:true
+          checked: true
         },
         {
-          id:2,
+          id: 2,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
           email: "joycezhu@roche.com",
-          checked:false
+          checked: false
         },
         {
-          id:3,
+          id: 3,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
           email: "joycezhu@roche.com",
-          checked:false
+          checked: false
         },
         {
-          id:4,
+          id: 4,
           userName: "joycezhu",
           role: "【MCA经理】",
           name: "朱莉",
           email: "joycezhu@roche.com",
-          checked:false
+          checked: false
         }
       ]
     };
@@ -187,7 +198,9 @@ export default {
 };
 </script>
 <style scoped>
-.el-radio__label{ display: none;}
+.el-radio__label {
+  display: none;
+}
 .popover-title {
   font-size: 15px;
 }

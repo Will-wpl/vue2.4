@@ -194,10 +194,10 @@ const DynamicTableData = [
 ]
 
 const PermissionTableData = [
-  { jurisdiction: "东区", userName: "johnsmih", name: "约翰逊", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: false,transferAuthority:1},
-  { jurisdiction: "南区", userName: "justin", name: "贾斯丁", email: "johnsmoth@roche.com", role: "MCA区域数据运维", jlist: ["东区", "南区"], switch: true ,transferAuthority:2},
-  { jurisdiction: "北区", userName: "Jessica", name: "杰西卡", email: "johnsmoth@roche.com", role: "大区管理", jlist: ["东区", "南区"], switch: true ,transferAuthority:3},
-  { jurisdiction: "西区", userName: "Henry", name: "亨利", email: "johnsmoth@roche.com", role: "MCA经理", jlist: ["东区", "南区"], switch: true ,transferAuthority:4}
+  { jurisdiction: "东区", userName: "johnsmih", name: "约翰逊", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: false,transferAuthority:1,edit:0},
+  { jurisdiction: "南区", userName: "justin", name: "贾斯丁", email: "johnsmoth@roche.com", role: "MCA区域数据运维", jlist: ["东区", "南区"], switch: true ,transferAuthority:2,edit:1},
+  { jurisdiction: "北区", userName: "Jessica", name: "杰西卡", email: "johnsmoth@roche.com", role: "大区管理", jlist: ["东区", "南区"], switch: true ,transferAuthority:3,edit:2},
+  { jurisdiction: "西区", userName: "Henry", name: "亨利", email: "johnsmoth@roche.com", role: "MCA经理", jlist: ["东区", "南区"], switch: true ,transferAuthority:4,edit:3}
 ]
 
 const RemindTableData = [

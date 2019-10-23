@@ -35,6 +35,10 @@
 <script>
 export default {
   methods: {
+    getPropData(){
+      let row = JSON.stringify(this.rowData);
+      this.row = JSON.parse(row);
+    },
     submit() {
       this.visible = false;
       this.$emit("changeEdit", this.row, this.index);
@@ -42,9 +46,14 @@ export default {
   },
   props: ["rowData", "gridData", "range", "areaRole", "index"],
   created() {
-    this.row = this.rowData;
+    this.getPropData();
   },
   mounted() {},
+  watch:{
+    rowData:function(){
+      this.getPropData();
+    }
+  },
   data() {
     return {
       visible: false,
