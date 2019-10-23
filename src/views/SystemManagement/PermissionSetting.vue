@@ -32,8 +32,8 @@
             </el-select>
           </div>
           <div v-show="ifFilterShow" class="col-sm col-md col-lg textR">
-            <el-button @click="clearFilters" size="mini" round>取消</el-button>
-            <el-button size="mini" round>筛选</el-button>
+            <el-button @click="clearFilters" round>取消</el-button>
+            <el-button round>筛选</el-button>
           </div>
         </div>
         <div class="row">

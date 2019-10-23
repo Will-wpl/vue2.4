@@ -58,6 +58,12 @@
           >
             <el-button icon="el-icon-search" round>申请明细调整</el-button>
           </router-link>
+          <router-link
+            class="event-link ml10"
+            :to="{ name: 'InventoryReportAppeal', params: { id: pageId,filter: filter } }"
+          >
+            <el-button icon="el-icon-search" round>申请商业调整</el-button>
+          </router-link>
           <el-button class="ml10" icon="el-icon-search" round @click="exportExcel">导出进销存报告</el-button>
         </div>
       </div>
@@ -194,15 +200,6 @@ export default {
       checked: false,
       procode: "",
       time: "",
-      value1: "",
-      value2: "",
-      value3: "",
-      value4: "",
-      value5: "",
-      value6: "",
-      value7: "",
-      value8: "",
-      value9: "",
       condition: conditionConfig,
       tableData: tableData,
       currentPage1: 1,
