@@ -8,7 +8,12 @@
           </div>
           <div class="col"></div>
           <div class="col-1 align-self-end">
-            <i @click="drawer = true" style="color:#007AC3" class="el-icon-s-operation OpIcons"></i>
+            <i
+              @click="drawer = true"
+              style="color:#007AC3"
+              v-if="ifShowoperationIcon"
+              class="el-icon-s-operation OpIcons"
+            ></i>
             <i
               @click="hideFilter"
               style="color:#007AC3; margin-left: 10px;"
@@ -138,7 +143,7 @@
         </div>
         <div class="row mt20">
           <div class="col-sm col-md col-lg w100">
-            <el-tabs v-model="activeName">
+            <el-tabs v-model="activeName" @tab-click="handleClick">
               <el-tab-pane label="申诉单" name="first">
                 <DynamicSearchTable :tableData="tableData" />
                 <el-pagination
@@ -198,8 +203,14 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     },
-    handleClick(e) {
-      console.log(e);
+    handleClick(tab, event) {
+      if (tab.name === "first") {
+        this.ifShowoperationIcon = false;
+      }
+      if (tab.name === "second") {
+        this.ifShowoperationIcon = true;
+      }
+      console.log(tab, event);
     },
     hideFilter() {
       this.ifFilterShow = !this.ifFilterShow;
@@ -221,6 +232,7 @@ export default {
   data() {
     return {
       drawer: false,
+      ifShowoperationIcon: false,
       direction: "rtl",
       ifFilterShow: true,
       procode: "",

@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
 #RocheMark {
-  width: 18%;
+  width: 90px;
 }
 
 #header {
@@ -61,7 +61,7 @@ export default {
   font-size: 20px;
 }
 .TitleWords {
-  font-size: 150%;
+  font-size: 28px;
   font-family: "PingFang SC";
   font-weight: bold;
   color: rgba(0, 102, 204, 1);

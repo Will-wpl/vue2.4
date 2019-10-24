@@ -6,7 +6,7 @@
           <div class="row">
             <div style class="col-lg-4 col-sm-12 headerIcon">
               <img src="../assets/icon_logo_b.png" />
-              <span class="dms-login-logo-tt">CDMS</span>
+              <span class="dms-login-logo-tt">CDCS</span>
             </div>
           </div>
 
@@ -14,8 +14,8 @@
             <div class="col-1"></div>
             <div class="col-10">
               <div class="dms-login-content-tt">
-                <span class="dms-login-content-largett">数字一体化系统</span>
-                <p>China Sales Data Management System</p>
+                <span class="dms-login-content-largett">渠道数据管理系统</span>
+                <p>Channel Data Consolidated System</p>
               </div>
             </div>
             <div class="col-1"></div>
