@@ -91,7 +91,6 @@ export default {
     },
     watchData(data) {
       this.thistableData = data;
-      //let jsonTable = JSON.stringify(this.thistableData);
       this.deepCloneTableData = unserialization(this.thistableData);
     }
   },
