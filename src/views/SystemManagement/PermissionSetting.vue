@@ -106,6 +106,7 @@ export default {
     clearFilters() {
       this.userName = "";
       this.userRole = "";
+      this.tableData = realserialization(this.tableStorge);
     }
   },
   data() {
