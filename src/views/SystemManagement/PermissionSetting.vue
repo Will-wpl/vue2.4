@@ -68,6 +68,7 @@ import {
   PermissionTableData
 } from "../../assets/mockdata/mockdata";
 import PermissionTable from "@/components/SystemComponents/PermissionTable.vue";
+import {unserialization,serialization,realserialization} from "@/utils/serialization.js";
 export default {
   name: "PermissionSetting",
   components: {
@@ -77,15 +78,15 @@ export default {
     doFilters(){
       let userRole = this.userRole;
       let userName = this.userName;
-      this.tableData = JSON.parse(this.tableStorge).filter(item=>{
+      this.tableData = realserialization(this.tableStorge).filter(item=>{
         return item.role.includes(userRole) && item.userName.includes(userName)
       })
       console.log(this.tableData);
     },
     update(index,item){
-      let tableStorge = JSON.parse(this.tableStorge);
+      let tableStorge = realserialization(this.tableStorge);
       tableStorge[index] = item;
-      this.tableStorge = JSON.stringify(tableStorge);
+      this.tableStorge = serialization(tableStorge);
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
@@ -116,7 +117,7 @@ export default {
       userRole: "",
       condition: conditionConfig,
       tableData: PermissionTableData,
-      tableStorge:JSON.stringify(PermissionTableData),
+      tableStorge:serialization(PermissionTableData),
       currentPage1: 1,
       currentPage2: 2,
       currentPage3: 3,

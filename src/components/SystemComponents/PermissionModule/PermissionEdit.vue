@@ -33,11 +33,13 @@
 </template>
 
 <script>
+import {unserialization} from "@/utils/serialization.js";
 export default {
   methods: {
     getPropData(){
-      let row = JSON.stringify(this.rowData);
-      this.row = JSON.parse(row);
+      // let row = JSON.stringify(this.rowData);
+      // this.row = JSON.parse(row);
+      this.row = unserialization(this.rowData);
     },
     submit() {
       this.visible = false;

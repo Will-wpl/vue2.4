@@ -61,6 +61,7 @@
 <script>
 import PermissionEdit from "@/components/SystemComponents/PermissionModule/PermissionEdit.vue";
 import PermissionTransfer from "@/components/SystemComponents/PermissionModule/PermissionTransfer.vue";
+import {unserialization,serialization} from "@/utils/serialization.js";
 export default {
   components: {
     PermissionEdit,
@@ -68,9 +69,8 @@ export default {
   },
   methods: {
     getChange(data, index) {
-      let json = JSON.stringify(data);
-      this.$set(this.thistableData, index, JSON.parse(json));
-      this.$emit("updateStorage", index, JSON.parse(json));
+      this.$set(this.thistableData, index, unserialization(data));
+      this.$emit("updateStorage", index, unserialization(data));
       console.log(this.thistableData);
     },
     sortChange(row) {
@@ -91,8 +91,8 @@ export default {
     },
     watchData(data) {
       this.thistableData = data;
-      let jsonTable = JSON.stringify(this.thistableData);
-      this.deepCloneTableData = JSON.parse(jsonTable);
+      //let jsonTable = JSON.stringify(this.thistableData);
+      this.deepCloneTableData = unserialization(this.thistableData);
     }
   },
   props: ["tableData"],
