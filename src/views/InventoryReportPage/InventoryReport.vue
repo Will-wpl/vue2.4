@@ -256,6 +256,9 @@ export default {
         })
       }
     },
+    sendExcel(){
+      window.location.href="https://localhost:44382/api/InventoryReport/export";
+    },
     backDefault(){
       this.ReportConfig = JSON.parse(this.defaultConfig);
       this.checked = false;
