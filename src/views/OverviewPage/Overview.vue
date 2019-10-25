@@ -13,15 +13,12 @@
                   <div class="col-sm col-md col-lg carousel-time-left">
                     <p>距离</p>
                     <p>
-                      <span>{{ item.time }}</span>
+                      <span>{{ item.TimeType }}</span>
                     </p>
                     <p>申诉关闭</p>
                   </div>
                   <div class="col-sm col-md col-lg carousel-time-right">
-                    <p>
-                      <b>17</b>天
-                      <bdo>22</bdo>小时
-                    </p>
+                    <p v-html="timeHtml(item.TimeInfo)"></p>
                   </div>
                 </div>
               </el-carousel-item>
@@ -78,7 +75,7 @@
               :event="event"
               type="Overview"
             />
-          </div> -->
+          </div>-->
         </div>
       </div>
       <!-- <img src="@/assets/DataMgtBackgroupPic.png" /> -->
@@ -93,9 +90,35 @@ export default {
   components: {
     InventoryEventCard
   },
+  methods:{
+    timeHtml(info){
+      if(info){
+        let html = '';
+        if(info.includes("-")){
+          html = `<b>${(info.split("-")[0]).split("$")[0]}</b>${(info.split("-")[0]).split("$")[1]}
+          <bdo>${(info.split("-")[1]).split("$")[0]}</bdo>${(info.split("-")[1]).split("$")[1]}`
+        }else{
+          html = info.split("$")[1];
+        }
+        return html;
+      }
+    }
+  },
   mounted(){
     this.$axios.getHomeData().then((res)=>{
-      // this.notis = res.data.notis;
+      this.notis = res.data.HomeIndexTimes;
+      console.log(res.data.homeIndexStatisticals);
+      res.data.homeIndexStatisticals.map(item=>{
+        if(item.Type === "进销存"){
+          this.events1.push(item);
+        }else if(item.Type == "申诉概览"){
+          this.events2.push(item);
+        }else if(item.Type == "证明文件"){
+          this.events3.push(item);
+        }else if(item.Type == "调整数据"){
+          this.events4.push(item);
+        }
+      })
       // this.events1 = res.data.events1;
       // this.events2 = res.data.events2;
       // this.events3 = res.data.events3;
@@ -125,142 +148,11 @@ export default {
           time: "2019年11月"
         }
       ],
-      events1: [
-        {
-          id: "events1-1",
-          title: "有差异",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "iconycy",
-          cyVal: 120,
-          feedback: 60,
-          unfeedback: 65,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        },
-        {
-          id: "events1-2",
-          title: "无差异",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "iconwcy",
-          cyVal: 84,
-          feedback: 23,
-          unfeedback: 7,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        }
-      ],
-      events2: [
-        {
-          id: "events2-1",
-          title: "待处理",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "iconsync1",
-          cyVal: 11,
-          feedback: 60,
-          unfeedback: 65,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        },
-        {
-          id: "events2-2",
-          title: "已返回",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "iconsync2",
-          cyVal: 20,
-          feedback: 60,
-          unfeedback: 65,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        },
-        {
-          id: "events2-3",
-          title: "审批中",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "iconsync3",
-          cyVal: 30,
-          feedback: 60,
-          unfeedback: 65,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        }
-      ],
-      events3: [
-        {
-          id: "events3-1",
-          title: "证明文件待补全",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "",
-          cyVal: 120,
-          feedback: 60,
-          unfeedback: 65,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        }
-      ],
-      events4: [
-        {
-          id: "events4-1",
-          title: "待确认数据",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "",
-          cyVal: 120,
-          feedback: 60,
-          unfeedback: 65,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        }
-      ],
-      events5: [
-        {
-          id: "events5-1",
-          title: "待审批",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "iconsync1",
-          cyVal: 3,
-          feedback: 60,
-          unfeedback: 65,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        },
-        {
-          id: "events5-2",
-          title: "已审批",
-          date: "Aug 28 2018",
-          time: "10:00",
-          icon: "iconSp",
-          cyVal: 7,
-          feedback: 60,
-          unfeedback: 65,
-          location: "Daytona Beach",
-          description: "Let's clean up this beach.",
-          organizer: "Adam Jahr",
-          category: "sustainability"
-        }
-      ]
+      events1: [],
+      events2: [],
+      events3: [],
+      events4: [],
+      events5: []
     };
   }
 };
@@ -277,7 +169,7 @@ export default {
   outline: none;
   font-size: 35px;
   height: auto;
-  color: #007AC3;
+  color: #007ac3;
 }
 .el-carousel div.el-carousel__container .el-carousel__arrow--left {
   left: -40px;
@@ -285,11 +177,30 @@ export default {
 .el-carousel div.el-carousel__container .el-carousel__arrow--right {
   right: -40px;
 }
-.el-main .el-tabs__header{ margin-bottom: 0px; background: #fff;}
-.el-main .el-tabs__header .el-tabs__nav{ margin-left: 20px;}
-.al-center{ align-items: center;}
-.mg0{margin: 0 !important;}
-.padL0{padding-left: 0px !important;}
+.el-main .el-tabs__header {
+  margin-bottom: 0px;
+  background: #fff;
+}
+.el-main .el-tabs__header .el-tabs__nav {
+  margin-left: 20px;
+}
+.al-center {
+  align-items: center;
+}
+.mg0 {
+  margin: 0 !important;
+}
+.padL0 {
+  padding-left: 0px !important;
+}
+.carousel-time-right p b {
+  font-size: 32px;
+  font-weight: bold;
+}
+.carousel-time-right p bdo {
+  font-size: 28px;
+  font-weight: bold;
+}
 </style>
 <style scoped>
 h5,
@@ -361,7 +272,7 @@ h4 {
   color: #707070;
   padding-right: 35px;
   background: url("~@/assets/iconCountdown.png") no-repeat right;
-  background-size: 30px;
+  background-size: 23px;
 }
 .carousel-time-right p b {
   font-size: 32px;

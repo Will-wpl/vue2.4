@@ -2,26 +2,26 @@
   <router-link class="event-link" :to="{ name: 'Overview', params: { id: event.id } }">
     <div class="event-card -shadow" :style="{height:cardheight+'px'}" v-if="type=='PurchaseSale'">
       <div class="row alignCenter">
-        <div :class="['col-sm','col-md','col-lg-6','event-card-title',event.icon]">{{ event.title }}</div>
-        <div class="col-sm col-md col-lg textR fontBig">{{ event.cyVal }}</div>
+        <div :class="['col-sm','col-md','col-lg-6','event-card-title',event.Icon]">{{ event.Title }}</div>
+        <div class="col-sm col-md col-lg textR fontBig">{{ event.Amount }}</div>
       </div>
       <div class="positionBottom">
         <div class="row">
           <div class="col-sm col-md col-lg textC line nopadding">
             已反馈
-            <span>{{ event.feedback }}</span>
+            <span>{{ event.FeedbackAmount }}</span>
           </div>
           <div class="col-sm col-md col-lg textC nopadding">
             未反馈
-            <span>{{ event.unfeedback }}</span>
+            <span>{{ event.UnFeedbackAmount }}</span>
           </div>
         </div>
       </div>
     </div>
     <div class="event-card -shadow" :style="{height:cardheight+'px'}" v-if="type=='Overview'">
       <div class="row alignCenter">
-        <div :class="['col-sm','col-md','col-lg-6','event-card-title',event.icon]">{{ event.title }}</div>
-        <div class="col-sm col-md col-lg textR fontBig">{{ event.cyVal }}</div>
+        <div :class="['col-sm','col-md','col-lg-6','event-card-title',event.Icon]">{{ event.Title }}</div>
+        <div class="col-sm col-md col-lg textR fontBig">{{ event.Amount }}</div>
       </div>
     </div>
     <div
@@ -30,17 +30,17 @@
       v-if="type=='certificateFile'"
     >
       <div class="row alignCenter">
-        <div :class="['col-sm','col-md','col-lg','event-card-title','nopadding']">{{ event.title }}</div>
+        <div :class="['col-sm','col-md','col-lg','event-card-title','nopadding']">{{ event.Title }}</div>
         <div class="col-sm col-md col-lg positionBottom certificateFile">
-          <p class="textR fontBig">{{ event.cyVal }}</p>
+          <p class="textR fontBig">{{ event.Amount }}</p>
         </div>
       </div>
     </div>
     <div class="event-card -shadow" :style="{height:cardheight+'px'}" v-if="type=='toBeconfirmed'">
       <div class="row alignCenter">
-        <div :class="['col-sm','col-md','col-lg','event-card-title','nopadding']">{{ event.title }}</div>
+        <div :class="['col-sm','col-md','col-lg','event-card-title','nopadding']">{{ event.Title }}</div>
         <div class="col-sm col-md col-lg-12 positionBottom toBeconfirmed">
-          <p class="textR fontBig">{{ event.cyVal }}</p>
+          <p class="textR fontBig">{{ event.Amount }}</p>
         </div>
       </div>
     </div>
