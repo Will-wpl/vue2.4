@@ -13,6 +13,113 @@
             <Step :step="1" />
           </div>
         </div>
+        <div v-show="ifFilterShow" class="row mt20">
+          <div class="col-sm col-md col-lg-4">
+            <el-input clearable v-model="procode" placeholder="商业代码/商业名称"></el-input>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-date-picker clearable v-model="time" type="datetime" placeholder="时间"></el-date-picker>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value1" placeholder="集团信息">
+              <el-option
+                v-for="item in condition.options1"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value2" placeholder="产品">
+              <el-option
+                v-for="item in condition.options2"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value3" placeholder="大区">
+              <el-option
+                v-for="item in condition.options3"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+        </div>
+        <div v-show="ifFilterShow" class="row mt20">
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value4" placeholder="区域">
+              <el-option
+                v-for="item in condition.options4"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value5" placeholder="省份">
+              <el-option
+                v-for="item in condition.options5"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value6" placeholder="城市">
+              <el-option
+                v-for="item in condition.options6"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value7" placeholder="多渠道准入代表">
+              <el-option
+                v-for="item in condition.options7"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value8" placeholder="等级">
+              <el-option
+                v-for="item in condition.options8"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+          <div class="col-sm col-md col-lg-2">
+            <el-select clearable v-model="value9" placeholder="品牌">
+              <el-option
+                v-for="item in condition.options9"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </div>
+        </div>
+        <div v-show="ifFilterShow" class="row mt20">
+          <div class="col-sm col-md col-lg-10"></div>
+          <div class="col-sm col-md col-lg-2 textR">
+            <el-button @click="clearFilters" size="mini" round>取消</el-button>
+            <el-button size="mini" round>筛选</el-button>
+          </div>
+        </div>
         <div class="row mt20">
           <h5 class="col-sm col-md col-lg total">
             总记录：180
@@ -20,6 +127,12 @@
           </h5>
           <div class="col-1 align-self-end textR">
             <i @click="drawer = true" style="color:#007AC3" class="el-icon-s-operation OpIcons">筛选</i>
+            <i
+              @click="hideFilter"
+              style="color:#007AC3; margin-left: 10px;"
+              :class="[ifFilterShow?'el-icon-arrow-up':'el-icon-arrow-down']"
+              class="OpIcons"
+            ></i>
           </div>
         </div>
         <div class="row mt20">
@@ -147,6 +260,9 @@ export default {
       this.ReportConfig = JSON.parse(this.defaultConfig);
       this.checked = false;
     },
+    hideFilter() {
+      this.ifFilterShow = !this.ifFilterShow;
+    },
     filterReportConfig(type){
       return this.ReportConfig.filter(item=>{return item.type == type});
     },
@@ -173,6 +289,19 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     },
+    clearFilters() {
+      this.procode = "";
+      this.time = "";
+      this.value1 = "";
+      this.value2 = "";
+      this.value3 = "";
+      this.value4 = "";
+      this.value5 = "";
+      this.value6 = "";
+      this.value7 = "";
+      this.value8 = "";
+      this.value9 = "";
+    },
     handleClose(done) {
       done();
       // this.$confirm('确认关闭？')
@@ -187,6 +316,7 @@ export default {
       tableHeight:500,
       drawer: false,
       direction: "rtl",
+      ifFilterShow:false,
       checked: false,
       procode: "",
       time: "",
@@ -196,6 +326,15 @@ export default {
       currentPage2: 2,
       currentPage3: 3,
       currentPage4: 4,
+      value1: "",
+      value2: "",
+      value3: "",
+      value4: "",
+      value5: "",
+      value6: "",
+      value7: "",
+      value8: "",
+      value9: "",
       pageId: "",
       defaultConfig : JSON.stringify(configForInventoryReport),
       ReportConfig: configForInventoryReport,
@@ -301,5 +440,9 @@ h4 span {
 
 .formulas span font {
   color: #a2a0a2;
+}
+.el-select,
+.el-input {
+  width: 100% !important;
 }
 </style>
