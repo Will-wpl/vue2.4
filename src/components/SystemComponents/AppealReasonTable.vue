@@ -87,14 +87,8 @@ export default {
       console.log(row);
     },
     handleSelectionChange (row) {
-        this.tableData.forEach(item => {
-          if (item.id !== row.id) {
-            item.checked = false
-          }
-        })
         console.log(row)
-　　　　　this.currentSelectItem = row
-      },
+    },
     creataTag(arr) {
       let html = "";
       for (let i = 0; i < arr.length; i++) {

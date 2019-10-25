@@ -22,7 +22,7 @@ export default {
   },
   props: ["step"],
   mounted() {
-    console.log(this.tableData);
+    //console.log(this.tableData);
   },
   data() {
     return {
