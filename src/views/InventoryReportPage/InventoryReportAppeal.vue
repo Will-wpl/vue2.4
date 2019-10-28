@@ -254,6 +254,10 @@ export default {
   position: relative;
 }
 
+.uploadBtnPos span{
+  color:#0078C1;
+}
+
 .uploadBtnPos img {
   width: 15%;
   height: auto;
