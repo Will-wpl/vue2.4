@@ -30,7 +30,7 @@
                 <i slot="append" class="el-icon-s-unfold"></i>
               </el-input>
             </div>
-            <div class="line"></div>
+            <hr />
             <div class="appeal-left-menu">
               <div
                 @click="showAppealDetail($event,item,index)"
@@ -41,11 +41,48 @@
                 <AppealNav :event="item" :active="item.active" />
               </div>
             </div>
+            <div class="uploadBtnPos">
+              <div class="row">
+                <div style="padding-right:0px;" class="col">
+                  <div style="float: right;">
+                    <img src="@/assets/upload.png" />
+                    <span>下载申诉单</span>
+                  </div>
+                </div>
+                <div style class="col">
+                  <div style="float:left">
+                    <img src="@/assets/download.png" />
+                    <span>上传申诉单</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-sm col-md col-lg appeal-right">
             <InventoryReportAppealDetail :event="appealObj" />
           </div>
         </div>
+
+        <div class="row bottomBox">
+          <div class="col">
+            <div class="buttonPostion">
+              <table class="buttonGrp" style="width:100%">
+                <tr>
+                  <th>
+                    <el-button round plain>保存</el-button>
+                  </th>
+                  <th>
+                    <el-button type="primary" round>下一步</el-button>
+                  </th>
+                  <th>
+                    <el-button round>关闭</el-button>
+                  </th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
         <div class="row mt20">
           <InventReportTable :tableData="tableData" :filter="filter" height="500" />
         </div>
@@ -68,7 +105,11 @@
   </el-main>
 </template>
 <script>
-import { conditionConfig, tableData,configForInventoryReport } from "../../assets/mockdata/mockdata";
+import {
+  conditionConfig,
+  tableData,
+  configForInventoryReport
+} from "../../assets/mockdata/mockdata";
 import InventReportTable from "@/components/InventReportComponents/InventReportTable.vue";
 import Step from "@/components/InventReportComponents/Step.vue";
 import AppealNav from "@/components/Common/AppealNav.vue";
@@ -96,22 +137,24 @@ export default {
       //   })
       //   .catch(_ => {});
     },
-    showAppealDetail(e, item,index) {
+    showAppealDetail(e, item, index) {
       this.appealObj = item;
-      this.appealList.map(item=>{item.active = false})
-      this.$set(this.appealList[index],'active',true)
+      this.appealList.map(item => {
+        item.active = false;
+      });
+      this.$set(this.appealList[index], "active", true);
     }
   },
-  created(){
-      this.appealList.map((item,index)=>{
-        if(index==0){
-          item.active = true
-        }else{
-          item.active = false
-        }
-      })
-      this.appealObj = this.appealList[0];
-    },
+  created() {
+    this.appealList.map((item, index) => {
+      if (index == 0) {
+        item.active = true;
+      } else {
+        item.active = false;
+      }
+    });
+    this.appealObj = this.appealList[0];
+  },
   data() {
     return {
       drawer: false,
@@ -123,9 +166,13 @@ export default {
           name: "安庆上药众协大药房有限公司",
           level: "一级经销商",
           id: "appeal1",
-          formlist:[
-            {title:"Herceptin Vial 440mg  (locHerceptin Vial 440mg (local repacking)",status:"-449"},
-            {title:"Cellcept Capsule 250mg 40s",status:"-70"}
+          formlist: [
+            {
+              title:
+                "Herceptin Vial 440mg  (locHerceptin Vial 440mg (local repacking)",
+              status: "-449"
+            },
+            { title: "Cellcept Capsule 250mg 40s", status: "-70" }
           ]
         },
         {
@@ -133,9 +180,13 @@ export default {
           name: "安徽省蚌埠市天辰医药有限责任公司",
           level: "一级经销商",
           id: "appeal2",
-          formlist:[
-            {title:"Herceptin Vial 110mg  (locHerceptin Vial 440mg (local repacking)",status:"-349"},
-            {title:"Cellcept Capsule 250mg 40s",status:"-70"}
+          formlist: [
+            {
+              title:
+                "Herceptin Vial 110mg  (locHerceptin Vial 440mg (local repacking)",
+              status: "-349"
+            },
+            { title: "Cellcept Capsule 250mg 40s", status: "-70" }
           ]
         },
         {
@@ -143,9 +194,13 @@ export default {
           name: "上药控股安庆有限公司",
           level: "一级经销商",
           id: "appeal3",
-          formlist:[
-            {title:"Herceptin Vial 240mg  (locHerceptin Vial 440mg (local repacking)",status:"-249"},
-            {title:"Cellcept Capsule 250mg 40s",status:"-70"}
+          formlist: [
+            {
+              title:
+                "Herceptin Vial 240mg  (locHerceptin Vial 440mg (local repacking)",
+              status: "-249"
+            },
+            { title: "Cellcept Capsule 250mg 40s", status: "-70" }
           ]
         }
       ],
@@ -177,6 +232,33 @@ export default {
 .el-drawer__header {
   margin-bottom: 15px !important;
 }
+
+.bottomBox {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0 6px rgba(0, 0, 0, 0.12);
+  height: 100px;
+  position: relative;
+}
+
+.buttonPostion {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+}
+
+.buttonGrp > tr > th > button {
+  margin-left: 5px;
+}
+
+.uploadBtnPos {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.uploadBtnPos img {
+  width: 15%;
+  height: auto;
+}
+
 .el-table td,
 .el-table th {
   padding: 5px 0px !important;
