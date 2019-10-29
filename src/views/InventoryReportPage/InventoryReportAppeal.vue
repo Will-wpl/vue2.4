@@ -31,6 +31,25 @@
               </el-input>
             </div>
             <hr />
+            <div>
+              <span class="recordNum">共5条</span>
+              <el-dropdown @command="handleCommand" split-button type="primary">
+                增加商业
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item command="a" @click.native.prevent="PreventEvent($event)">
+                    <template>
+                      <el-autocomplete placeholder="Type something" v-model="input4">
+                        <i slot="suffix" class="el-input__icon el-icon-search"></i>
+                      </el-autocomplete>
+                    </template>
+                  </el-dropdown-item>
+                  <el-dropdown-item command="b">Action 2</el-dropdown-item>
+                  <el-dropdown-item command="c">Action 3</el-dropdown-item>
+                  <el-dropdown-item command="d">Action 4</el-dropdown-item>
+                  <el-dropdown-item command="e">Action 5</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </div>
             <div class="appeal-left-menu">
               <div
                 @click="showAppealDetail($event,item,index)"
@@ -123,6 +142,16 @@ export default {
     InventoryReportAppealDetail
   },
   methods: {
+    PreventEvent(event) {
+      if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        
+      }
+    },
+    handleCommand(command) {
+      this.$message("click on item " + command);
+    },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
     },
@@ -142,7 +171,7 @@ export default {
       this.appealList.map(item => {
         item.active = false;
       });
-      this.$set(this.appealList[index], "active", true);
+      this.appealObj = this.appealList[index];
     }
   },
   created() {
@@ -231,6 +260,22 @@ export default {
 <style>
 .el-drawer__header {
   margin-bottom: 15px !important;
+}
+
+.el-dropdown {
+  float: right;
+  bottom: 8px;
+  right: 5%;
+}
+
+.el-button-group button {
+  background-color: #0066cc;
+  border: #0066cc;
+}
+
+.recordNum {
+  position: relative;
+  margin-left: 30px;
 }
 
 .bottomBox {
