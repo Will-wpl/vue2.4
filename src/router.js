@@ -12,7 +12,7 @@ import DynamicReport from "@/views/SystemManagement/DynamicReport.vue"
 import AppealReasonSetting from "@/views/SystemManagement/AppealReasonSetting.vue"
 import OperationLog from "@/views/SystemManagement/OperationLog.vue"
 import WindowPeriodSetting from "@/views/SystemManagement/WindowPeriodSetting.vue"
-
+import UpLoad from "@/views/UpLoadFile/UpLoad.vue"
 Vue.use(Router);
 
 const router = new Router({
@@ -77,6 +77,11 @@ const router = new Router({
       path: '/WindowPeriodSetting',
       name: 'WindowPeriodSetting',
       component: WindowPeriodSetting,
+      props: true
+    },{
+      path: '/UpLoad',
+      name: 'UpLoad',
+      component: UpLoad,
       props: true
     }
   ]
