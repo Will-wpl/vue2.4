@@ -119,26 +119,6 @@ export default {
 };
 </script>
 <style>
-.el-drawer__header {
-  margin-bottom: 15px !important;
-}
-
-.bottomBox {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0 6px rgba(0, 0, 0, 0.12);
-  height: 100px;
-  position: relative;
-}
-
-.buttonPostion {
-  position: absolute;
-  left: 40%;
-  top: 30%;
-}
-
-.buttonGrp > tr > th > button {
-  margin-left: 5px;
-}
-
 .uploadBtnPos {
   margin-bottom: 10px;
   position: relative;
@@ -151,12 +131,6 @@ export default {
 .uploadBtnPos img {
   width: 15%;
   height: auto;
-}
-
-.el-table td,
-.el-table th {
-  padding: 5px 0px !important;
-  font-size: 13px;
 }
 .uploadBox .el-upload-dragger,.uploadBox .el-upload{
    width: 100%;
@@ -190,92 +164,6 @@ export default {
   border:1px solid rgba(189,195,203,1);
   border-radius:4px;
 }
-.el-main {
-  padding: 0 15px;
-}
-.container-fluid {
-  padding: 0;
-}
-.align-items-start {
-  background: #f8f9fd;
-  padding: 10px 0px;
-}
-.appeal-title {
-  font-size: 24px;
-  color: #a2a0a2;
-  border-left: 4px solid #007ac3;
-  padding-left: 15px;
-  margin: 0;
-}
-.appeal-title .title {
-  color: #000;
-  margin-bottom: 10px;
-}
-.appeal-title .content {
-  color: #707070;
-  font-size: 16px;
-}
-.appeal-title .content span {
-  color: #007ac3;
-}
-.appeal-left {
-  background: #f8f9fd;
-  padding: 0;
-}
-.appeal-left-search {
-  margin: 15px;
-}
-.appeal-left-menu {
-  width: 100%;
-}
-.line {
-  height: 2px;
-  background: #e4e5e6;
-}
-.borderR {
-  border-right: 8px solid #ddedfa;
-}
-.mb {
-  margin-bottom: 10px;
-}
-.filterbox {
-  border-bottom: 1px solid #d6d6d6;
-  padding: 10px;
-  margin: 0;
-}
-.posBtn {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  text-align: right;
-  padding: 15px;
-  background: #fff;
-  box-shadow: 0px 0px 8px #ccc;
-}
-h4 {
-  text-align: left;
-  color: #297fd5;
-}
-h4 span {
-  color: #a2a0a2;
-  font-size: 14px;
-}
-.white_bg {
-  background: #fff;
-  padding: 10px 0px;
-}
-.total {
-  color: #a2a0a2;
-  font-size: 15px;
-  margin: 0;
-}
-.total span {
-  color: #297fd5;
-}
-.report-title {
-  font-size: 12px;
-  color: #a2a0a2;
-}
 .textR {
   text-align: right;
 }
@@ -284,28 +172,6 @@ h4 span {
 }
 .el-main {
   background: #eef2f6;
-}
-.el-select,
-.el-input {
-  width: 100% !important;
-}
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 18px;
-  opacity: 0.75;
-  line-height: 300px;
-  margin: 0;
-}
-.formulas {
-  font-size: 14px;
-}
-
-.formulas span {
-  color: #297fd5;
-  margin-left: 15px;
-}
-
-.formulas span font {
-  color: #a2a0a2;
+  padding: 0 15px;
 }
 </style>
