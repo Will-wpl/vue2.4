@@ -2,26 +2,7 @@
   <el-main>
     <div>
       <div class="container-fluid">
-        <div class="row align-items-start">
-          <div class="col-sm col-md col-lg">
-            <h4 class="appeal-title">
-              <div class="title">申诉单号 AESS0001</div>
-              <div class="row content">
-                <div class="col-sm col-md col-lg-4 borderR">
-                  申诉日期
-                  <span>09/07/2019</span>
-                </div>
-                <div class="col-sm col-md col-lg-4">
-                  申请人
-                  <span>09/07/2019</span>
-                </div>
-              </div>
-            </h4>
-          </div>
-          <div class="col-sm col-md col-lg">
-            <Step :step="2" />
-          </div>
-        </div>
+        <AppealHead :headData="appealHead" />
         <div class="row mt20">
           <div class="uploadfile">
               <h4></h4>
@@ -76,11 +57,13 @@ import {
 } from "../../assets/mockdata/mockdata";
 import Step from "@/components/InventReportComponents/Step.vue";
 import Diglog from "@/components/Common/diglog/Diglog.vue";
+import AppealHead from "@/components/Common/appealhead/AppealHead.vue";
 export default {
   name: "UpLoad",
   components: {
     Step,
-    Diglog
+    Diglog,
+    AppealHead
   },
   methods: {
     handleSizeChange(val) {
@@ -116,7 +99,13 @@ export default {
         {btnName:"暂无法提供全部证明文件，待补全",callbackFn:this.aa.bind(this,2),type:""},
         {btnName:"无法提供证明文件",callbackFn:this.aa.bind(this,3),type:""}
       ],
-      original:true
+      original:true,
+      appealHead:{
+        appealNumber:"AESS0001",
+        appealTime:"09/07/2019",
+        appealName:"Jessica",
+        appealStep:2
+      }
     }
   },
   mounted() {
