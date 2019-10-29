@@ -26,6 +26,7 @@
           <div class="uploadfile">
               <h4></h4>
               <el-upload
+                  v-if="original"
                   class="uploadBox"
                   drag
                   action="https://jsonplaceholder.typicode.com/posts/"
@@ -34,6 +35,9 @@
                   <div class="el-upload__text">拖拽或点击,上传证明文件</div>
                   <div class="el-upload__tip" slot="tip">上传文档格式限制pdf ，jpg,png图片，最大不超过5MB<br/>可在提交申诉单后，补传证明文件 </div>
                 </el-upload>
+                <div class="original" v-else>
+                  本申诉原因均为非原始数据错误，无需提供证明文件
+                </div>
           </div>
         </div>
 
@@ -46,7 +50,7 @@
                     <el-button round plain>上一步</el-button>
                   </th>
                   <th>
-                    <el-button round>保存</el-button>
+                    <el-button round :disabled="!original">保存</el-button>
                   </th>
                   <th>
                     <el-button type="primary" @click="visible = true" round>提交申诉</el-button>
@@ -111,7 +115,8 @@ export default {
         {btnName:"上传证明文件",callbackFn:this.aa.bind(this,1),type:"primary"},
         {btnName:"暂无法提供全部证明文件，待补全",callbackFn:this.aa.bind(this,2),type:""},
         {btnName:"无法提供证明文件",callbackFn:this.aa.bind(this,3),type:""}
-      ]
+      ],
+      original:true
     }
   },
   mounted() {
@@ -187,6 +192,14 @@ export default {
 .uploadBox{
    margin: 60px auto;
    width: 60%;
+}
+.original{
+  margin: 60px auto;
+  width: 60%;
+  text-align: center; padding: 60px 0px;
+  background:rgba(243,243,243,1);
+  border:1px solid rgba(189,195,203,1);
+  border-radius:4px;
 }
 .el-main {
   padding: 0 15px;
