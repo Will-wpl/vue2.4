@@ -33,7 +33,27 @@
             <hr />
             <div>
               <span class="recordNum">共5条</span>
-              <el-dropdown @command="handleCommand" split-button type="primary">
+              <el-dropdown :hide-on-click="false" @command="handleCommand">
+                <el-button type="primary">
+                  增加商业
+                  <i class="el-icon-arrow-down el-icon--right"></i>
+                </el-button>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item command="a" @click.native.prevent="PreventEvent($event)">
+                    <template>
+                      <el-autocomplete placeholder="Type something" v-model="input4">
+                        <i slot="suffix" class="el-input__icon el-icon-search"></i>
+                      </el-autocomplete>
+                    </template>
+                  </el-dropdown-item>
+                  <el-dropdown-item command="b">安庆上药众协大药房有限公司</el-dropdown-item>
+                  <el-dropdown-item command="c">安徽省蚌埠市天辰医药有限责任公司</el-dropdown-item>
+                  <el-dropdown-item command="d">上药控股安庆有限公司</el-dropdown-item>
+                  <el-dropdown-item command="e">上药控股安庆有限公司</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+
+              <!-- <el-dropdown @command="handleCommand" split-button type="primary">
                 增加商业
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item command="a" @click.native.prevent="PreventEvent($event)">
@@ -43,12 +63,12 @@
                       </el-autocomplete>
                     </template>
                   </el-dropdown-item>
-                  <el-dropdown-item command="b">Action 2</el-dropdown-item>
-                  <el-dropdown-item command="c">Action 3</el-dropdown-item>
-                  <el-dropdown-item command="d">Action 4</el-dropdown-item>
-                  <el-dropdown-item command="e">Action 5</el-dropdown-item>
+                  <el-dropdown-item command="b">安庆上药众协大药房有限公司</el-dropdown-item>
+                  <el-dropdown-item command="c">安徽省蚌埠市天辰医药有限责任公司</el-dropdown-item>
+                  <el-dropdown-item command="d">上药控股安庆有限公司</el-dropdown-item>
+                  <el-dropdown-item command="e">上药控股安庆有限公司</el-dropdown-item>
                 </el-dropdown-menu>
-              </el-dropdown>
+              </el-dropdown> -->
             </div>
             <div class="appeal-left-menu">
               <div
@@ -146,7 +166,6 @@ export default {
       if (event) {
         event.stopPropagation();
         event.preventDefault();
-        
       }
     },
     handleCommand(command) {
