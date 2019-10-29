@@ -44,13 +44,13 @@
             <div class="uploadBtnPos">
               <div class="row">
                 <div style="padding-right:0px;" class="col">
-                  <div style="float: right;">
+                  <div class="downloadBtnBlock">
                     <img src="@/assets/upload.png" />
                     <span>下载申诉单</span>
                   </div>
                 </div>
-                <div style class="col">
-                  <div style="float:left">
+                <div class="col">
+                  <div class="uploadBtnBlock">
                     <img src="@/assets/download.png" />
                     <span>上传申诉单</span>
                   </div>
@@ -254,13 +254,25 @@ export default {
   position: relative;
 }
 
-.uploadBtnPos span{
-  color:#0078C1;
+.uploadBtnPos span {
+  color: #0078c1;
+  float: right;
 }
 
 .uploadBtnPos img {
   width: 15%;
   height: auto;
+  margin-right: -15px;
+}
+
+.downloadBtnBlock {
+  float: right;
+  background-color: #eef2f6;
+}
+
+.uploadBtnBlock {
+  float: left;
+  background-color: #eef2f6;
 }
 
 .el-table td,
