@@ -172,6 +172,6 @@ export default {
 }
 .el-main {
   background: #eef2f6;
-  padding: 0 15px;
+  padding: 0px;
 }
 </style>

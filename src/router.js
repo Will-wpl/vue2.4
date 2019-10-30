@@ -13,6 +13,7 @@ import AppealReasonSetting from "@/views/SystemManagement/AppealReasonSetting.vu
 import OperationLog from "@/views/SystemManagement/OperationLog.vue"
 import WindowPeriodSetting from "@/views/SystemManagement/WindowPeriodSetting.vue"
 import UpLoad from "@/views/UpLoadFile/UpLoad.vue"
+import ContactProveFile from "@/views/ContactProveFile/ContactProveFile.vue"
 Vue.use(Router);
 
 const router = new Router({
@@ -82,6 +83,11 @@ const router = new Router({
       path: '/UpLoad',
       name: 'UpLoad',
       component: UpLoad,
+      props: true
+    },{
+      path: '/ContactProveFile',
+      name: 'ContactProveFile',
+      component: ContactProveFile,
       props: true
     }
   ]
