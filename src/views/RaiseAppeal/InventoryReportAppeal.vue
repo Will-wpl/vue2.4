@@ -52,7 +52,7 @@
                     </template>
                   </el-dropdown-item>
                   <el-dropdown-item
-                    v-for="(item,index) in buNamesResults"
+                    v-for="(item,index) in buNames"
                     :key="index"
                     :command="item.id"
                   >{{item.name}}</el-dropdown-item>
