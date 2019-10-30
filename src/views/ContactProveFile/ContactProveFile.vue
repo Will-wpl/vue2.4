@@ -50,8 +50,10 @@
                   :data="data"
                   :props="defaultProps"
                   show-checkbox
-                  default-expand-all
+                  node-key="id"
                   :filter-node-method="filterNode"
+                  :default-expanded-keys="[2, 3, 5]"
+                  :default-checked-keys="[5]"
                   ref="tree"
                 ></el-tree>
               </div>
