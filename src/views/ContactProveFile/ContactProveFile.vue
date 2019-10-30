@@ -163,49 +163,63 @@ export default {
           children: [
             {
               id: 1,
-              label: "一级 1",
+              label: "AESS0011 上海华氏大药房有限公司",
               children: [
                 {
-                  id: 4,
-                  label: "二级 1-1",
+                  id: 2,
+                  label: "Avastin 100mg 4ml",
                   children: [
                     {
-                      id: 9,
-                      label: "三级 1-1-1"
+                      id: 3,
+                      label: "Avastin 3-1-1"
                     },
                     {
-                      id: 10,
-                      label: "三级 1-1-2"
+                      id: 4,
+                      label: "Avastin 3-1-2"
+                    }
+                  ]
+                },
+                {
+                  id: 5,
+                  label: "Herceptin Vial 440mg (local 440mg)",
+                  children: [
+                    {
+                      id: 6,
+                      label: "Vial 3-1-1"
+                    },
+                    {
+                      id: 7,
+                      label: "Vial 3-1-2"
                     }
                   ]
                 }
               ]
             },
             {
-              id: 2,
-              label: "一级 2",
+              id: 8,
+              label: "AESS0012 安徽省蚌阜市天辰医药有限责任公司",
               children: [
                 {
-                  id: 5,
-                  label: "二级 2-1"
+                  id: 9,
+                  label: "AESS0012 2-1"
                 },
                 {
-                  id: 6,
-                  label: "二级 2-2"
+                  id: 10,
+                  label: "AESS0012 2-2"
                 }
               ]
             },
             {
-              id: 3,
-              label: "一级 3",
+              id: 11,
+              label: "AESS0013 上海众协药业有限公司",
               children: [
                 {
-                  id: 7,
-                  label: "二级 3-1"
+                  id: 12,
+                  label: "AESS0013 3-1"
                 },
                 {
-                  id: 8,
-                  label: "二级 3-2"
+                  id: 13,
+                  label: "AESS0013 3-2"
                 }
               ]
             }
@@ -268,7 +282,7 @@ label.el-checkbox {
   overflow-y: auto;
 }
 .fileboxlist{
-  height: 510px;
+  height: 500px;
   overflow-y: auto;
 }
 .proverFile h4 {

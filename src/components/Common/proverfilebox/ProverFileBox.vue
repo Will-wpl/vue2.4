@@ -57,6 +57,7 @@ export default {
   background: #fff;
   font-size: 12px;
   color: #666;
+  margin-bottom: 10px;
 }
 .proverbox .row{
   padding: 0; margin: 0;
@@ -75,12 +76,13 @@ export default {
 }
 .proverbox .filecontact{
   margin-top: 10px;
-  background: url("~@/assets/fileIcon.png") 15px center no-repeat;
+  background: url("~@/assets/fileIcon.png") 15px 9px no-repeat;
   background-size: 12px;
 }
 .proverbox .filecontact span{
   border:1px solid #ddd; padding: 5px 8px; border-radius: 4px;
   margin-left: 20px;
+  display: block;
 }
 .el-icon-cyIcon{
   height: 20px; width: 20px; 
