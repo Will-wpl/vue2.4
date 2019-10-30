@@ -35,8 +35,8 @@
               <span class="recordNum">共5条</span>
               <el-dropdown :hide-on-click="false" @command="handleCommand">
                 <el-button type="primary">
+                  <i class="el-icon-plus el-icon--left"></i>
                   增加商业
-                  <i class="el-icon-arrow-down el-icon--right"></i>
                 </el-button>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item command="a" @click.native="preventEvent($event)">
@@ -51,8 +51,11 @@
                       </el-input>
                     </template>
                   </el-dropdown-item>
-                  <el-dropdown-item v-for="(item,index) in buNames" :key="index" command="item.name">{{item.name}}</el-dropdown-item>
-                  
+                  <el-dropdown-item
+                    v-for="(item,index) in buNames"
+                    :key="index"
+                    command="item.name"
+                  >{{item.name}}</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </div>
@@ -84,6 +87,7 @@
             </div>
           </div>
           <div class="col-sm col-md col-lg appeal-right">
+            <!-- <InventoryReportAppealDetail /> -->
             <InventoryReportAppealDetail :event="appealObj" />
           </div>
         </div>
@@ -248,10 +252,10 @@ export default {
         }
       ],
       buNames: [
-        { id: '1', name: "安庆上药众协大药房有限公司" },
-        { id: '2', name: "安徽省蚌埠市天辰医药有限责任公司" },
-        { id: '3', name: "上药控股安庆有限公司" },
-        { id: '4', name: "上药控股安庆有限公司1" }
+        { id: "1", name: "安庆上药众协大药房有限公司" },
+        { id: "2", name: "安徽省蚌埠市天辰医药有限责任公司" },
+        { id: "3", name: "上药控股安庆有限公司" },
+        { id: "4", name: "上药控股安庆有限公司1" }
       ],
       checked: "",
       input: "",
@@ -291,6 +295,18 @@ export default {
 .el-button-group button {
   background-color: #0066cc;
   border: #0066cc;
+}
+
+.el-dropdown button {
+  background-color: #0066cc;
+  border: #0066cc;
+}
+
+.el-dropdown > button > span > i {
+  border-right: 1px solid white;
+  margin-right: 0px;
+  padding-right: 4px;
+  position: relative;
 }
 
 .recordNum {
