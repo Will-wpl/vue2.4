@@ -1,5 +1,5 @@
 <template>
-  <div class="proverbox">
+  <div :class="['proverbox',active?'active':'']">
     <h4 class="row al-center">
       <div class="col-sm col-md col-lg">
         <el-checkbox v-model="fileData.checked"></el-checkbox>
@@ -26,7 +26,7 @@ export default {
   methods: {
 
   },
-  props:["fileData"],
+  props:["fileData","active"],
   data() {
     return {
     }
@@ -44,7 +44,7 @@ export default {
 <style scoped>
 .el-icon-delete{ color: #FE4242}
 .filephoto{ 
-  border:6px solid #f6f6f6;
+  border:4px solid #f6f6f6;
   border-top: 0px;
   height: 222px;
   }
@@ -64,12 +64,23 @@ export default {
 }
 .proverbox h4{
   background:#f6f6f6;
-  height: 36px;
+  border:4px solid #f6f6f6;
+  border-bottom: 0px;
+  height: 34px;
   margin: 0;
   font-size: 14px;
 }
 .proverbox .fileName{
   color: #0066CC; font-size: 15px;
+}
+.proverbox.active h4,.proverbox.active .filephoto{
+  border:4px solid rgba(0,122,195,1);
+}
+.proverbox.active h4{
+  border-bottom: none;
+}
+.proverbox.active .filephoto{
+  border-top: none;
 }
 .proverbox .fileitem{
   margin-top: 3px;

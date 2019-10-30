@@ -1,66 +1,73 @@
 <template>
   <el-main>
-      <div class="container-fluid">
-        <AppealHead :headData="appealHead" />
-        <div class="row pad0 flex1">
-          <div class="col-sm col-md col-lg-8">
-            <div class="proverFile mt20">
-              <h4 class="al-center">
-                <div class="col-sm col-md col-lg-2"><el-checkbox v-model="checked" @change="checkAll($event)">全选</el-checkbox></div>
-                <div class="col-sm col-md col-lg al-center">
-                  <el-input placeholder="任意关键字" size="mini" v-model="input">
-                      <i slot="suffix" class="el-input__icon el-icon-search"></i>
-                  </el-input>
-                  <el-dropdown>
-                      <i class="el-icon-s-unfold"></i>
-                        <el-dropdown-menu slot="dropdown">
-                          <el-dropdown-item>时间顺序</el-dropdown-item>
-                          <el-dropdown-item>时间倒序</el-dropdown-item>
-                          <el-dropdown-item>名称顺序</el-dropdown-item>
-                          <el-dropdown-item>名称倒序</el-dropdown-item>
-                        </el-dropdown-menu>
-                  </el-dropdown>
-                </div>
-                <div class="col-sm col-md col-lg textR">
-                  <el-button size="mini" plain>关联明细</el-button>
-                  <el-button size="mini" type="danger" plain>删除证明</el-button>
-                  <el-button size="mini" type="primary" @click="pageToUpLoad">上传证明</el-button>
-                </div>
-              </h4>
-              <div class="row fileboxlist mg0">
-                <div class="col-sm col-md col-lg-4 pad25" v-for="(item,index) in fileboxlist" :key="index">
-                  <ProverFileBox :fileData="item" />
-                </div>
+    <div class="container-fluid">
+      <AppealHead :headData="appealHead" />
+      <div class="row pad0 flex1">
+        <div class="col-sm col-md col-lg-8">
+          <div class="proverFile mt20">
+            <h4 class="al-center">
+              <div class="col-sm col-md col-lg-2">
+                <el-checkbox v-model="checked" @change="checkAll($event)">全选</el-checkbox>
               </div>
-            </div>
-          </div>
-          <div class="col-sm col-md col-lg-4 pad0 posR">
-            <div class="contactFile">
-              <h4>
-                <b>关联证明文件与申诉明细</b>
-              </h4>
-              <div class="contactFileSearch">
-                <el-input placeholder="任意关键字" v-model="filterText">
+              <div class="col-sm col-md col-lg al-center">
+                <el-input placeholder="任意关键字" size="mini" v-model="input">
                   <i slot="suffix" class="el-input__icon el-icon-search"></i>
                 </el-input>
+                <el-dropdown>
+                  <i class="el-icon-s-unfold"></i>
+                  <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>时间顺序</el-dropdown-item>
+                    <el-dropdown-item>时间倒序</el-dropdown-item>
+                    <el-dropdown-item>名称顺序</el-dropdown-item>
+                    <el-dropdown-item>名称倒序</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
               </div>
-              <div class="contactTree">
-                <el-tree
-                  class="filter-tree"
-                  :data="data"
-                  :props="defaultProps"
-                  show-checkbox
-                  node-key="id"
-                  :filter-node-method="filterNode"
-                  :default-expanded-keys="[2, 3, 5]"
-                  :default-checked-keys="[5]"
-                  ref="tree"
-                ></el-tree>
+              <div class="col-sm col-md col-lg textR">
+                <el-button size="mini" plain>关联明细</el-button>
+                <el-button size="mini" type="danger" plain>删除证明</el-button>
+                <el-button size="mini" type="primary" @click="pageToUpLoad">上传证明</el-button>
+              </div>
+            </h4>
+            <div class="row fileboxlist mg0">
+              <div
+                class="col-sm col-md col-lg-4 pad25"
+                @click="setActive(index)"
+                v-for="(item,index) in fileboxlist"
+                :key="index"
+              >
+                <ProverFileBox :fileData="item" :active="item.active" />
               </div>
             </div>
           </div>
         </div>
+        <div class="col-sm col-md col-lg-4 pad0 posR">
+          <div class="contactFile">
+            <h4>
+              <b>关联证明文件与申诉明细</b>
+            </h4>
+            <div class="contactFileSearch">
+              <el-input placeholder="任意关键字" v-model="filterText">
+                <i slot="suffix" class="el-input__icon el-icon-search"></i>
+              </el-input>
+            </div>
+            <div class="contactTree">
+              <el-tree
+                class="filter-tree"
+                :data="data"
+                :props="defaultProps"
+                show-checkbox
+                node-key="id"
+                :filter-node-method="filterNode"
+                :default-expanded-keys="[2, 3, 5]"
+                :default-checked-keys="[5]"
+                ref="tree"
+              ></el-tree>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
   </el-main>
 </template>
 <script>
@@ -80,76 +87,97 @@ export default {
       if (!value) return true;
       return data.label.indexOf(value) !== -1;
     },
-    pageToUpLoad(){
-      this.$router.push('/UpLoad')
+    pageToUpLoad() {
+      this.$router.push("/UpLoad");
     },
-    checkAll(val){
-      if(val){
-        this.fileboxlist.map(item=>{item.checked=true});
-      }else{
-        this.fileboxlist.map(item=>{item.checked=false});
+    checkAll(checked) {
+      if (checked) {
+        this.setfileboxlist('checked',true);
+      } else {
+        this.setfileboxlist('checked',false);
       }
+    },
+    setActive(index) {
+      this.setfileboxlist('active',false);
+      this.fileboxlist[index].active = true;
+    },
+    setfileboxlist(itemtype,val){
+      this.fileboxlist.map(item => {
+        item[itemtype] = val
+      });
     }
   },
   data() {
     return {
-      checked:false,
+      checked: false,
       filterText: "",
-      input:"",
-      fileboxlist:[
-        { 
-          id:1,
-          checked:true,
-          imgUrl:"https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-          fileName:"证明文件1.png",
-          updateTime:"2019/07/02  00:21",
-          updateUser:"Bruce Bu 最后更新",
-          fileContact:"上游经销商销售数据错误"
+      input: "",
+      fileboxlist: [
+        {
+          id: 1,
+          checked: true,
+          active: true,
+          imgUrl:
+            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+          fileName: "证明文件1.png",
+          updateTime: "2019/07/02  00:21",
+          updateUser: "Bruce Bu 最后更新",
+          fileContact: "上游经销商销售数据错误"
         },
-        { 
-          id:2,
-          checked:false,
-          imgUrl:"https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-          fileName:"证明文件1.png",
-          updateTime:"2019/07/02  00:21",
-          updateUser:"Bruce Bu 最后更新",
-          fileContact:"上游经销商销售数据错误"
+        {
+          id: 2,
+          checked: false,
+          active: false,
+          imgUrl:
+            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+          fileName: "证明文件1.png",
+          updateTime: "2019/07/02  00:21",
+          updateUser: "Bruce Bu 最后更新",
+          fileContact: "上游经销商销售数据错误"
         },
-        { 
-          id:3,
-          checked:true,
-          imgUrl:"https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-          fileName:"证明文件1.png",
-          updateTime:"2019/07/02  00:21",
-          updateUser:"Bruce Bu 最后更新",
-          fileContact:"上游经销商销售数据错误"
+        {
+          id: 3,
+          checked: true,
+          active: false,
+          imgUrl:
+            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+          fileName: "证明文件1.png",
+          updateTime: "2019/07/02  00:21",
+          updateUser: "Bruce Bu 最后更新",
+          fileContact: "上游经销商销售数据错误"
         },
-        { 
-          id:4,
-          checked:false,
-          imgUrl:"https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-          fileName:"证明文件1.png",
-          updateTime:"2019/07/02  00:21",
-          updateUser:"Bruce Bu 最后更新",
-          fileContact:"上游经销商销售数据错误"
+        {
+          id: 4,
+          checked: false,
+          active: false,
+          imgUrl:
+            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+          fileName: "证明文件1.png",
+          updateTime: "2019/07/02  00:21",
+          updateUser: "Bruce Bu 最后更新",
+          fileContact: "上游经销商销售数据错误"
         },
-        { 
-          id:5,
-          checked:true,
-          imgUrl:"https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-          fileName:"证明文件1.png",
-          updateTime:"2019/07/02  00:21",
-          updateUser:"Bruce Bu 最后更新",
-          fileContact:"上游经销商销售数据错误"
+        {
+          id: 5,
+          checked: true,
+          active: false,
+          imgUrl:
+            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+          fileName: "证明文件1.png",
+          updateTime: "2019/07/02  00:21",
+          updateUser: "Bruce Bu 最后更新",
+          fileContact: "上游经销商销售数据错误"
         },
-        { 
-          id:6,
-          checked:false,
-          imgUrl:"https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-          fileName:"证明文件1.png",
-          updateTime:"2019/07/02  00:21",
-          updateUser:"Bruce Bu 最后更新",
-          fileContact:"上游经销商销售数据错误"
+        {
+          id: 6,
+          checked: false,
+          active: false,
+          imgUrl:
+            "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+          fileName: "证明文件1.png",
+          updateTime: "2019/07/02  00:21",
+          updateUser: "Bruce Bu 最后更新",
+          fileContact: "上游经销商销售数据错误"
         }
       ],
       appealHead: {
@@ -250,20 +278,26 @@ label.el-checkbox {
 }
 </style>
 <style scoped>
-.container-fluid{
+.container-fluid {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.flex1{flex:1;}
-.al-center{ display: flex;}
+.flex1 {
+  flex: 1;
+}
+.al-center {
+  display: flex;
+}
 .contactTree {
   padding: 15px 20px;
-  flex:1;
+  flex: 1;
   overflow-y: auto;
 }
-.el-dropdown{
-  float: none; bottom: 0; right: 0;
+.el-dropdown {
+  float: none;
+  bottom: 0;
+  right: 0;
   margin-left: 15px;
 }
 .label {
@@ -283,7 +317,7 @@ label.el-checkbox {
   padding-bottom: 20px;
   overflow-y: auto;
 }
-.fileboxlist{
+.fileboxlist {
   height: 500px;
   overflow-y: auto;
 }
@@ -298,7 +332,9 @@ label.el-checkbox {
 .posR {
   position: relative;
 }
-.pad25{padding: 30px 30px 0px;}
+.pad25 {
+  padding: 30px 30px 0px;
+}
 .mt20 {
   margin-top: 20px;
 }
