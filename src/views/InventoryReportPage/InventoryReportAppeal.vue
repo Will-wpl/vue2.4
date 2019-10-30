@@ -39,36 +39,22 @@
                   <i class="el-icon-arrow-down el-icon--right"></i>
                 </el-button>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item command="a" @click.native.prevent="PreventEvent($event)">
+                  <el-dropdown-item command="a" @click.native="preventEvent($event)">
                     <template>
-                      <el-autocomplete placeholder="Type something" v-model="input4">
+                      <el-input
+                        @input="searchInputChange($event)"
+                        placeholder="Please input"
+                        v-model="buSearchinput"
+                        clearable
+                      >
                         <i slot="suffix" class="el-input__icon el-icon-search"></i>
-                      </el-autocomplete>
+                      </el-input>
                     </template>
                   </el-dropdown-item>
-                  <el-dropdown-item command="b">安庆上药众协大药房有限公司</el-dropdown-item>
-                  <el-dropdown-item command="c">安徽省蚌埠市天辰医药有限责任公司</el-dropdown-item>
-                  <el-dropdown-item command="d">上药控股安庆有限公司</el-dropdown-item>
-                  <el-dropdown-item command="e">上药控股安庆有限公司</el-dropdown-item>
+                  <el-dropdown-item v-for="(item,index) in buNames" :key="index" command="item.name">{{item.name}}</el-dropdown-item>
+                  
                 </el-dropdown-menu>
               </el-dropdown>
-
-              <!-- <el-dropdown @command="handleCommand" split-button type="primary">
-                增加商业
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item command="a" @click.native.prevent="PreventEvent($event)">
-                    <template>
-                      <el-autocomplete placeholder="Type something" v-model="input4">
-                        <i slot="suffix" class="el-input__icon el-icon-search"></i>
-                      </el-autocomplete>
-                    </template>
-                  </el-dropdown-item>
-                  <el-dropdown-item command="b">安庆上药众协大药房有限公司</el-dropdown-item>
-                  <el-dropdown-item command="c">安徽省蚌埠市天辰医药有限责任公司</el-dropdown-item>
-                  <el-dropdown-item command="d">上药控股安庆有限公司</el-dropdown-item>
-                  <el-dropdown-item command="e">上药控股安庆有限公司</el-dropdown-item>
-                </el-dropdown-menu>
-              </el-dropdown> -->
             </div>
             <div class="appeal-left-menu">
               <div
@@ -162,11 +148,19 @@ export default {
     InventoryReportAppealDetail
   },
   methods: {
-    PreventEvent(event) {
+    preventEvent(event) {
       if (event) {
-        event.stopPropagation();
-        event.preventDefault();
       }
+    },
+    searchInputChange(event) {
+      // this.buNamesResults = (_ => {
+      //   return this.buNames.find(item => {
+      //     console.log(item.name);
+      //     item.name.indexOf(this.buSearchinput) > -1;
+      //   });
+      // })
+
+      this.$message("input changed");
     },
     handleCommand(command) {
       this.$message("click on item " + command);
@@ -205,6 +199,7 @@ export default {
   },
   data() {
     return {
+      buSearchinput: "",
       drawer: false,
       direction: "rtl",
       appealObj: Object,
@@ -251,6 +246,12 @@ export default {
             { title: "Cellcept Capsule 250mg 40s", status: "-70" }
           ]
         }
+      ],
+      buNames: [
+        { id: '1', name: "安庆上药众协大药房有限公司" },
+        { id: '2', name: "安徽省蚌埠市天辰医药有限责任公司" },
+        { id: '3', name: "上药控股安庆有限公司" },
+        { id: '4', name: "上药控股安庆有限公司1" }
       ],
       checked: "",
       input: "",
