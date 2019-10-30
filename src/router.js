@@ -7,7 +7,7 @@ import DynamicQuery from "@/views/DynamicQuery/DynamicQuery.vue"
 import PermissionSetting from "@/views/SystemManagement/PermissionSetting.vue"
 import RemindSetting from "@/views/SystemManagement/RemindSetting.vue"
 import Login from '@/views/Login.vue';
-import InventoryReportAppeal from "@/views/InventoryReportPage/InventoryReportAppeal.vue"
+import InventoryReportAppeal from "@/views/RaiseAppeal/InventoryReportAppeal.vue"
 import DynamicReport from "@/views/SystemManagement/DynamicReport.vue"
 import AppealReasonSetting from "@/views/SystemManagement/AppealReasonSetting.vue"
 import OperationLog from "@/views/SystemManagement/OperationLog.vue"

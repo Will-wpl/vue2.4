@@ -39,7 +39,7 @@
                   增加商业
                 </el-button>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item command="a" @click.native="preventEvent($event)">
+                  <el-dropdown-item command="a">
                     <template>
                       <el-input
                         @input="searchInputChange($event)"
@@ -52,9 +52,9 @@
                     </template>
                   </el-dropdown-item>
                   <el-dropdown-item
-                    v-for="(item,index) in buNames"
+                    v-for="(item,index) in buNamesResults"
                     :key="index"
-                    command="item.name"
+                    :command="item.id"
                   >{{item.name}}</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
@@ -88,7 +88,7 @@
           </div>
           <div class="col-sm col-md col-lg appeal-right">
             <!-- <InventoryReportAppealDetail /> -->
-            <InventoryReportAppealDetail :event="appealObj" />
+            <AppealDetail :event="appealObj" />
           </div>
         </div>
 
@@ -142,27 +142,23 @@ import {
 import InventReportTable from "@/components/InventReportComponents/InventReportTable.vue";
 import Step from "@/components/InventReportComponents/Step.vue";
 import AppealNav from "@/components/Common/AppealNav.vue";
-import InventoryReportAppealDetail from "@/views/InventoryReportPage/InventoryReportAppealDetail.vue";
+import AppealDetail from "@/components/RaiseAppealComponents/AppealDetail.vue";
 export default {
   name: "InventoryReportAppeal",
   components: {
     InventReportTable,
     Step,
     AppealNav,
-    InventoryReportAppealDetail
+    AppealDetail
   },
   methods: {
-    preventEvent(event) {
-      if (event) {
-      }
-    },
     searchInputChange(event) {
-      // this.buNamesResults = (_ => {
-      //   return this.buNames.find(item => {
-      //     console.log(item.name);
-      //     item.name.indexOf(this.buSearchinput) > -1;
-      //   });
-      // })
+      this.buNamesResults = _ => {
+        return this.buNames.find(item => {
+          console.log(item.name);
+          item.name.indexOf(this.buSearchinput) > -1;
+        });
+      };
 
       this.$message("input changed");
     },
@@ -203,6 +199,7 @@ export default {
   },
   data() {
     return {
+      buNamesResults: Object,
       buSearchinput: "",
       drawer: false,
       direction: "rtl",
