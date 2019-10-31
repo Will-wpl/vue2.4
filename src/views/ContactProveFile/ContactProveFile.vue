@@ -24,9 +24,9 @@
                 </el-dropdown>
               </div>
               <div class="col-sm col-md col-lg textR">
-                <el-button size="mini" plain>关联明细</el-button>
-                <el-button size="mini" type="danger" plain>删除证明</el-button>
-                <el-button size="mini" type="primary" @click="pageToUpLoad">上传证明</el-button>
+                <el-button size="mini" plain icon="el-icon-link">关联明细</el-button>
+                <el-button size="mini" type="danger" icon="el-icon-delete" plain>删除证明</el-button>
+                <el-button size="mini" type="primary" icon="el-icon-upload2" @click="pageToUpLoad">上传证明</el-button>
               </div>
             </h4>
             <div class="row fileboxlist mg0">
@@ -72,13 +72,11 @@
 </template>
 <script>
 import { configForInventoryReport } from "../../assets/mockdata/mockdata";
-import Step from "@/components/InventReportComponents/Step.vue";
 import AppealHead from "@/components/Common/appealhead/AppealHead.vue";
 import ProverFileBox from "@/components/Common/proverfilebox/ProverFileBox.vue";
 export default {
   name: "ContactProveFile",
   components: {
-    Step,
     AppealHead,
     ProverFileBox
   },
@@ -184,7 +182,25 @@ export default {
         appealNumber: "AESS0001",
         appealTime: "09/07/2019",
         appealName: "Jessica",
-        appealStep: 2
+        appealStep: {
+          step:"2",
+          status:"process",
+          addstatus:[
+            {
+              id: '',
+              name: '填写明细',
+              visible: true,
+              size: 'mini',
+              status: 'process'
+            },
+            {
+              id: '',
+              name: '关联证明文件',
+              visible: true,
+              size: 'mini',
+              status: 'process'
+            }]
+        }
       },
       data: [
         {
@@ -263,6 +279,7 @@ export default {
     };
   },
   mounted() {
+    this.$store.dispatch("changeStepItemData",this.appealHead.appealStep);
     //this.pageId = this.$route.params.id;
   },
   watch: {

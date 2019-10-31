@@ -15,8 +15,8 @@
               </div>
             </h4>
           </div>
-          <div class="col-sm col-md col-lg">
-            <Step :step="headData.appealStep" />
+          <div class="col-sm col-md col-lg padO">
+            <Step />
           </div>
         </div>
 </template>
@@ -78,4 +78,5 @@ export default {
 .appeal-title .content span {
   color: #007ac3;
 }
+.padO{padding: 0;}
 </style>

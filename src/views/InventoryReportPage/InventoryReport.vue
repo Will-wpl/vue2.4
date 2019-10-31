@@ -10,7 +10,7 @@
             </h4>
           </div>
           <div class="col-sm col-md col-lg">
-            <Step :step="1" />
+            <Step />
           </div>
         </div>
         <div v-show="ifFilterShow" class="row mt20">

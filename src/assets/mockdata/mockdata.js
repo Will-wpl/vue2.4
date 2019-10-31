@@ -712,6 +712,57 @@ const tableData = [
   }
 ]
 
+const defaultStepsData = [
+  {
+    id: '1',
+    name: '核对差异',
+    visible: true,
+    size: 'default',
+    status: 'process'
+  },
+  {
+    id: '2',
+    name: '发起申诉',
+    visible: true,
+    size: 'default',
+    status: 'wait'
+  },
+  {
+    id: '3',
+    name: '申诉审批',
+    visible: true,
+    size: 'default',
+    status: 'wait'
+  },
+  {
+    id: '4',
+    name: '数据调整',
+    visible: true,
+    size: 'default',
+    status: 'wait'
+  },
+  {
+    id: '5',
+    name: '数据确认',
+    visible: true,
+    size: 'default',
+    status: 'wait'
+  },
+  {
+    id: '6',
+    name: '数据同步',
+    visible: true,
+    size: 'default',
+    status: 'wait'
+  },
+  {
+    id: '7',
+    name: '申诉完成',
+    visible: true,
+    size: 'default',
+    status: 'wait'
+  }
+]
 
 export {
   conditionConfig,
@@ -722,5 +773,6 @@ export {
   AppealReasonTableData,
   OperationLogTableData,
   windowPeriodSettingMonth,
-  configForInventoryReport
+  configForInventoryReport,
+  defaultStepsData
 }

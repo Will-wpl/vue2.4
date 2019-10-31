@@ -46,7 +46,7 @@ export default {
 .filephoto{ 
   border:4px solid #f6f6f6;
   border-top: 0px;
-  height: 222px;
+  height: 160px;
   }
 .filephoto img{ display: block; margin: 0 auto; max-height: 100%; max-width: 100%;}
 .textR {
