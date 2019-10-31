@@ -85,6 +85,7 @@
 
 <script>
 import InventoryEventCard from "@/components/OverviewComponents/InventoryCard.vue";
+import { homePageData } from "../../assets/mockdata/mockdata";
 export default {
   name: "AppealOverview",
   components: {
@@ -102,30 +103,32 @@ export default {
         }
         return html;
       }
+    },
+    drawHomePage(data){
+      data.map(item=>{
+          if(item.Type === "进销存"){
+            this.events1.push(item);
+          }else if(item.Type == "申诉概览"){
+            this.events2.push(item);
+          }else if(item.Type == "证明文件"){
+            this.events3.push(item);
+          }else if(item.Type == "调整数据"){
+            this.events4.push(item);
+          }
+        })
     }
   },
   mounted(){
     this.$axios.getHomeData().then((res)=>{
-      this.notis = res.data.HomeIndexTimes;
-      console.log(res.data.homeIndexStatisticals);
-      res.data.homeIndexStatisticals.map(item=>{
-        if(item.Type === "进销存"){
-          this.events1.push(item);
-        }else if(item.Type == "申诉概览"){
-          this.events2.push(item);
-        }else if(item.Type == "证明文件"){
-          this.events3.push(item);
-        }else if(item.Type == "调整数据"){
-          this.events4.push(item);
-        }
-      })
-      // this.events1 = res.data.events1;
-      // this.events2 = res.data.events2;
-      // this.events3 = res.data.events3;
-      // this.events4 = res.data.events4;
-      // this.events5 = res.data.events5;
+      if(res.data.HomeIndexTimes.length > 0 && res.data.homeIndexStatisticals.length > 0){
+        this.notis = res.data.HomeIndexTimes;
+        this.drawHomePage(res.data.homeIndexStatisticals);
+      }else{
+        this.notis = homePageData.HomeIndexTimes;
+        this.drawHomePage(homePageData.homeIndexStatisticals);
+      }
+      
       this.$store.dispatch('saveHomeData',res.data);
-      console.log(this.jdata.code);
     }).catch((err)=>{
       console.log(err);
     })

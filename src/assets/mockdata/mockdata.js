@@ -194,10 +194,10 @@ const DynamicTableData = [
 ]
 
 const PermissionTableData = [
-  { jurisdiction: "东区", userName: "johnsmih", name: "约翰逊", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: false,transferAuthority:1,edit:0},
-  { jurisdiction: "南区", userName: "justin", name: "贾斯丁", email: "johnsmoth@roche.com", role: "MCA区域数据运维", jlist: ["东区", "南区"], switch: true ,transferAuthority:2,edit:1},
-  { jurisdiction: "北区", userName: "Jessica", name: "杰西卡", email: "johnsmoth@roche.com", role: "大区管理", jlist: ["东区", "南区"], switch: true ,transferAuthority:3,edit:2},
-  { jurisdiction: "西区", userName: "Henry", name: "亨利", email: "johnsmoth@roche.com", role: "MCA经理", jlist: ["东区", "南区"], switch: true ,transferAuthority:4,edit:3}
+  { jurisdiction: "东区", userName: "johnsmih", name: "约翰逊", email: "johnsmoth@roche.com", role: "MCA代表", jlist: ["东区", "南区"], switch: false, transferAuthority: 1, edit: 0 },
+  { jurisdiction: "南区", userName: "justin", name: "贾斯丁", email: "johnsmoth@roche.com", role: "MCA区域数据运维", jlist: ["东区", "南区"], switch: true, transferAuthority: 2, edit: 1 },
+  { jurisdiction: "北区", userName: "Jessica", name: "杰西卡", email: "johnsmoth@roche.com", role: "大区管理", jlist: ["东区", "南区"], switch: true, transferAuthority: 3, edit: 2 },
+  { jurisdiction: "西区", userName: "Henry", name: "亨利", email: "johnsmoth@roche.com", role: "MCA经理", jlist: ["东区", "南区"], switch: true, transferAuthority: 4, edit: 3 }
 ]
 
 const RemindTableData = [
@@ -404,7 +404,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -431,7 +431,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -458,7 +458,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -485,7 +485,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -512,7 +512,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -539,7 +539,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -566,7 +566,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -593,7 +593,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -620,7 +620,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -647,7 +647,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -674,7 +674,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -701,7 +701,7 @@ const tableData = [
     logicProcurement: "45",
     salesVolumes: "66",
     adjustingInventory: "78",
-    intransit:"在途中",
+    intransit: "在途中",
     logicalInventory: "12",
     actualInventory: "222",
     inventoryVarianceLogicVsPractice: "12",
@@ -764,6 +764,8 @@ const defaultStepsData = [
   }
 ]
 
+const homePageData = { "HomeIndexTimes": [{ "TimeType": "本月月结", "TimeInfo": "$窗口期已结束", "OrderIndex": 2 }, { "TimeType": null, "TimeInfo": "$窗口期已结束", "OrderIndex": 2 }], "homeIndexStatisticals": [{ "Type": "进销存", "Title": "有差异", "Amount": 110, "FeedbackAmount": 10, "UnFeedbackAmount": 100, "OrderIndex": 0, "Icon": "iconycy" }, { "Type": "进销存", "Title": "无差异", "Amount": 21, "FeedbackAmount": 10, "UnFeedbackAmount": 11, "OrderIndex": 0, "Icon": "iconwcy" }, { "Type": "申诉概览", "Title": "待提交", "Amount": 10, "FeedbackAmount": 0, "UnFeedbackAmount": 0, "OrderIndex": 0, "Icon": "iconsync1" }, { "Type": "申诉概览", "Title": "已退回", "Amount": 20, "FeedbackAmount": 0, "UnFeedbackAmount": 0, "OrderIndex": 0, "Icon": "iconsync2" }, { "Type": "申诉概览", "Title": "审批中", "Amount": 111, "FeedbackAmount": 0, "UnFeedbackAmount": 0, "OrderIndex": 0, "Icon": "iconsync3" }, { "Type": "证明文件", "Title": "证明文件待补全", "Amount": 14, "FeedbackAmount": 0, "UnFeedbackAmount": 0, "OrderIndex": 0, "Icon": null }, { "Type": "调整数据", "Title": "待确认数据", "Amount": 67, "FeedbackAmount": 0, "UnFeedbackAmount": 0, "OrderIndex": 0, "Icon": null }, { "Type": "审批概览", "Title": "未审批", "Amount": 10, "FeedbackAmount": 0, "UnFeedbackAmount": 0, "OrderIndex": 0, "Icon": "iconsync1" }, { "Type": "审批概览", "Title": "已审批", "Amount": 20, "FeedbackAmount": 0, "UnFeedbackAmount": 0, "OrderIndex": 0, "Icon": "iconsync2" }] }
+
 export {
   conditionConfig,
   tableData,
@@ -774,5 +776,6 @@ export {
   OperationLogTableData,
   windowPeriodSettingMonth,
   configForInventoryReport,
-  defaultStepsData
+  defaultStepsData,
+  homePageData
 }
