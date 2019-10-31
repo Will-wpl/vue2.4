@@ -201,6 +201,9 @@ export default {
   font-size: 28px;
   font-weight: bold;
 }
+table .el-dropdown{
+  right: 0; bottom: 0; float: none;
+}
 </style>
 <style scoped>
 h5,
