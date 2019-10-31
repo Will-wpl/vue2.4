@@ -7,7 +7,7 @@ import DynamicQuery from "@/views/DynamicQuery/DynamicQuery.vue"
 import PermissionSetting from "@/views/SystemManagement/PermissionSetting.vue"
 import RemindSetting from "@/views/SystemManagement/RemindSetting.vue"
 import Login from '@/views/Login.vue';
-import InventoryReportAppeal from "@/views/RaiseAppeal/InventoryReportAppeal.vue"
+import RaiseAppeal from "@/views/RaiseAppeal/RaiseAppeal.vue"
 import DynamicReport from "@/views/SystemManagement/DynamicReport.vue"
 import AppealReasonSetting from "@/views/SystemManagement/AppealReasonSetting.vue"
 import OperationLog from "@/views/SystemManagement/OperationLog.vue"
@@ -55,9 +55,9 @@ const router = new Router({
       component: RemindSetting,
       props: true
     },{
-      path: '/InventoryReportAppeal:id',
-      name: 'InventoryReportAppeal',
-      component: InventoryReportAppeal,
+      path: '/RaiseAppeal:id',
+      name: 'RaiseAppeal',
+      component: RaiseAppeal,
       props: true
     },{
       path: '/DynamicReport',

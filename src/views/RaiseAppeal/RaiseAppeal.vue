@@ -144,7 +144,7 @@ import Step from "@/components/InventReportComponents/Step.vue";
 import AppealNav from "@/components/Common/AppealNav.vue";
 import AppealDetail from "@/components/RaiseAppealComponents/AppealDetail.vue";
 export default {
-  name: "InventoryReportAppeal",
+  name: "RaiseAppeal",
   components: {
     InventReportTable,
     Step,

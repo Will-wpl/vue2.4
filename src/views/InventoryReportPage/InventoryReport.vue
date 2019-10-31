@@ -167,13 +167,13 @@
         <div class="row mt20">
           <router-link
             class="event-link"
-            :to="{ name: 'InventoryReportAppeal', params: { id: pageId,filter: filter } }"
+            :to="{ name: 'RaiseAppeal', params: { id: pageId,filter: filter } }"
           >
             <el-button icon="el-icon-search" round>申请明细调整</el-button>
           </router-link>
           <router-link
             class="event-link ml10"
-            :to="{ name: 'InventoryReportAppeal', params: { id: pageId,filter: filter } }"
+            :to="{ name: 'RaiseAppeal', params: { id: pageId,filter: filter } }"
           >
             <el-button icon="el-icon-search" round>申请商业调整</el-button>
           </router-link>
