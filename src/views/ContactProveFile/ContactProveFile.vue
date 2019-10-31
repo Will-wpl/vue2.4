@@ -182,7 +182,8 @@ export default {
         appealNumber: "AESS0001",
         appealTime: "09/07/2019",
         appealName: "Jessica",
-        appealStep: {
+      },
+      appealStep: {
           step:"2",
           status:"process",
           addstatus:[
@@ -200,8 +201,7 @@ export default {
               size: 'mini',
               status: 'process'
             }]
-        }
-      },
+        },
       data: [
         {
           id: 0,
@@ -279,7 +279,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch("changeStepItemData",this.appealHead.appealStep);
+    this.$store.dispatch("changeStepItemData",this.appealStep);
     //this.pageId = this.$route.params.id;
   },
   watch: {
