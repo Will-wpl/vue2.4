@@ -13,7 +13,7 @@ const state = {
       state.stepsData = data
     },
     CHANGE_STEPSDATA_ITEM: (state, data) => {
-        const stepData = unserialization(defaultStepsData);
+        let stepData = unserialization(defaultStepsData);
         stepData.map((item)=>{
             if(item.id == data.step){
                 item.status = data.status
