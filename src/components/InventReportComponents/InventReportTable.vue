@@ -13,9 +13,9 @@
     <el-table-column>
       <el-table-column align="center" type="selection"></el-table-column>
     </el-table-column>
-    <el-table-column>
+    <!-- <el-table-column>
       <el-table-column prop="yearMonth" label="年月" width="120" sortable></el-table-column>
-    </el-table-column>
+    </el-table-column> -->
     <el-table-column
       class-name="thead-blue"
       v-for="(item,index) in filterData"
@@ -26,7 +26,7 @@
         :prop="item.fieldName"
         :label="item.name"
         v-if="!item.toolTips"
-        width="150"
+        width="200"
         sortable
       ></el-table-column>
       <el-table-column
