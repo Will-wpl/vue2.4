@@ -1,37 +1,50 @@
 <template>
   <el-main>
-      <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm col-md col-lg-12 detail-title">{{event.name}}</div>
-            <div class="col-sm col-md col-lg-12 detail-box">
-                <el-collapse v-model="activeNames" @change="handleChange">
-                    <el-collapse-item v-for="(item,index) in event.formlist" :key="index" :title="item.title" :name="index">
-                        <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
-                        <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
-                    </el-collapse-item>
-                </el-collapse>
-            </div>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- <div class="col-sm col-md col-lg-12 detail-title">{{event.name}}</div> -->
+        <div class="col-sm col-md col-lg-12 detail-box">
+          <el-collapse v-model="activeNames" @change="handleChange">
+            <el-collapse-item
+              v-for="(item,index) in event.formlist"
+              :key="index"
+              :title="item.title"
+              :name="index"
+            >
+              <hr />
+              <AddYearMonth>年月</AddYearMonth>
+              <hr />
+              <AddButton style="margin-top:0px;">申诉原因</AddButton>
+              <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+              <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+            </el-collapse-item>
+          </el-collapse>
         </div>
+      </div>
     </div>
   </el-main>
 </template>
 <script>
 import { conditionConfig, tableData } from "../../assets/mockdata/mockdata";
+import AddButton from "@/components/RaiseAppealComponents/AddButton.vue";
+import AddYearMonth from "@/components/RaiseAppealComponents/AddYearMonth.vue";
 export default {
   name: "InventoryReportAppealDetail",
   props: {
-      event:Object
+    event: Object
   },
   components: {
+    AddButton,
+    AddYearMonth
   },
   methods: {
     handleChange(val) {
-        console.log(val);
-      }
+      console.log(val);
+    }
   },
   data() {
     return {
-        activeNames: [0]
+      activeNames: [0]
     };
   },
   mounted() {
@@ -53,7 +66,10 @@ export default {
   padding: 5px 0px !important;
   font-size: 13px;
 }
-.el-collapse-item__header,.el-collapse-item__content{ padding: 0px 15px;}
+.el-collapse-item__header,
+.el-collapse-item__content {
+  padding: 0px 15px;
+}
 </style>
 <style scoped>
 .el-main {
@@ -84,16 +100,23 @@ export default {
   color: #007ac3;
 }
 .appeal-left {
-  background: #f8f9fd; padding: 0;
+  background: #f8f9fd;
+  padding: 0;
 }
 .appeal-left-search {
   margin: 15px;
 }
-.appeal-left-menu{
+.appeal-left-menu {
   width: 100%;
 }
-.el-collapse-item{margin-bottom: 10px; border:1px solid #C8C4C5;}
-.line{ height: 2px; background: #e4e5e6}
+.el-collapse-item {
+  margin-bottom: 10px;
+  border: 1px solid #c8c4c5;
+}
+.line {
+  height: 2px;
+  background: #e4e5e6;
+}
 .borderR {
   border-right: 8px solid #ddedfa;
 }

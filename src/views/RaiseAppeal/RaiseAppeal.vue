@@ -87,8 +87,43 @@
             </div>
           </div>
           <div class="col-sm col-md col-lg appeal-right">
-            <!-- <InventoryReportAppealDetail /> -->
-            <AppealDetail :event="appealObj" />
+            <div>
+              <CreateAppeal />
+              <AddProduct />
+              <!-- <div class="container-fluid">
+                <div class="row productRowPosition">
+                  <div style="padding-right:0px" class="col-1">
+                    <div class="row">
+                      <div style="padding-right:0px" class="col-6">
+                        <font size="1">产品</font>
+                      </div>
+                      <div style="padding:0px;" class="col-6">
+                        <i style="heght: 50%;width:auto" class="el-icon-plus"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-11">
+                    <el-select
+                      v-model="value"
+                      multiple
+                      filterable
+                      allow-create
+                      default-first-option
+                      placeholder="Choose tags for your article"
+                    >
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                      ></el-option>
+                    </el-select>
+                  </div>
+                </div>
+              </div> -->
+              <AppealDetail :event="appealObj" />
+            </div>
           </div>
         </div>
 
@@ -143,13 +178,18 @@ import InventReportTable from "@/components/InventReportComponents/InventReportT
 import Step from "@/components/InventReportComponents/Step.vue";
 import AppealNav from "@/components/Common/AppealNav.vue";
 import AppealDetail from "@/components/RaiseAppealComponents/AppealDetail.vue";
+import CreateAppeal from "@/components/RaiseAppealComponents/CreateAppeal.vue";
+import AddProduct from "@/components/RaiseAppealComponents/AddProduct.vue";
+
 export default {
   name: "RaiseAppeal",
   components: {
     InventReportTable,
     Step,
     AppealNav,
-    AppealDetail
+    AppealDetail,
+    CreateAppeal,
+    AddProduct
   },
   methods: {
     searchInputChange(event) {
@@ -265,6 +305,7 @@ export default {
       currentPage4: 4,
       pageId: "",
       filter: []
+    
     };
   },
   mounted() {
@@ -278,11 +319,7 @@ export default {
   }
 };
 </script>
-<style>
-.el-drawer__header {
-  margin-bottom: 15px !important;
-}
-
+<style scoped>
 .el-dropdown {
   float: right;
   bottom: 8px;
@@ -306,60 +343,6 @@ export default {
   position: relative;
 }
 
-.recordNum {
-  position: relative;
-  margin-left: 30px;
-}
-
-.bottomBox {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0 6px rgba(0, 0, 0, 0.12);
-  height: 100px;
-  position: relative;
-}
-
-.buttonPostion {
-  position: absolute;
-  left: 40%;
-  top: 30%;
-}
-
-.buttonGrp > tr > th > button {
-  margin-left: 5px;
-}
-
-.uploadBtnPos {
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.uploadBtnPos span {
-  color: #0078c1;
-  float: right;
-}
-
-.uploadBtnPos img {
-  width: 15%;
-  height: auto;
-  margin-right: -15px;
-}
-
-.downloadBtnBlock {
-  float: right;
-  background-color: #eef2f6;
-}
-
-.uploadBtnBlock {
-  float: left;
-  background-color: #eef2f6;
-}
-
-.el-table td,
-.el-table th {
-  padding: 5px 0px !important;
-  font-size: 13px;
-}
-</style>
-<style scoped>
 .el-main {
   padding: 0 15px;
 }
@@ -477,5 +460,63 @@ h4 span {
 
 .formulas span font {
   color: #a2a0a2;
+}
+</style>
+<style>
+.el-drawer__header {
+  margin-bottom: 15px !important;
+}
+
+.recordNum {
+  position: relative;
+  margin-left: 30px;
+}
+
+.bottomBox {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04), 0 0 6px rgba(0, 0, 0, 0.12);
+  height: 100px;
+  position: relative;
+}
+
+.buttonPostion {
+  position: absolute;
+  left: 40%;
+  top: 30%;
+}
+
+.buttonGrp > tr > th > button {
+  margin-left: 5px;
+}
+
+.uploadBtnPos {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.uploadBtnPos span {
+  color: #0078c1;
+  float: right;
+}
+
+.uploadBtnPos img {
+  width: 15%;
+  height: auto;
+  margin-right: -15px;
+}
+
+.downloadBtnBlock {
+  float: right;
+  background-color: #eef2f6;
+}
+
+.uploadBtnBlock {
+  float: left;
+  background-color: #eef2f6;
+}
+
+.el-table td,
+.el-table th {
+  padding: 5px 0px !important;
+  font-size: 13px;
 }
 </style>
