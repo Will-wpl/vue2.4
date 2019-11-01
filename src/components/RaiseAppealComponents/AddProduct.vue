@@ -17,7 +17,8 @@
           <el-select
             v-model="productvalue"
             multiple
-            placeholder="Choose tags for your article"
+            placeholder="Please Select Product"
+            class="productLineRemove"
           >
             <el-option
               v-for="item in productoptions"
@@ -73,4 +74,17 @@ export default {
 .el-main {
   padding: 0 15px;
 }
+</style>
+<style >
+
+
+/* .el-select input[type="text"] {
+  background-color: inherit;
+  outline: none;
+  border:none
+}
+
+.el-select .el-input__suffix {
+  display: none;
+} */
 </style>

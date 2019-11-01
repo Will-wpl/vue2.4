@@ -19,6 +19,7 @@
             v-model="value"
             multiple
             placeholder=""
+            class="YMLineRemove"
           >
             <el-option
               v-for="item in options"

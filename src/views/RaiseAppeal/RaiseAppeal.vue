@@ -90,38 +90,7 @@
             <div>
               <CreateAppeal />
               <AddProduct />
-              <!-- <div class="container-fluid">
-                <div class="row productRowPosition">
-                  <div style="padding-right:0px" class="col-1">
-                    <div class="row">
-                      <div style="padding-right:0px" class="col-6">
-                        <font size="1">产品</font>
-                      </div>
-                      <div style="padding:0px;" class="col-6">
-                        <i style="heght: 50%;width:auto" class="el-icon-plus"></i>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="col-11">
-                    <el-select
-                      v-model="value"
-                      multiple
-                      filterable
-                      allow-create
-                      default-first-option
-                      placeholder="Choose tags for your article"
-                    >
-                      <el-option
-                        v-for="item in options"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value"
-                      ></el-option>
-                    </el-select>
-                  </div>
-                </div>
-              </div> -->
               <AppealDetail :event="appealObj" />
             </div>
           </div>
@@ -461,6 +430,7 @@ h4 span {
 .formulas span font {
   color: #a2a0a2;
 }
+
 </style>
 <style>
 .el-drawer__header {
@@ -518,5 +488,25 @@ h4 span {
 .el-table th {
   padding: 5px 0px !important;
   font-size: 13px;
+}
+
+.el-select.productLineRemove input[type="text"] {
+  background-color: inherit;
+  outline: none;
+  border:none
+}
+
+.el-select.productLineRemove .el-input__suffix {
+  display: none;
+}
+
+.el-select.YMLineRemove input[type="text"] {
+  background-color: inherit;
+  outline: none;
+  border:none
+}
+
+.el-select.YMLineRemove .el-input__suffix {
+  display: none;
 }
 </style>
