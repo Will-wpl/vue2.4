@@ -15,15 +15,12 @@
 
         <div style="padding-left:0px;" class="col-11">
           <el-select
-            v-model="value"
+            v-model="productvalue"
             multiple
-            filterable
-            allow-create
-            default-first-option
             placeholder="Choose tags for your article"
           >
             <el-option
-              v-for="item in options"
+              v-for="item in productoptions"
               :key="item.value"
               :label="item.label"
               :value="item.value"
@@ -39,7 +36,7 @@
 export default {
   data() {
     return {
-      options: [
+      productoptions: [
         {
           value: "HTML",
           label: "HTML"
@@ -53,7 +50,7 @@ export default {
           label: "JavaScript"
         }
       ],
-      value: []
+      productvalue: []
     };
   }
 };

@@ -1,10 +1,10 @@
 <template>
-  <el-dropdown :hide-on-click="false" @command="handleCommand">
+  <div class="buttonStyle">
     <el-button type="primary">
       <i class="el-icon-plus el-icon--left"></i>
       <slot></slot>
     </el-button>
-  </el-dropdown>
+  </div>
 </template>
 
 <script>
@@ -16,14 +16,14 @@ export default {};
   margin-top: 5px;
 }
 
-.el-dropdown button {
+.buttonStyle button {
   background-color: #0066cc;
   border: #0066cc;
   height: 90%;
   font-size: 12px;
 }
 
-.el-dropdown > button > span > i {
+.buttonStyle > button > span > i {
   border-right: 1px solid white;
   margin-right: 5px;
   padding-right: 4px;
