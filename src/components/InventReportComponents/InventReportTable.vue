@@ -138,7 +138,8 @@ export default {
 </script>
 <style>
 .reportTable .el-table__body-wrapper {
-  height: 397px !important;
+  height: 420px !important;
+  overflow: auto;
 }
 </style>
 <style scoped>
