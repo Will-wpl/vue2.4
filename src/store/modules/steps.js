@@ -18,8 +18,8 @@ const state = {
             if(item.id == data.step){
                 item.status = data.status
             }else{
-                if(item.id > data.step){
-                    item.status = "wait"
+                if(item.id < data.step){
+                    item.status = "process"
                 }
             }
         })
