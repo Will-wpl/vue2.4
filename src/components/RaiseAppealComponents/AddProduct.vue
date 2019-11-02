@@ -4,11 +4,13 @@
       <div class="row productRowPosition">
         <div @click="productSelect" style="padding-right:0px" class="col-1">
           <div class="row">
-            <div style="padding-right:0px" class="col-6">
-              <font size="1">产品</font>
+            <div style="padding-right:0px" class="col-7">
+              <font size="2">产品</font>
             </div>
-            <div style="padding:0px;" class="col-6">
-              <i style="height: 10%;width:auto" class="el-icon-plus"></i>
+            <div style="padding:0px;" class="col-5">
+              <div class="iconBkgColor">
+                <i style="height: 10%;width:auto" class="el-icon-plus"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -64,6 +66,13 @@ export default {
 </script>
 
 <style scoped>
+.iconBkgColor {
+  background-color: #ffffff;
+  position: absolute;
+  height: auto;
+  width: 17px;
+  border-radius: 20%;
+}
 .productRowPosition {
   align-items: center;
   margin-top: 10px;
