@@ -2,7 +2,7 @@
   <el-main>
     <div class="container-fluid">
       <div class="row productRowPosition">
-        <div style="padding-right:0px" class="col-1">
+        <div @click="productSelect" style="padding-right:0px" class="col-1">
           <div class="row">
             <div style="padding-right:0px" class="col-6">
               <font size="1">产品</font>
@@ -15,6 +15,7 @@
 
         <div style="padding-left:0px;" class="col-11">
           <el-select
+            id="addProduct"
             v-model="productvalue"
             multiple
             placeholder="Please Select Product"
@@ -53,6 +54,11 @@ export default {
       ],
       productvalue: []
     };
+  },
+  methods: {
+    productSelect() {
+      document.getElementById("addProduct").click();
+    }
   }
 };
 </script>
@@ -76,8 +82,6 @@ export default {
 }
 </style>
 <style >
-
-
 /* .el-select input[type="text"] {
   background-color: inherit;
   outline: none;
