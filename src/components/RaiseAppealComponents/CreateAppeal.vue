@@ -7,7 +7,7 @@
           <el-collapse accordion>
             <el-collapse-item name="1">
               <template slot="title">
-                <AddButton>商业申诉原因</AddButton>
+                <AddButton :tooltipContent="tootip">商业申诉原因</AddButton>
               </template>
               <div>Consistent with real life: in line with the process and logic of real life,</div>
             </el-collapse-item>
@@ -19,17 +19,25 @@
 </template>
 
 <script>
-import AddButton from '@/components/RaiseAppealComponents/AddButton.vue';
+import AddButton from "@/components/RaiseAppealComponents/AddButton.vue";
 export default {
-    components: {
-        AddButton
-    },
+  components: {
+    AddButton
+  },
+  data() {
+    return {
+      tootip: ""
+    };
+  },
+  mounted() {
+    this.tootip = "Justin Test Add BU button 数据流向";
+  }
 };
 </script>
 
 <style scoped>
-.el-main{
-    min-height: 75px;
+.el-main {
+  min-height: 75px;
 }
 
 .container-fluid {

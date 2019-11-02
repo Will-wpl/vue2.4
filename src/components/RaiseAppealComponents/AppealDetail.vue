@@ -14,7 +14,7 @@
               <hr />
               <AddYearMonth>年月</AddYearMonth>
               <hr />
-              <AddButton style="margin-top:0px;">申诉原因</AddButton>
+              <AddButton :tooltipContent="tooltipstring" style="margin-top:0px;">申诉原因</AddButton>
               <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
               <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
             </el-collapse-item>
@@ -44,11 +44,13 @@ export default {
   },
   data() {
     return {
-      activeNames: [0]
+      activeNames: [0],
+      tooltipstring:''
     };
   },
   mounted() {
     this.pageId = this.$route.params.id;
+    this.tooltipstring='可能申诉原因推荐：上游商业数据错误;上游商业数据匹配错误;上游商业数据流向类型错误；'
   },
   watch: {
     $route(path) {

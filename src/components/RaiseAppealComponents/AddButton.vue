@@ -3,12 +3,26 @@
     <el-button type="primary">
       <i class="el-icon-plus el-icon--left"></i>
       <slot></slot>
+      <el-tooltip
+        class="item"
+        effect="dark"
+        :content='tooltipContent'
+        placement="bottom"
+      >
+        <i class="el-icon-question"></i>
+      </el-tooltip>
     </el-button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    tooltipContent: {
+      type: String
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -23,11 +37,15 @@ export default {};
   font-size: 12px;
 }
 
-.buttonStyle > button > span > i {
+.buttonStyle > button > span > i.el-icon-plus.el-icon--left {
   border-right: 1px solid white;
   margin-right: 5px;
   padding-right: 4px;
   position: relative;
+}
+
+.buttonStyle > button > span > i.el-icon-question {
+  margin-left: 4px;
 }
 .el-carousel__item h3 {
   color: #475669;
